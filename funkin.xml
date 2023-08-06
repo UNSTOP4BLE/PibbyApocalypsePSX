@@ -51,125 +51,9 @@
                 <!-- Background art -->
                 <file name = "back.arc" type = "data" source = "iso/week1/back.arc"/>
                 
-                <!-- Bopeebo charts -->
-                <file name = "1.1e.cht" type = "data" source = "iso/chart/bopeebo-easy.cht"/>
-                <file name = "1.1n.cht" type = "data" source = "iso/chart/bopeebo.cht"/>
-                <file name = "1.1h.cht" type = "data" source = "iso/chart/bopeebo-hard.cht"/>
-                <!-- Fresh charts -->
-                <file name = "1.2e.cht" type = "data" source = "iso/chart/fresh-easy.cht"/>
-                <file name = "1.2n.cht" type = "data" source = "iso/chart/fresh.cht"/>
-                <file name = "1.2h.cht" type = "data" source = "iso/chart/fresh-hard.cht"/>
-                <!-- Dadbattle charts -->
-                <file name = "1.3e.cht" type = "data" source = "iso/chart/dadbattle-easy.cht"/>
-                <file name = "1.3n.cht" type = "data" source = "iso/chart/dadbattle.cht"/>
-                <file name = "1.3h.cht" type = "data" source = "iso/chart/dadbattle-hard.cht"/>
-                <!-- Tutorial charts -->
-                <file name = "1.4e.cht" type = "data" source = "iso/chart/tutorial-easy.cht"/>
-                <file name = "1.4n.cht" type = "data" source = "iso/chart/tutorial.cht"/>
-                <file name = "1.4h.cht" type = "data" source = "iso/chart/tutorial-hard.cht"/>
+                <file name = "1.1n.cht" type = "data" source = "iso/chart/My-Amazing-World.cht"/>
             </dir>
-            
-            <!-- Week 2 assets -->
-            <dir name = "week2">
-                <!-- Background art -->
-                <file name = "back.arc" type = "data" source = "iso/week2/back.arc"/>
-                
-                <!-- Spookeez charts -->
-                <file name = "2.1e.cht" type = "data" source = "iso/chart/spookeez-easy.cht"/>
-                <file name = "2.1n.cht" type = "data" source = "iso/chart/spookeez.cht"/>
-                <file name = "2.1h.cht" type = "data" source = "iso/chart/spookeez-hard.cht"/>
-                <!-- South charts -->
-                <file name = "2.2e.cht" type = "data" source = "iso/chart/south-easy.cht"/>
-                <file name = "2.2n.cht" type = "data" source = "iso/chart/south.cht"/>
-                <file name = "2.2h.cht" type = "data" source = "iso/chart/south-hard.cht"/>
-                <!-- Monster charts -->
-                <file name = "2.3e.cht" type = "data" source = "iso/chart/monster-easy.cht"/>
-                <file name = "2.3n.cht" type = "data" source = "iso/chart/monster.cht"/>
-                <file name = "2.3h.cht" type = "data" source = "iso/chart/monster-hard.cht"/>
-            </dir>
-            
-            <!-- Week 3 assets -->
-            <dir name = "week3">
-                <!-- Background art -->
-                <file name = "back.arc" type = "data" source = "iso/week3/back.arc"/>
-                
-                <!-- Pico charts -->
-                <file name = "3.1e.cht" type = "data" source = "iso/chart/pico-easy.cht"/>
-                <file name = "3.1n.cht" type = "data" source = "iso/chart/pico.cht"/>
-                <file name = "3.1h.cht" type = "data" source = "iso/chart/pico-hard.cht"/>
-                <!-- Philly charts -->
-                <file name = "3.2e.cht" type = "data" source = "iso/chart/philly-easy.cht"/>
-                <file name = "3.2n.cht" type = "data" source = "iso/chart/philly.cht"/>
-                <file name = "3.2h.cht" type = "data" source = "iso/chart/philly-hard.cht"/>
-                <!-- Blammed charts -->
-                <file name = "3.3e.cht" type = "data" source = "iso/chart/blammed-easy.cht"/>
-                <file name = "3.3n.cht" type = "data" source = "iso/chart/blammed.cht"/>
-                <file name = "3.3h.cht" type = "data" source = "iso/chart/blammed-hard.cht"/>
-            </dir>
-            
-            <!-- Week 4 assets -->
-            <dir name = "week4">
-                <!-- Background art -->
-                <file name = "back.arc" type = "data" source = "iso/week4/back.arc"/>
-                <file name = "hench.arc" type = "data" source = "iso/week4/hench.arc"/>
-                
-                <!-- Satin Panties charts -->
-                <file name = "4.1e.cht" type = "data" source = "iso/chart/satin-panties-easy.cht"/>
-                <file name = "4.1n.cht" type = "data" source = "iso/chart/satin-panties.cht"/>
-                <file name = "4.1h.cht" type = "data" source = "iso/chart/satin-panties-hard.cht"/>
-                <!-- High charts -->
-                <file name = "4.2e.cht" type = "data" source = "iso/chart/high-easy.cht"/>
-                <file name = "4.2n.cht" type = "data" source = "iso/chart/high.cht"/>
-                <file name = "4.2h.cht" type = "data" source = "iso/chart/high-hard.cht"/>
-                <!-- MILF charts -->
-                <file name = "4.3e.cht" type = "data" source = "iso/chart/milf-easy.cht"/>
-                <file name = "4.3n.cht" type = "data" source = "iso/chart/milf.cht"/>
-                <file name = "4.3h.cht" type = "data" source = "iso/chart/milf-hard.cht"/>
-                <!-- Test charts -->
-                <file name = "4.4n.cht" type = "data" source = "iso/chart/test.cht"/>
-            </dir>
-            
-            <!-- Week 5 assets -->
-            <dir name = "week5">
-                <!-- Background art -->
-                <file name = "back.arc" type = "data" source = "iso/week5/back.arc"/>
-                
-                <!-- Cocoa charts -->
-                <file name = "5.1e.cht" type = "data" source = "iso/chart/cocoa-easy.cht"/>
-                <file name = "5.1n.cht" type = "data" source = "iso/chart/cocoa.cht"/>
-                <file name = "5.1h.cht" type = "data" source = "iso/chart/cocoa-hard.cht"/>
-                <!-- Eggnog charts -->
-                <file name = "5.2e.cht" type = "data" source = "iso/chart/eggnog-easy.cht"/>
-                <file name = "5.2n.cht" type = "data" source = "iso/chart/eggnog.cht"/>
-                <file name = "5.2h.cht" type = "data" source = "iso/chart/eggnog-hard.cht"/>
-                <!-- Winter Horrorland charts -->
-                <file name = "5.3e.cht" type = "data" source = "iso/chart/winter-horrorland-easy.cht"/>
-                <file name = "5.3n.cht" type = "data" source = "iso/chart/winter-horrorland.cht"/>
-                <file name = "5.3h.cht" type = "data" source = "iso/chart/winter-horrorland-hard.cht"/>
-            </dir>
-            
-            <!-- Week 6 assets -->
-            <dir name = "week6">
-                <!-- Background art -->
-                <file name = "back.arc" type = "data" source = "iso/week6/back.arc"/>
-                <file name = "back2.tim" type = "data" source = "iso/week6/back2.tim"/>
-                
-                <!-- Senpai charts -->
-                <file name = "6.1e.cht" type = "data" source = "iso/chart/senpai-easy.cht"/>
-                <file name = "6.1n.cht" type = "data" source = "iso/chart/senpai.cht"/>
-                <file name = "6.1h.cht" type = "data" source = "iso/chart/senpai-hard.cht"/>
 
-                <file name = "6.1_dlg.txt" type = "data" source = "${PROJECT_SOURCE_DIR}/iso/week6/senpaidialogue.txt"/>
-                <!-- Roses charts -->
-                <file name = "6.2e.cht" type = "data" source = "iso/chart/roses-easy.cht"/>
-                <file name = "6.2n.cht" type = "data" source = "iso/chart/roses.cht"/>
-                <file name = "6.2h.cht" type = "data" source = "iso/chart/roses-hard.cht"/>
-                <!-- Thorns charts -->
-                <file name = "6.3e.cht" type = "data" source = "iso/chart/thorns-easy.cht"/>
-                <file name = "6.3n.cht" type = "data" source = "iso/chart/thorns.cht"/>
-                <file name = "6.3h.cht" type = "data" source = "iso/chart/thorns-hard.cht"/>
-            </dir>
-        
             <!-- Character assets -->
             <dir name = "char">
                 <!-- Boyfriend assets -->
@@ -259,30 +143,7 @@
             <dir name = "music">
                 <file name = "freaky.vag" type = "data" source = "iso/music/freakyMenu/freakyMenu.vag"/>
 
-                <file name = "1_1.vag" type = "data" source = "iso/music/bopeebo/bopeebo.vag"/>
-                <file name = "1_2.vag" type = "data" source = "iso/music/fresh/fresh.vag"/>
-                <file name = "1_3.vag" type = "data" source = "iso/music/dadbattle/dadbattle.vag"/>
-                <file name = "1_4.vag" type = "data" source = "iso/music/tutorial/tutorial.vag"/>
-
-                <file name = "2_1.vag" type = "data" source = "iso/music/spookeez/spookeez.vag"/>
-                <file name = "2_2.vag" type = "data" source = "iso/music/south/south.vag"/>
-                <file name = "2_3.vag" type = "data" source = "iso/music/monster/monster.vag"/>
-
-                <file name = "3_1.vag" type = "data" source = "iso/music/pico/pico.vag"/>
-                <file name = "3_2.vag" type = "data" source = "iso/music/philly/philly.vag"/>
-                <file name = "3_3.vag" type = "data" source = "iso/music/blammed/blammed.vag"/>
-
-                <file name = "4_1.vag" type = "data" source = "iso/music/satin-panties/satin-panties.vag"/>
-                <file name = "4_2.vag" type = "data" source = "iso/music/high/high.vag"/>
-                <file name = "4_3.vag" type = "data" source = "iso/music/milf/milf.vag"/>
-
-                <file name = "5_1.vag" type = "data" source = "iso/music/cocoa/cocoa.vag"/>
-                <file name = "5_2.vag" type = "data" source = "iso/music/eggnog/eggnog.vag"/>
-                <file name = "5_3.vag" type = "data" source = "iso/music/winter-horrorland/winter-horrorland.vag"/>
-
-                <file name = "6_1.vag" type = "data" source = "iso/music/senpai/senpai.vag"/>
-                <file name = "6_2.vag" type = "data" source = "iso/music/roses/roses.vag"/>
-                <file name = "6_3.vag" type = "data" source = "iso/music/thorns/thorns.vag"/>
+                <file name = "1_1.vag" type = "data" source = "iso/music/My-Amazing-World/My-Amazing-World.vag"/>
             </dir>
         
             <!-- Videos -->

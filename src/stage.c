@@ -44,13 +44,7 @@ static const uint8_t note_anims[4][3] = {
 bool noteshake;
 static uint32_t Sounds[7];
 
-#include "stage/dummy.h"
 #include "stage/week1.h"
-#include "stage/week2.h"
-#include "stage/week3.h"
-#include "stage/week4.h"
-#include "stage/week5.h"
-#include "stage/week6.h"
 
 static const StageDef stage_defs[StageId_Max] = {
     #include "stagedef_disc1.h"
@@ -131,13 +125,7 @@ static void Stage_ScrollCamera(void)
         stage.camera.x += FIXED_MUL(dx, stage.camera.td);
         stage.camera.y += FIXED_MUL(dy, stage.camera.td);
         stage.camera.zoom += FIXED_MUL(dz, stage.camera.td);
-        
-            //Shake in Week 4
-            if (stage.stage_id >= StageId_4_1 && stage.stage_id <= StageId_4_3 && !stage.paused)
-            {
-                stage.camera.x += RandomRange(FIXED_DEC(-1,10),FIXED_DEC(1,10));
-                stage.camera.y += RandomRange(FIXED_DEC(-25,100),FIXED_DEC(25,100));
-            }
+       
         }
     }
         
@@ -528,48 +516,14 @@ void Stage_DrawTexCol(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, fixe
     fixed_t wz = dst->w;
     fixed_t hz = dst->h;
     
-    if (stage.stage_id >= StageId_6_1 && stage.stage_id <= StageId_6_3)
-    {
-        //Handle HUD drawing
-        if (tex == &stage.tex_hud0)
-        {
-            #ifdef STAGE_NOHUD
-                return;
-            #endif
-            if (src->y >= 128 && src->y < 224)
-            {
-                //Pixel perfect scrolling
-                xz &= FIXED_UAND;
-                yz &= FIXED_UAND;
-                wz &= FIXED_UAND;
-                hz &= FIXED_UAND;
-            }
-        }
-        else if (tex == &stage.tex_hud1)
-        {
-            #ifdef STAGE_NOHUD
-                return;
-            #endif
-        }
-        else
-        {
-            //Pixel perfect scrolling
-            xz &= FIXED_UAND;
-            yz &= FIXED_UAND;
-            wz &= FIXED_UAND;
-            hz &= FIXED_UAND;
-        }
-    }
-    else
-    {
         //Don't draw if HUD and is disabled
         if (tex == &stage.tex_hud0 || tex == &stage.tex_hud1)
         {
             #ifdef STAGE_NOHUD
                 return;
             #endif
-        }
-    }
+       }
+    
     
     fixed_t l = (screen.SCREEN_WIDTH2  << FIXED_SHIFT) + FIXED_MUL(xz, zoom);// + FIXED_DEC(1,2);
     fixed_t t = (screen.SCREEN_HEIGHT2 << FIXED_SHIFT) + FIXED_MUL(yz, zoom);// + FIXED_DEC(1,2);
@@ -682,40 +636,6 @@ void Stage_BlendTex(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, fixed_
     fixed_t wz = dst->w;
     fixed_t hz = dst->h;
     
-    if (stage.stage_id >= StageId_6_1 && stage.stage_id <= StageId_6_3)
-    {
-        //Handle HUD drawing
-        if (tex == &stage.tex_hud0)
-        {
-            #ifdef STAGE_NOHUD
-                return;
-            #endif
-            if (src->y >= 128 && src->y < 224)
-            {
-                //Pixel perfect scrolling
-                xz &= FIXED_UAND;
-                yz &= FIXED_UAND;
-                wz &= FIXED_UAND;
-                hz &= FIXED_UAND;
-            }
-        }
-        else if (tex == &stage.tex_hud1)
-        {
-            #ifdef STAGE_NOHUD
-                return;
-            #endif
-        }
-        else
-        {
-            //Pixel perfect scrolling
-            xz &= FIXED_UAND;
-            yz &= FIXED_UAND;
-            wz &= FIXED_UAND;
-            hz &= FIXED_UAND;
-        }
-    }
-    else
-    {
         //Don't draw if HUD and is disabled
         if (tex == &stage.tex_hud0 || tex == &stage.tex_hud1)
         {
@@ -723,7 +643,6 @@ void Stage_BlendTex(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, fixed_
                 return;
             #endif
         }
-    }
     
     fixed_t l = (screen.SCREEN_WIDTH2  << FIXED_SHIFT) + FIXED_MUL(xz, zoom);// + FIXED_DEC(1,2);
     fixed_t t = (screen.SCREEN_HEIGHT2 << FIXED_SHIFT) + FIXED_MUL(yz, zoom);// + FIXED_DEC(1,2);
@@ -1368,7 +1287,7 @@ static void Stage_LoadSFX(void)
     for (uint8_t i = 0; i < 4;i++)
     {
         char text[0x80];
-        sprintf(text, "\\SOUNDS\\INTRO%d%s.VAG;1", i, (stage.stage_id >= StageId_6_1 && stage.stage_id <= StageId_6_3) ? "P" : "");
+        sprintf(text, "\\SOUNDS\\INTRO%d%s.VAG;1", i, "");
         Sounds[i] = Audio_LoadSound(text);
     }
 
@@ -1535,9 +1454,6 @@ void Stage_Load(StageId id, StageDiff difficulty, bool story)
     stage.story = story;
     
     //Load HUD textures
-    if (id >= StageId_6_1 && id <= StageId_6_3)
-        Gfx_LoadTex(&stage.tex_hud0, IO_Read("\\STAGE\\HUD0WEEB.TIM;1"), GFX_LOADTEX_FREE);
-    else
         Gfx_LoadTex(&stage.tex_hud0, IO_Read("\\STAGE\\HUD0.TIM;1"), GFX_LOADTEX_FREE);
     
     sprintf(iconpath, "\\STAGE\\HUD1-%d.TIM;1", stage.stage_def->week);
@@ -2005,10 +1921,6 @@ void Stage_Tick(void)
                 //Check if screen should bump
                 bool is_bump_step = (stage.song_step & 0xF) == 0;
                 
-                //M.I.L.F bumps
-                if (stage.stage_id == StageId_4_3 && stage.song_step >= (168 << 2) && stage.song_step < (200 << 2))
-                    is_bump_step = (stage.song_step & 0x3) == 0;
-                
                 //Bump screen
                 if (is_bump_step)
                     stage.bump = FIXED_DEC(103,100);
@@ -2226,30 +2138,6 @@ void Stage_Tick(void)
                 }
             }
 
-            //Hardcoded stage stuff
-            switch (stage.stage_id)
-            {
-                case StageId_1_2: //Fresh GF bop
-                    switch (stage.song_step)
-                    {
-                        case 16 << 2:
-                            stage.gf_speed = 2 << 2;
-                            break;
-                        case 48 << 2:
-                            stage.gf_speed = 1 << 2;
-                            break;
-                        case 80 << 2:
-                            stage.gf_speed = 2 << 2;
-                            break;
-                        case 112 << 2:
-                            stage.gf_speed = 1 << 2;
-                            break;
-                    }
-                    break;
-                default:
-                    break;
-            }
-            
             //Draw stage foreground
             if (stage.back->draw_fg != NULL)
                 stage.back->draw_fg(stage.back);
@@ -2346,9 +2234,6 @@ void Stage_Tick(void)
             stage.song_time = 0;
             
             stage.state = StageState_DeadLoad;
-            if (stage.stage_id >= StageId_6_1 && stage.stage_id <= StageId_6_3)         
-                Sounds[0] = Audio_LoadSound("\\SOUNDS\\LOSSP.VAG;1");
-            else
                 Sounds[0] = Audio_LoadSound("\\SOUNDS\\LOSS.VAG;1");
             Audio_PlaySound(Sounds[0], 0x3fff);
         }
@@ -2369,15 +2254,8 @@ void Stage_Tick(void)
                 break;
             
             //load sounds
-            if (stage.stage_id >= StageId_6_1 && stage.stage_id <= StageId_6_3)         
-            {
-                Sounds[1] = Audio_LoadSound("\\SOUNDS\\ENDP.VAG;1");
-            }
-            else
-            {
                 Sounds[1] = Audio_LoadSound("\\SOUNDS\\END.VAG;1");
-            }
-
+            
             if (stage.player != NULL)
                 stage.player->set_anim(stage.player, PlayerAnim_Dead2);
             stage.camera.td = FIXED_DEC(25, 1000);

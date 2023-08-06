@@ -77,8 +77,7 @@ Character *Character_FromFile(Character *this, const char *path, fixed_t x, fixe
             //default
         //    break;  
         case CHAR_SPEC_GIRLFRIEND:
-            if (!(stage.stage_id >= StageId_6_1 && stage.stage_id <= StageId_6_3))
-                Speaker_Init(&speaker);
+            Speaker_Init(&speaker);
             this->tick = GirlFriend_Generic_Tick;
             this->set_anim = GirlFriend_Generic_SetAnim;
             break;

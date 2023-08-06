@@ -255,7 +255,7 @@ static void Menu_DrawWeek(const char *week, int32_t x, int32_t y)
 //Menu functions
 void Menu_Load(MenuPage page)
 {
-    stage.stage_id = StageId_1_1;
+    stage.stage_id = 0;
     //Load menu assets
     IO_Data menu_arc = IO_Read("\\MENU\\MENU.ARC;1");
     Gfx_LoadTex(&menu.tex_back,  Archive_Find(menu_arc, "back.tim"),  0);
@@ -639,14 +639,7 @@ void Menu_Tick(void){
                 const char *tracks[3];
                 int length;
             } menu_options[] = {
-                {NULL, StageId_1_4, "TUTORIAL", {"TUTORIAL", NULL, NULL}, 1},
-                {"1", StageId_1_1, "DADDY DEAREST", {"BOPEEBO", "FRESH", "DADBATTLE"}, 3},
-                {"2", StageId_2_1, "SPOOKY MONTH", {"SPOOKEEZ", "SOUTH", "MONSTER"}, 3},
-                {"3", StageId_3_1, "PICO", {"PICO", "PHILLY NICE", "BLAMMED"}, 3},
-                {"4", StageId_4_1, "MOMMY MUST MURDER", {"SATIN PANTIES", "HIGH", "MILF"}, 3},
-                {"5", StageId_5_1, "RED SNOW", {"COCOA", "EGGNOG", "WINTER HORRORLAND"}, 3},
-                {"6", StageId_6_1, "HATING SIMULATOR", {"SENPAI", "ROSES", "THORNS"}, 3},
-                {"6", StageId_7_1, "HATING SIMULATOR", {"SENPAI", "ROSES", "THORNS"}, 3},
+                {"1", StageId_MyAmazingWorld, "DADDY DEAREST", {"BOPEEBO", "FRESH", "DADBATTLE"}, 3},
             };
     
             //Draw week name and tracks
@@ -788,25 +781,7 @@ void Menu_Tick(void){
                 const char *text;
             } menu_options[] = {
                 //{StageId_4_4, 0xFFFC96D7, "TEST"},
-                {StageId_1_4, 0xFF9271FD, "TUTORIAL"},
-                {StageId_1_1, 0xFF9271FD, "BOPEEBO"},
-                {StageId_1_2, 0xFF9271FD, "FRESH"},
-                {StageId_1_3, 0xFF9271FD, "DADBATTLE"},
-                {StageId_2_1, 0xFF223344, "SPOOKEEZ"},
-                {StageId_2_2, 0xFF223344, "SOUTH"},
-                {StageId_2_3, 0xFF223344, "MONSTER"},
-                {StageId_3_1, 0xFF941653, "PICO"},
-                {StageId_3_2, 0xFF941653, "PHILLY NICE"},
-                {StageId_3_3, 0xFF941653, "BLAMMED"},
-                {StageId_4_1, 0xFFFC96D7, "SATIN PANTIES"},
-                {StageId_4_2, 0xFFFC96D7, "HIGH"},
-                {StageId_4_3, 0xFFFC96D7, "MILF"},
-                {StageId_5_1, 0xFFA0D1FF, "COCOA"},
-                {StageId_5_2, 0xFFA0D1FF, "EGGNOG"},
-                {StageId_5_3, 0xFFA0D1FF, "WINTER HORRORLAND"},
-                {StageId_6_1, 0xFFFF78BF, "SENPAI"},
-                {StageId_6_2, 0xFFFF78BF, "ROSES"},
-                {StageId_6_3, 0xFFFF78BF, "THORNS"},
+                {StageId_MyAmazingWorld, 0xFF9271FD, "BOPEEBO"},
             };
 
             menu.font_arial.draw(&menu.font_arial,
@@ -933,31 +908,31 @@ void Menu_Tick(void){
                 const char *text;
                 bool difficulty;
             } menu_options[] = {
-                {StageId_1_1, "FORK DEVS", false},
-                {StageId_1_1, "    UNSTOPABLE", false},
-                {StageId_1_1, "    IGORSOU", false},
-                {StageId_1_1, "    SPICYJPEG", false},
-                {StageId_1_1, "    SPARK", false},
-                {StageId_1_1, "PSXFUNKIN DEVELOPER", false},
-                {StageId_1_1, "    CUCKYDEV", false},
-                {StageId_1_1, "COOL PEOPLE", false},
-                {StageId_1_1, "    IGORSOU", false},
-                {StageId_1_1, "    SPARK", false},
-                {StageId_1_1, "    DREAMCASTNICK", false},
-                {StageId_1_1, "    MAXDEV", false},
-                {StageId_1_1, "    CUCKYDEV", false},
-                {StageId_1_1, "    LUCKY", false},
-                {StageId_1_1, "    MRRUMBLEROSES", false},
-                {StageId_1_1, "    JOHN PAUL", false},
-                {StageId_1_1, "    VICTOR", false},
-                {StageId_1_1, "    GOOMBAKUNGFU", false},
-                {StageId_1_1, "    GTHREEYT", false},
-                {StageId_1_1, "    BILIOUS", false},
-                {StageId_1_1, "    ZERIBEN", false},
-                {StageId_1_1, "    GALAXY YT", false},
-                {StageId_1_1, "    NINTENDOBRO", false},
-                {StageId_1_1, "    LORD SCOUT", false},
-                {StageId_1_1, "    MR P", false},
+                {0, "FORK DEVS", false},
+                {0, "    UNSTOPABLE", false},
+                {0, "    IGORSOU", false},
+                {0, "    SPICYJPEG", false},
+                {0, "    SPARK", false},
+                {0, "PSXFUNKIN DEVELOPER", false},
+                {0, "    CUCKYDEV", false},
+                {0, "COOL PEOPLE", false},
+                {0, "    IGORSOU", false},
+                {0, "    SPARK", false},
+                {0, "    DREAMCASTNICK", false},
+                {0, "    MAXDEV", false},
+                {0, "    CUCKYDEV", false},
+                {0, "    LUCKY", false},
+                {0, "    MRRUMBLEROSES", false},
+                {0, "    JOHN PAUL", false},
+                {0, "    VICTOR", false},
+                {0, "    GOOMBAKUNGFU", false},
+                {0, "    GTHREEYT", false},
+                {0, "    BILIOUS", false},
+                {0, "    ZERIBEN", false},
+                {0, "    GALAXY YT", false},
+                {0, "    NINTENDOBRO", false},
+                {0, "    LORD SCOUT", false},
+                {0, "    MR P", false},
             };
                 
             //Initialize page
