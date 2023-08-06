@@ -45,8 +45,8 @@ int16_t MUtil_Cos(uint8_t x)
 
 void MUtil_RotatePoint(POINT *p, int16_t s, int16_t c)
 {
-    int8_t px = p->x;
-    int8_t py = p->y;
+    int16_t px = p->x;
+    int16_t py = p->y;
     p->x = ((px * c) >> 8) - ((py * s) >> 8);
     p->y = ((px * s) >> 8) + ((py * c) >> 8);
 }

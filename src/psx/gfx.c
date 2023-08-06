@@ -375,8 +375,10 @@ void Gfx_DrawTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_
     int16_t sinVal = MUtil_Sin(angle);
     int16_t cosVal = MUtil_Cos(angle);
 
-    hx = hx * (cdst.w / csrc.w);
-    hy = hy * (cdst.h / csrc.h);
+    if (csrc.w != 0)
+        hx = hx * (cdst.w / csrc.w);
+    if (csrc.h != 0)    
+        hy = hy * (cdst.h / csrc.h);
 
     // Get rotated points
     POINT points[4] = {
@@ -462,9 +464,10 @@ void Gfx_BlendTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8
     setUVWH(quad, src->x, csrc.y, csrc.w, csrc.h);
     setXY4(quad, points[0].x, points[0].y, points[1].x, points[1].y, points[2].x, points[2].y, points[3].x, points[3].y);
     setRGB0(quad, r, g, b);
-    setSemiTrans(quad, 1);
+    setSemiTrans(quad, mode);
     quad->tpage = tex->tpage | getTPage(0, mode, 0, 0);
     quad->clut = tex->clut;
+
 
     addPrim(ot[db], quad);
     nextpri += sizeof(POLY_FT4);

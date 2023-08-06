@@ -46,7 +46,7 @@ void Back_Week1_DrawFG(StageBack *back)
         FIXED_DEC(103,1),
         FIXED_DEC(207,1)
     };
-    if (stage.stage_id == StageId_MyAmazingWorld)
+    if (stage.stage_id == StageId_MyAmazingWorld && !stage.paused)
     {
         //init
         if (stage.song_step < 0)

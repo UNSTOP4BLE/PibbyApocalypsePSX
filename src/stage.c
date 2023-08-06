@@ -509,7 +509,6 @@ static void Stage_ProcessPlayer(PlayerState *this, Pad *pad, bool playing)
 }
 
 //Stage drawing functions
-/*
 RECT getsdst(fixed_t rotation, const RECT_FIXED *dst, fixed_t zoom) {
     // Calculate the rotated coordinates
     uint8_t rotationAngle = rotation / FIXED_UNIT;  // Specify the desired rotation angle (in degrees)
@@ -551,12 +550,12 @@ void Stage_BlendTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *ds
 
 void Stage_DrawTexRotate(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, uint8_t angle, fixed_t hx, fixed_t hy, fixed_t zoom, fixed_t rotation)
 {
-    Stage_DrawTexRotateCol(tex, src, dst, angle, hx, hy, 128, 128, 128, zoom, rotation);
+    Stage_DrawTexRotateCol(tex, src, dst, angle, hx, hy, 0x80, 0x80, 0x80, zoom, rotation);
 }
 
 void Stage_BlendTexRotate(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, uint8_t angle, fixed_t hx, fixed_t hy, fixed_t zoom, fixed_t rotation, uint8_t mode)
 {
-    Stage_BlendTexRotateCol(tex, src, dst, angle, hx, hy, 128, 128, 128, zoom, rotation, mode);
+    Stage_BlendTexRotateCol(tex, src, dst, angle, hx, hy, 0x80, 0x80, 0x80, zoom, rotation, mode);
 }
 //normal
 
@@ -582,86 +581,7 @@ void Stage_DrawTex(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, fixed_t
 void Stage_BlendTex(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, fixed_t zoom, uint8_t mode, fixed_t rotation)
 {
     Stage_BlendTexCol(tex, src, dst, zoom, rotation, 0x80, 0x80, 0x80, mode);
-} */
-
-void Stage_DrawTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t cr, uint8_t cg, uint8_t cb, fixed_t zoom, fixed_t rotation)
-{
-    fixed_t xz = dst->x;
-    fixed_t yz = dst->y;
-    fixed_t wz = dst->w;
-    fixed_t hz = dst->h;
-    
-    // Calculate the rotated coordinates
-    uint8_t rotationAngle = rotation / FIXED_UNIT;  // Specify the desired rotation angle (in degrees)
-    fixed_t rotatedX = FIXED_MUL(xz,FIXED_DEC(MUtil_Cos(rotationAngle),256)) - FIXED_MUL(yz,FIXED_DEC(MUtil_Sin(rotationAngle),256));
-    fixed_t rotatedY = FIXED_MUL(xz,FIXED_DEC(MUtil_Sin(rotationAngle),256)) + FIXED_MUL(yz,FIXED_DEC(MUtil_Cos(rotationAngle),256));
-    
-    fixed_t l = (screen.SCREEN_WIDTH2  * FIXED_UNIT) + FIXED_MUL(rotatedX, zoom);// + FIXED_DEC(1,2);
-    fixed_t t = (screen.SCREEN_HEIGHT2 * FIXED_UNIT) + FIXED_MUL(rotatedY, zoom);// + FIXED_DEC(1,2);
-    fixed_t r = l + FIXED_MUL(wz, zoom);
-    fixed_t b = t + FIXED_MUL(hz, zoom);
-    
-    l /= FIXED_UNIT;
-    t /= FIXED_UNIT;
-    r /= FIXED_UNIT;
-    b /= FIXED_UNIT;
-    
-    RECT sdst = {
-        l,
-        t,
-        r - l,
-        b - t,
-    };
-    Gfx_DrawTexRotateCol(tex, src, &sdst, angle + rotationAngle, hx, hy, cr, cg, cb);
-}
-
-void Stage_DrawTexRotate(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, uint8_t angle, fixed_t hx, fixed_t hy, fixed_t zoom, fixed_t rotation)
-{
-    Stage_DrawTexRotateCol(tex, src, dst, angle, hx, hy, 128, 128, 128, zoom, rotation);
-}
-
-void Stage_DrawTexCol(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, fixed_t zoom, fixed_t rotation, uint8_t cr, uint8_t cg, uint8_t cb)
-{
-    fixed_t xz = dst->x;
-    fixed_t yz = dst->y;
-    fixed_t wz = dst->w;
-    fixed_t hz = dst->h;
-    
-    // Calculate the rotated coordinates
-    uint8_t rotationAngle = rotation / FIXED_UNIT;  // Specify the desired rotation angle (in degrees)
-    fixed_t rotatedX = FIXED_MUL(xz,FIXED_DEC(MUtil_Cos(rotationAngle),256)) - FIXED_MUL(yz,FIXED_DEC(MUtil_Sin(rotationAngle),256));
-    fixed_t rotatedY = FIXED_MUL(xz,FIXED_DEC(MUtil_Sin(rotationAngle),256)) + FIXED_MUL(yz,FIXED_DEC(MUtil_Cos(rotationAngle),256));
-    
-    fixed_t l = (screen.SCREEN_WIDTH2  * FIXED_UNIT) + FIXED_MUL(rotatedX, zoom) + FIXED_DEC(1,2);
-    fixed_t t = (screen.SCREEN_HEIGHT2 * FIXED_UNIT) + FIXED_MUL(rotatedY, zoom) + FIXED_DEC(1,2);
-    fixed_t r = l + FIXED_MUL(wz, zoom);
-    fixed_t b = t + FIXED_MUL(hz, zoom);
-    
-    l /= FIXED_UNIT;
-    t /= FIXED_UNIT;
-    r /= FIXED_UNIT;
-    b /= FIXED_UNIT;
-    
-    RECT sdst = {
-        l,
-        t,
-        r - l,
-        b - t,
-    };
-    
-    Gfx_DrawTexRotateCol(tex, src, &sdst, rotationAngle, 0, 0, cr, cg, cb);
-}
-
-void Stage_BlendTex(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, fixed_t zoom, uint8_t mode, fixed_t rotation)
-{
-    Stage_DrawTexCol(tex, src, dst, zoom, rotation, 0x80, 0x80, 0x80);
 } 
-
-void Stage_DrawTex(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, fixed_t zoom, fixed_t rotation)
-{
-    Stage_DrawTexCol(tex, src, dst, zoom, rotation, 0x80, 0x80, 0x80);
-}
-
 
 void Stage_DrawTexArb(Gfx_Tex *tex, const RECT *src, const POINT_FIXED *p0, const POINT_FIXED *p1, const POINT_FIXED *p2, const POINT_FIXED *p3, fixed_t zoom)
 {
@@ -1150,19 +1070,19 @@ static void Stage_CountDown(void)
     RECT_FIXED go_dst = {FIXED_DEC(10,1), FIXED_DEC(30,1), FIXED_DEC(48 * 2,1), FIXED_DEC(95 * 2,1)};   
 
     if (drawshit == 3 && stage.song_step >= -15 && stage.song_step <= -12)
-        Stage_DrawTex(&stage.tex_hud1, &ready_src, &ready_dst, stage.bump, -64);
+        Stage_DrawTex(&stage.tex_hud1, &ready_src, &ready_dst, stage.bump, FIXED_DEC(90,1));
     else if (drawshit == 3 && stage.song_step >= -12 && stage.song_step <= -11)
-        Stage_BlendTex(&stage.tex_hud1, &ready_src, &ready_dst, stage.bump, -64, 1);
+        Stage_BlendTex(&stage.tex_hud1, &ready_src, &ready_dst, stage.bump, FIXED_DEC(90,1), 1);
 
     if (drawshit == 2 && stage.song_step >= -10 && stage.song_step <= -7)
-        Stage_DrawTex(&stage.tex_hud0, &set_src, &set_dst, stage.bump, -64);
+        Stage_DrawTex(&stage.tex_hud0, &set_src, &set_dst, stage.bump, FIXED_DEC(90,1));
     else if (drawshit == 2 && stage.song_step >= -7 && stage.song_step <= -6)
-        Stage_BlendTex(&stage.tex_hud0, &set_src, &set_dst, stage.bump, -64, 1);
+        Stage_BlendTex(&stage.tex_hud0, &set_src, &set_dst, stage.bump, FIXED_DEC(90,1), 1);
 
     if (drawshit == 1 && stage.song_step >= -5 && stage.song_step <= -2)
-        Stage_DrawTex(&stage.tex_hud1, &go_src, &go_dst, stage.bump, -64);
+        Stage_DrawTex(&stage.tex_hud1, &go_src, &go_dst, stage.bump, FIXED_DEC(90,1));
     else if (drawshit == 1 && stage.song_step >= -2 && stage.song_step <= -1)
-        Stage_BlendTex(&stage.tex_hud1, &go_src, &go_dst, stage.bump, -64, 1);
+        Stage_BlendTex(&stage.tex_hud1, &go_src, &go_dst, stage.bump, FIXED_DEC(90,1), 1);
 }
 
 //Stage loads
@@ -1389,7 +1309,7 @@ static void Stage_LoadState(void)
         timer.timer = 0;
         timer.timermin = 0;     
         timer.timersec = 0;
-        stage.camera.hudangle = stage.camera.angle = 90;
+        stage.camera.hudangle = stage.camera.angle = FIXED_DEC(0,1);
         str_done = false;
         str_canplay = true;
         stage.paused = false;
