@@ -1,10 +1,10 @@
     { //StageId_MyAmazingWorld
         //Characters
-        {"\\CHAR\\BF.CHR;1",  FIXED_DEC(60,1),   FIXED_DEC(100,1)},
+        {"\\CHAR\\BF.CHR;1",  FIXED_DEC(41,1),   FIXED_DEC(44,1)},
         {NULL},
-        {"\\CHAR\\DAD.CHR;1", FIXED_DEC(-120,1), FIXED_DEC(100,1)},
+        {"\\CHAR\\DAD.CHR;1", FIXED_DEC(-164,1), FIXED_DEC(49,1)},
         {NULL},
-        {"\\CHAR\\GF.CHR;1",  FIXED_DEC(0,1),    FIXED_DEC(-10,1)},
+        {NULL},
         
         //Stage background
         Back_Week1_New,

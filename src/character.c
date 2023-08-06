@@ -181,7 +181,7 @@ void Character_DrawParallax(Character *this, Gfx_Tex *tex, const CharFrame *cfra
     dst.w = FIXED_MUL(dst.w,this->scale);
     dst.h = FIXED_MUL(dst.h,this->scale);
     
-    Stage_DrawTex(tex, &src, &dst, stage.camera.bzoom);
+    Stage_DrawTex(tex, &src, &dst, stage.camera.bzoom, stage.camera.angle);
 }
 
 void Character_DrawParallaxFlipped(Character *this, Gfx_Tex *tex, const CharFrame *cframe, fixed_t parallax)
@@ -194,7 +194,7 @@ void Character_DrawParallaxFlipped(Character *this, Gfx_Tex *tex, const CharFram
     
     dst.w = FIXED_MUL(dst.w,this->scale);
     dst.h = FIXED_MUL(dst.h,this->scale);
-    Stage_DrawTex(tex, &src, &dst, stage.camera.bzoom);
+    Stage_DrawTex(tex, &src, &dst, stage.camera.bzoom, stage.camera.angle);
 }
 
 void Character_Draw(Character *this, Gfx_Tex *tex, const CharFrame *cframe)

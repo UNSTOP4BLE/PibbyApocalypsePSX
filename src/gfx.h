@@ -56,18 +56,19 @@ typedef uint8_t Gfx_LoadTex_Flag;
 #define GFX_LOADTEX_NOTEX  (1 << 1)
 #define GFX_LOADTEX_NOCLUT (1 << 2)
 void Gfx_LoadTex(Gfx_Tex *tex, IO_Data data, Gfx_LoadTex_Flag flag);
-
 void Gfx_DrawRect(const RECT *rect, uint8_t r, uint8_t g, uint8_t b);
 void Gfx_BlendRect(const RECT *rect, uint8_t r, uint8_t g, uint8_t b, uint8_t mode);
 void Gfx_BlitTexCol(Gfx_Tex *tex, const RECT *src, int32_t x, int32_t y, uint8_t r, uint8_t g, uint8_t b);
 void Gfx_BlitTex(Gfx_Tex *tex, const RECT *src, int32_t x, int32_t y);
 void Gfx_DrawTexCol(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t r, uint8_t g, uint8_t b);
 void Gfx_DrawTex(Gfx_Tex *tex, const RECT *src, const RECT *dst);
-void Gfx_DrawTexRotate(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle);
-void Gfx_BlendTexRotate(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, uint8_t mode);
-void Gfx_BlendTex(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t mode);
 void Gfx_DrawTexArbCol(Gfx_Tex *tex, const RECT *src, const POINT *p0, const POINT *p1, const POINT *p2, const POINT *p3, uint8_t r, uint8_t g, uint8_t b);
 void Gfx_DrawTexArb(Gfx_Tex *tex, const RECT *src, const POINT *p0, const POINT *p1, const POINT *p2, const POINT *p3);
 void Gfx_BlendTexArb(Gfx_Tex *tex, const RECT *src, const POINT *p0, const POINT *p1, const POINT *p2, const POINT *p3, uint8_t mode);
+void Gfx_DrawTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t r, uint8_t g, uint8_t b);
+void Gfx_DrawTexRotate(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy);
+void Gfx_BlendTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t r, uint8_t g, uint8_t b, uint8_t mode);
+void Gfx_BlendTexRotate(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t mode);
+
 
 #endif

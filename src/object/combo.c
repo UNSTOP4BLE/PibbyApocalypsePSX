@@ -39,7 +39,7 @@ bool Obj_Combo_Tick(Object *obj)
         hit_dst.y += stage.noteshakey;
         hit_dst.x += stage.noteshakex;
 
-        Stage_DrawTex(&stage.tex_hud0, &hit_src, &hit_dst, stage.bump);
+        Stage_DrawTex(&stage.tex_hud0, &hit_src, &hit_dst, stage.bump, stage.camera.hudangle);
         
         //Apply gravity
         this->hy += FIXED_MUL(this->hv, Timer_GetDT());
@@ -73,7 +73,7 @@ bool Obj_Combo_Tick(Object *obj)
         combo_dst.y += stage.noteshakey;
         combo_dst.x += stage.noteshakex;
         
-        Stage_DrawTex(&stage.tex_hud0, &combo_src, &combo_dst, stage.bump);
+        Stage_DrawTex(&stage.tex_hud0, &combo_src, &combo_dst, stage.bump, stage.camera.hudangle);
         
         //Apply gravity
         this->cy += FIXED_MUL(this->cv, Timer_GetDT());
@@ -113,7 +113,7 @@ bool Obj_Combo_Tick(Object *obj)
             num_dst.y += stage.noteshakey;
             num_dst.x += stage.noteshakex;
             
-            Stage_DrawTex(&stage.tex_hud0, &num_src, &num_dst, stage.bump);
+            Stage_DrawTex(&stage.tex_hud0, &num_src, &num_dst, stage.bump, stage.camera.hudangle);
             
             //Apply gravity
             this->numy[i] += FIXED_MUL(this->numv[i], Timer_GetDT());
@@ -155,7 +155,7 @@ bool Obj_Combo_Tick_Weeb(Object *obj)
         hit_dst.y += stage.noteshakey;
         hit_dst.x += stage.noteshakex;
 
-        Stage_DrawTex(&stage.tex_hud0, &hit_src, &hit_dst, stage.bump);
+        Stage_DrawTex(&stage.tex_hud0, &hit_src, &hit_dst, stage.bump, stage.camera.hudangle);
         
         //Apply gravity
         this->hy += FIXED_MUL(this->hv, Timer_GetDT()) >> 1;
@@ -189,7 +189,7 @@ bool Obj_Combo_Tick_Weeb(Object *obj)
         combo_dst.y += stage.noteshakey;
         combo_dst.x += stage.noteshakex;
 
-        Stage_DrawTex(&stage.tex_hud0, &combo_src, &combo_dst, stage.bump);
+        Stage_DrawTex(&stage.tex_hud0, &combo_src, &combo_dst, stage.bump, stage.camera.hudangle);
         
         //Apply gravity
         this->cy += FIXED_MUL(this->cv, Timer_GetDT()) >> 1;
@@ -229,7 +229,7 @@ bool Obj_Combo_Tick_Weeb(Object *obj)
             num_dst.y += stage.noteshakey;
             num_dst.x += stage.noteshakex;
 
-            Stage_DrawTex(&stage.tex_hud0, &num_src, &num_dst, stage.bump);
+            Stage_DrawTex(&stage.tex_hud0, &num_src, &num_dst, stage.bump, stage.camera.hudangle);
             
             //Apply gravity
             this->numy[i] += FIXED_MUL(this->numv[i], Timer_GetDT()) >> 1;

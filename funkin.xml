@@ -66,49 +66,11 @@
                 <!-- Dad assets -->
                 <file name = "dad.arc" type = "data" source = "iso/characters/dad/main.arc"/>
                 <file name = "dad.chr" type = "data" source = "iso/characters/dad/dad.chr"/>
-                
-                <!-- Spook assets -->
-                <file name = "spook.arc" type = "data" source = "iso/characters/spook/main.arc"/>
-                <file name = "spook.chr" type = "data" source = "iso/characters/spook/spook.chr"/>
-
-                <!-- Monster assets -->
-                <file name = "monster.arc" type = "data" source = "iso/characters/monster/main.arc"/>
-                <file name = "monster.chr" type = "data" source = "iso/characters/monster/monster.chr"/>
-                
-                <!-- Pico assets -->
-                <file name = "pico.arc" type = "data" source = "iso/characters/pico/main.arc"/>
-                <file name = "pico.chr" type = "data" source = "iso/characters/pico/pico.chr"/>
-                
-                <!-- Mom assets -->
-                <file name = "mom.arc" type = "data" source = "iso/characters/mom/main.arc"/>
-                <file name = "momhair.tim" type = "data" source = "iso/characters/mom/hair.tim"/>
-                
-                <!-- Christmas assets -->
-                <file name = "xmasbf.arc" type = "data" source = "iso/characters/bf/xmas.arc"/>
-                <file name = "bfx.chr" type = "data" source = "iso/characters/bf/bfx.chr"/>
-                <file name = "xmasp.arc" type = "data" source = "iso/characters/xmasp/main.arc"/>
-                <file name = "xmasp.chr" type = "data" source = "iso/characters/xmasp/xmasp.chr"/>
-                <file name = "monsterx.arc" type = "data" source = "iso/characters/monster/xmas.arc"/>
-                <file name = "monsterx.chr" type = "data" source = "iso/characters/monster/monsterx.chr"/>
-                
-                <!-- Senpai assets -->
-                <file name = "senpai.arc" type = "data" source = "iso/characters/senpai/main.arc"/>
-                <file name = "senpai.chr" type = "data" source = "iso/characters/senpai/senpai.chr"/>
-                <file name = "senpaim.arc" type = "data" source = "iso/characters/senpaim/main.arc"/>
-                <file name = "senpaim.chr" type = "data" source = "iso/characters/senpaim/senpaim.chr"/>
-                <file name = "spirit.arc" type = "data" source = "iso/characters/spirit/main.arc"/>
-                <file name = "spirit.chr" type = "data" source = "iso/characters/spirit/spirit.chr"/>
-                
+            
                 <!-- Girlfriend assets -->
                 <file name = "gf.arc" type = "data" source = "iso/characters/gf/main.arc"/>
                 <file name = "gf.chr" type = "data" source = "iso/characters/gf/gf.chr"/>
-                <file name = "gftut.arc" type = "data" source = "iso/characters/gf/tut.arc"/>
-                <file name = "gfweeb.arc" type = "data" source = "iso/characters/gf/weeb.arc"/>
-                <file name = "gfweeb.chr" type = "data" source = "iso/characters/gf/gfweeb.chr"/>
-                <file name = "gfx.arc" type = "data" source = "iso/characters/gf/xmas.arc"/>
-                <file name = "gfx.chr" type = "data" source = "iso/characters/gf/gfx.chr"/>
                 <file name = "speaker.tim" type = "data" source = "iso/characters/gf/speaker.tim"/>
-                <file name = "speakerx.tim" type = "data" source = "iso/characters/gf/speakerx.tim"/>
             </dir>
             
             <!-- Sound effects -->

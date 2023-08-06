@@ -102,7 +102,7 @@ void Speaker_Tick(Speaker *this, fixed_t x, fixed_t y, fixed_t parallax)
                 (fixed_t)piece->rect[3] << FIXED_SHIFT,
             };
             
-            Stage_DrawTex(&this->tex, &piece_src, &piece_dst, stage.camera.bzoom);
+            Stage_DrawTex(&this->tex, &piece_src, &piece_dst, stage.camera.bzoom, stage.camera.angle);
         }
     
 }

@@ -154,5 +154,5 @@ void StageTimer_Draw()
     if (stage.prefs.downscroll)
         bar_dst.y = FIXED_DEC(99,1); 
 
-    Stage_BlendTex(&stage.tex_hud0, &bar_fill, &bar_dst, stage.bump, 1);
+    Stage_BlendTex(&stage.tex_hud0, &bar_fill, &bar_dst, stage.bump, 1, stage.camera.hudangle);
 }

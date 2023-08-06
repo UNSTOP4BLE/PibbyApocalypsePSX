@@ -198,99 +198,11 @@ funkin_add_archive(iso/characters/gf/weeb.arc
 
 # dad
 funkin_add_archive(iso/characters/dad/main.arc
-    iso/characters/dad/idle0.tim 
-    iso/characters/dad/idle1.tim 
+    iso/characters/dad/idle.tim 
     iso/characters/dad/left.tim 
     iso/characters/dad/down.tim 
     iso/characters/dad/up.tim 
     iso/characters/dad/right.tim
-)
-
-# spook
-funkin_add_archive(iso/characters/spook/main.arc
-    iso/characters/spook/idle0.tim 
-    iso/characters/spook/idle1.tim 
-    iso/characters/spook/idle2.tim 
-    iso/characters/spook/left.tim 
-    iso/characters/spook/down.tim 
-    iso/characters/spook/up.tim 
-    iso/characters/spook/right.tim
-)
-
-# monster
-funkin_add_archive(iso/characters/monster/main.arc
-    iso/characters/monster/idle0.tim 
-    iso/characters/monster/idle1.tim 
-    iso/characters/monster/left.tim 
-    iso/characters/monster/down.tim 
-    iso/characters/monster/up.tim
-    iso/characters/monster/right.tim
-)
-funkin_add_archive(iso/characters/monster/xmas.arc
-    iso/characters/monster/idleb0.tim 
-    iso/characters/monster/idleb1.tim 
-    iso/characters/monster/leftb.tim 
-    iso/characters/monster/downb.tim 
-    iso/characters/monster/upb.tim 
-    iso/characters/monster/rightb.tim
-)
-
-# pico
-funkin_add_archive(iso/characters/pico/main.arc
-    iso/characters/pico/idle.tim
-    iso/characters/pico/hit0.tim 
-    iso/characters/pico/hit1.tim
-)
-
-# mom
-funkin_add_archive(iso/characters/mom/main.arc
-    iso/characters/mom/idle0.tim 
-    iso/characters/mom/idle1.tim 
-    iso/characters/mom/left.tim 
-    iso/characters/mom/down.tim 
-    iso/characters/mom/up.tim 
-    iso/characters/mom/right.tim
-)
-
-# xmas parents
-funkin_add_archive(iso/characters/xmasp/main.arc
-    iso/characters/xmasp/idle0.tim 
-    iso/characters/xmasp/idle1.tim 
-    iso/characters/xmasp/idle2.tim 
-    iso/characters/xmasp/idle3.tim 
-    iso/characters/xmasp/lefta0.tim 
-    iso/characters/xmasp/lefta1.tim 
-    iso/characters/xmasp/leftb0.tim 
-    iso/characters/xmasp/leftb1.tim 
-    iso/characters/xmasp/downa0.tim 
-    iso/characters/xmasp/downa1.tim 
-    iso/characters/xmasp/downb0.tim
-    iso/characters/xmasp/downb1.tim 
-    iso/characters/xmasp/upa0.tim 
-    iso/characters/xmasp/upa1.tim 
-    iso/characters/xmasp/upb0.tim 
-    iso/characters/xmasp/upb1.tim 
-    iso/characters/xmasp/righta0.tim 
-    iso/characters/xmasp/righta1.tim 
-    iso/characters/xmasp/rightb0.tim 
-    iso/characters/xmasp/rightb1.tim
-)
-
-# senpai
-funkin_add_archive(iso/characters/senpai/main.arc
-    iso/characters/senpai/senpai0.tim 
-    iso/characters/senpai/senpai1.tim
-)
-
-funkin_add_archive(iso/characters/senpaim/main.arc
-    iso/characters/senpaim/senpai0.tim
-    iso/characters/senpaim/senpai1.tim
-)
-
-# spirit
-funkin_add_archive(iso/characters/spirit/main.arc
-    iso/characters/spirit/spirit0.tim
-    iso/characters/spirit/spirit1.tim
 )
 
 # week 1
@@ -298,51 +210,6 @@ funkin_add_archive(iso/week1/back.arc
     iso/week1/back0.tim
     iso/week1/back1.tim
 )
-
-# week 2
-funkin_add_archive(iso/week2/back.arc
-    iso/week2/back0.tim
-    iso/week2/back1.tim
-    iso/week2/back2.tim
-)
-
-# week 3
-funkin_add_archive(iso/week3/back.arc
-    iso/week3/back0.tim
-    iso/week3/back1.tim 
-    iso/week3/back2.tim 
-    iso/week3/back3.tim 
-    iso/week3/back4.tim 
-)
-
-# week 4
-funkin_add_archive(iso/week4/back.arc
-    iso/week4/back0.tim 
-    iso/week4/back1.tim 
-    iso/week4/back2.tim 
-    iso/week4/back3.tim
-)
-funkin_add_archive(iso/week4/hench.arc
-    iso/week4/hench0.tim 
-    iso/week4/hench1.tim
-)
-
-# week 5
-funkin_add_archive(iso/week5/back.arc
-    iso/week5/back0.tim 
-    iso/week5/back1.tim 
-    iso/week5/back2.tim 
-    iso/week5/back3.tim 
-    iso/week5/back4.tim
-    iso/week5/back5.tim 
-    iso/week5/back6.tim 
-)
-
-# week6
-funkin_add_archive(iso/week6/back.arc
-    iso/week6/back0.tim
-    iso/week6/back1.tim
-) 
 
 # ADD ARCHIVES HERE
 

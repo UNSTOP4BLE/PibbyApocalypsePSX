@@ -40,7 +40,7 @@ bool Obj_Splash_Tick(Object *obj)
     plub_dst.y += stage.noteshakey;
     plub_dst.x += stage.noteshakex;
     
-    Stage_DrawTex(&stage.tex_hud0, &plub_src, &plub_dst, stage.bump);
+    Stage_DrawTex(&stage.tex_hud0, &plub_src, &plub_dst, stage.bump, stage.camera.hudangle);
     
     //Draw tail
     fixed_t tx =  this->sin * scale >> 6;
