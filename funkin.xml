@@ -50,6 +50,7 @@
             <dir name = "week1">
                 <!-- Background art -->
                 <file name = "back.arc" type = "data" source = "iso/week1/back.arc"/>
+                <file name = "channels.arc" type = "data" source = "iso/week1/channels.arc"/>
                 
                 <file name = "1.1n.cht" type = "data" source = "iso/chart/My-Amazing-World.cht"/>
             </dir>

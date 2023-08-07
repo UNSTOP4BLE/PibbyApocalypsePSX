@@ -1688,8 +1688,8 @@ void Stage_Tick(void)
                 {
                     case CharAnim_Up: stage.camera.y -= FIXED_DEC(2,10); break;
                     case CharAnim_Down: stage.camera.y += FIXED_DEC(2,10); break;
-                    case CharAnim_Left: stage.camera.angle = FIXED_LERP(stage.camera.angle, FIXED_DEC(1,1), stage.camera.speed); break;
-                    case CharAnim_Right: stage.camera.angle = FIXED_LERP(stage.camera.angle, -FIXED_DEC(1,1), stage.camera.speed); break;
+                    case CharAnim_Left: stage.camera.x -= FIXED_DEC(2,10); stage.camera.angle = FIXED_LERP(stage.camera.angle, FIXED_DEC(1,1), stage.camera.speed); break;
+                    case CharAnim_Right: stage.camera.x += FIXED_DEC(2,10); stage.camera.angle = FIXED_LERP(stage.camera.angle, -FIXED_DEC(1,1), stage.camera.speed); break;
                     default:break;
                 }
             }
@@ -1699,8 +1699,8 @@ void Stage_Tick(void)
                 {
                     case CharAnim_Up: stage.camera.y -= FIXED_DEC(2,10); break;
                     case CharAnim_Down: stage.camera.y += FIXED_DEC(2,10); break;
-                    case CharAnim_Left: stage.camera.angle = FIXED_LERP(stage.camera.angle, FIXED_DEC(1,1), stage.camera.speed); break;
-                    case CharAnim_Right: stage.camera.angle = FIXED_LERP(stage.camera.angle, -FIXED_DEC(1,1), stage.camera.speed); break;
+                    case CharAnim_Left: stage.camera.x -= FIXED_DEC(2,10); stage.camera.angle = FIXED_LERP(stage.camera.angle, FIXED_DEC(1,1), stage.camera.speed); break;
+                    case CharAnim_Right: stage.camera.x += FIXED_DEC(2,10); stage.camera.angle = FIXED_LERP(stage.camera.angle, -FIXED_DEC(1,1), stage.camera.speed); break;
                     default:break;
                 }
             }

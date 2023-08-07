@@ -16,33 +16,33 @@
 
     "frames": [
         ["Dad_ArcMain_Idle", [  0,   0,  58,  82], [ 28,  82]], 
-        ["Dad_ArcMain_Idle", [ 58,   0,  56,  81], [ 27,  81]], 
-        ["Dad_ArcMain_Idle", [114,   0,  57,  81], [ 27,  81]],
-        ["Dad_ArcMain_Idle", [171,   0,  56,  81], [ 27,  81]],
-        ["Dad_ArcMain_Idle", [  0,  82,  57,  81], [ 27,  81]], 
-        ["Dad_ArcMain_Idle", [ 57,  82,  57,  81], [ 27,  81]], 
-        ["Dad_ArcMain_Idle", [114,  82,  58,  82], [ 28,  82]],
-        ["Dad_ArcMain_Idle", [172,  82,  57,  83], [ 27,  83]],
+        ["Dad_ArcMain_Idle", [ 59,   0,  56,  81], [ 27,  81]], 
+        ["Dad_ArcMain_Idle", [116,   0,  57,  81], [ 27,  81]],
+        ["Dad_ArcMain_Idle", [174,   0,  56,  81], [ 27,  81]],
+        ["Dad_ArcMain_Idle", [  0,  83,  57,  81], [ 27,  81]], 
+        ["Dad_ArcMain_Idle", [ 58,  82,  57,  81], [ 27,  81]], 
+        ["Dad_ArcMain_Idle", [116,  82,  58,  82], [ 28,  82]],
+        ["Dad_ArcMain_Idle", [175,  82,  57,  83], [ 27,  83]],
        
         ["Dad_ArcMain_Left", [  0,   0,  92,  72], [ 69,  72]], 
-        ["Dad_ArcMain_Left", [ 92,   0,  83,  69], [ 65,  69]], 
-        ["Dad_ArcMain_Left", [175,   0,  74,  70], [ 61,  70]], 
-        ["Dad_ArcMain_Left", [  0,  72,  72,  73], [ 59,  71]], 
+        ["Dad_ArcMain_Left", [ 93,   0,  83,  69], [ 65,  69]], 
+        ["Dad_ArcMain_Left", [177,   0,  74,  70], [ 61,  70]], 
+        ["Dad_ArcMain_Left", [  0,  73,  72,  73], [ 59,  71]], 
         
         ["Dad_ArcMain_Down", [  0,   0,  82,  91], [ 31,  91]], 
-        ["Dad_ArcMain_Down", [ 82,   0,  86,  91], [ 34,  91]], 
-        ["Dad_ArcMain_Down", [168,   0,  88,  69], [ 35,  69]], 
-        ["Dad_ArcMain_Down", [  0,  91,  88,  69], [ 35,  69]], 
+        ["Dad_ArcMain_Down", [ 83,   0,  85,  91], [ 33,  91]], 
+        ["Dad_ArcMain_Down", [169,   0,  87,  69], [ 34,  69]], 
+        ["Dad_ArcMain_Down", [  0,  92,  88,  69], [ 35,  69]], 
         
         ["Dad_ArcMain_Up", [  0,   0,  60,  98], [ 40,  98]],
-        ["Dad_ArcMain_Up", [ 60,   0,  58,  95], [ 40,  94]], 
-        ["Dad_ArcMain_Up", [118,   0,  56,  93], [ 36,  92]],
-        ["Dad_ArcMain_Up", [174,   0,  57,  92], [ 35,  92]], 
+        ["Dad_ArcMain_Up", [ 61,   0,  58,  95], [ 40,  94]], 
+        ["Dad_ArcMain_Up", [120,   0,  56,  93], [ 36,  92]],
+        ["Dad_ArcMain_Up", [177,   0,  57,  92], [ 35,  92]], 
         
         ["Dad_ArcMain_Right", [  0,   0, 102,  63], [ 24,  62]], 
-        ["Dad_ArcMain_Right", [102,   0, 103,  62], [ 23,  61]],
-        ["Dad_ArcMain_Right", [  0,  63,  98,  66], [ 22,  65]], 
-        ["Dad_ArcMain_Right", [ 98,  62,  87,  72], [ 22,  68]] 
+        ["Dad_ArcMain_Right", [103,   0, 103,  62], [ 23,  61]],
+        ["Dad_ArcMain_Right", [  0,  64,  98,  66], [ 22,  65]], 
+        ["Dad_ArcMain_Right", [ 99,  63,  87,  72], [ 22,  68]] 
     ],
 
     "animation": [

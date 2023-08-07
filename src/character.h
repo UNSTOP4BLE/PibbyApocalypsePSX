@@ -67,6 +67,7 @@ typedef struct Character
     //Render data and state
     IO_Data arc_main;
     IO_Data *arc_ptr;
+    bool visible;
     
     //ghost
     fixed_t distort_ang, distort_pow, distort_spd;

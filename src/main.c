@@ -83,10 +83,10 @@ int main(int argc, char **argv)
 
         //debug infos
         if (dbginfo != NULL)
-            FntPrint(-1, dbginfo);
-        sprintf(dbginfo, "FPS: %d", Timer_GetFPS());
-        Gfx_DrawText(5, 5, 0, dbginfo);
-
+        {
+            sprintf(dbginfo, "FPS: %d", Timer_GetFPS());
+            Gfx_DrawText(5, 5, 0, dbginfo);
+        }
         //Tick and draw game
         switch (gameloop)
         {
