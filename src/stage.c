@@ -116,16 +116,12 @@ static void Stage_ScrollCamera(void)
           //  stage.camera.y = FIXED_LERP(stage.camera.y, stage.camera.ty, stage.camera.speed);
         //    stage.camera.zoom = FIXED_LERP(stage.camera.zoom, stage.camera.tz, stage.camera.speed);
         
-        //Get delta position
-        fixed_t dx = stage.camera.tx - stage.camera.x;
-        fixed_t dy = stage.camera.ty - stage.camera.y;
-        fixed_t dz = stage.camera.tz - stage.camera.zoom;
-        
         //Scroll based off current divisor
-        stage.camera.x += FIXED_MUL(dx, stage.camera.td);
-        stage.camera.y += FIXED_MUL(dy, stage.camera.td);
-        stage.camera.zoom += FIXED_MUL(dz, stage.camera.td);
-       
+        stage.camera.x = FIXED_LERP(stage.camera.x, stage.camera.tx, stage.camera.speed);
+        stage.camera.y = FIXED_LERP(stage.camera.y, stage.camera.ty, stage.camera.speed);
+        stage.camera.zoom = FIXED_LERP(stage.camera.zoom, stage.camera.tz, stage.camera.speed);
+        stage.camera.angle = FIXED_LERP(stage.camera.angle, stage.camera.ta << FIXED_SHIFT, stage.camera.speed);
+        stage.camera.hudangle = FIXED_LERP(stage.camera.hudangle, stage.camera.hudta << FIXED_SHIFT, stage.camera.speed);
         }
     }
         
@@ -1309,7 +1305,6 @@ static void Stage_LoadState(void)
         timer.timer = 0;
         timer.timermin = 0;     
         timer.timersec = 0;
-        stage.camera.hudangle = stage.camera.angle = FIXED_DEC(0,1);
         str_done = false;
         str_canplay = true;
         stage.paused = false;
@@ -1407,9 +1402,15 @@ void Stage_Load(StageId id, StageDiff difficulty, bool story)
         Stage_FocusCharacter(stage.opponent, FIXED_UNIT);
     else 
         Stage_FocusCharacter(stage.player, FIXED_UNIT);
+    
+    stage.camera.hudangle = stage.camera.angle = stage.camera.ta = stage.camera.hudta = 0;
+
+    stage.camera.speed = FIXED_DEC(5,100);
     stage.camera.x = stage.camera.tx;
     stage.camera.y = stage.camera.ty;
     stage.camera.zoom = stage.camera.tz;
+    stage.camera.angle = stage.camera.ta;
+    stage.camera.hudangle = stage.camera.hudta;
     
     stage.bump = FIXED_UNIT;
     stage.sbump = FIXED_UNIT;
@@ -1680,6 +1681,31 @@ void Stage_Tick(void)
         }
         case StageState_Play:
         {
+            //move camera
+            if (stage.cur_section->flag & SECTION_FLAG_OPPFOCUS)
+            {
+                switch (stage.opponent->animatable.anim)
+                {
+                    case CharAnim_Up: stage.camera.y -= FIXED_DEC(2,10); break;
+                    case CharAnim_Down: stage.camera.y += FIXED_DEC(2,10); break;
+                    case CharAnim_Left: stage.camera.angle = FIXED_LERP(stage.camera.angle, FIXED_DEC(1,1), stage.camera.speed); break;
+                    case CharAnim_Right: stage.camera.angle = FIXED_LERP(stage.camera.angle, -FIXED_DEC(1,1), stage.camera.speed); break;
+                    default:break;
+                }
+            }
+            else
+            {
+                switch (stage.player->animatable.anim)
+                {
+                    case CharAnim_Up: stage.camera.y -= FIXED_DEC(2,10); break;
+                    case CharAnim_Down: stage.camera.y += FIXED_DEC(2,10); break;
+                    case CharAnim_Left: stage.camera.angle = FIXED_LERP(stage.camera.angle, FIXED_DEC(1,1), stage.camera.speed); break;
+                    case CharAnim_Right: stage.camera.angle = FIXED_LERP(stage.camera.angle, -FIXED_DEC(1,1), stage.camera.speed); break;
+                    default:break;
+                }
+            }
+
+
             if (stage.prefs.songtimer)
                 StageTimer_Draw();
             if (stage.prefs.debug)

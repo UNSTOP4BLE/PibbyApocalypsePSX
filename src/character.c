@@ -105,6 +105,7 @@ Character *Character_FromFile(Character *this, const char *path, fixed_t x, fixe
     this->focus_y = FIXED_DEC(tmphdr->focus_y[0], tmphdr->focus_y[1]);
     this->focus_zoom = FIXED_DEC(tmphdr->focus_zoom[0], tmphdr->focus_zoom[1]);
     this->scale = FIXED_DEC(tmphdr->scale[0], tmphdr->scale[1]);
+    this->r = this->g = this->b = 128;
     /*
         printf("struct %d, \n", tmphdr->size_struct);
     printf("frames %d, \n", tmphdr->size_frames);
@@ -181,7 +182,7 @@ void Character_DrawParallax(Character *this, Gfx_Tex *tex, const CharFrame *cfra
     dst.w = FIXED_MUL(dst.w,this->scale);
     dst.h = FIXED_MUL(dst.h,this->scale);
     
-    Stage_DrawTex(tex, &src, &dst, stage.camera.bzoom, stage.camera.angle);
+    Stage_DrawTexCol(tex, &src, &dst, stage.camera.bzoom, stage.camera.angle, this->r, this->g, this->b);
 }
 
 void Character_DrawParallaxFlipped(Character *this, Gfx_Tex *tex, const CharFrame *cframe, fixed_t parallax)
@@ -194,7 +195,7 @@ void Character_DrawParallaxFlipped(Character *this, Gfx_Tex *tex, const CharFram
     
     dst.w = FIXED_MUL(dst.w,this->scale);
     dst.h = FIXED_MUL(dst.h,this->scale);
-    Stage_DrawTex(tex, &src, &dst, stage.camera.bzoom, stage.camera.angle);
+    Stage_DrawTexCol(tex, &src, &dst, stage.camera.bzoom, stage.camera.angle, this->r, this->g, this->b);
 }
 
 void Character_Draw(Character *this, Gfx_Tex *tex, const CharFrame *cframe)

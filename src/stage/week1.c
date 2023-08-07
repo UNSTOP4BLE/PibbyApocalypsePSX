@@ -17,6 +17,9 @@ typedef struct
     StageBack back;
     RECT coolfuckinguhhup_dst;
     RECT coolfuckinguhhdown_dst;
+    bool white;
+    bool popup;
+    bool popdown;
     
     //Textures
     Gfx_Tex tex_back0; //Stage and back
@@ -30,7 +33,6 @@ void Back_Week1_DrawFG(StageBack *back)
     
     fixed_t fx, fy;
     
-    //Draw curtains
     fx = stage.camera.x;
     fy = stage.camera.y;
 
@@ -48,9 +50,34 @@ void Back_Week1_DrawFG(StageBack *back)
     };
     if (stage.stage_id == StageId_MyAmazingWorld && !stage.paused)
     {
+        if (this->popup)
+        {       
+            this->coolfuckinguhhdown_dst = (RECT){
+                0,
+                screen.SCREEN_HEIGHT-32,
+                screen.SCREEN_WIDTH,
+                32
+            };
+            this->coolfuckinguhhup_dst = (RECT){
+                0,
+                0,
+                screen.SCREEN_WIDTH,
+                32
+            };
+            this->popup = false;
+        }
+        if (this->popdown)
+        {
+            this->coolfuckinguhhup_dst.y -= 2;
+            this->coolfuckinguhhdown_dst.y += 2;
+            if (this->coolfuckinguhhup_dst.y+this->coolfuckinguhhup_dst.h <= 0)
+                this->popdown = false;
+        }
         //init
         if (stage.song_step < 0)
         {
+            Gfx_SetClear(0,0,0);
+            this->white = false;
             this->coolfuckinguhhdown_dst = (RECT){
                 0,
                 screen.SCREEN_HEIGHT-32,
@@ -70,22 +97,48 @@ void Back_Week1_DrawFG(StageBack *back)
             stage.player->focus_zoom = FIXED_DEC(13,10);
         }
 
-        //pop up sillyi
-        if (stage.song_step >= 258 && this->coolfuckinguhhup_dst.y+this->coolfuckinguhhup_dst.h >= 0)
-        {
-            this->coolfuckinguhhup_dst.y -= 2;
-            this->coolfuckinguhhdown_dst.y += 2;
-        }
 
         if (stage.song_step >= 160)
             stage.opponent->focus_x = FIXED_DEC(-120,1);
-        else
-
+        
         if (stage.opponent->focus_zoom >= FIXED_DEC(176, 100) && stage.song_step >= 0)
             stage.opponent->focus_zoom -= 1;
+
+        switch(stage.song_step)
+        {
+            case 258:
+                this->popdown = true;
+                break;
+            case 512:
+                this->white = true;
+                this->popup = true;
+                stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 0;
+                Gfx_SetClear(255,255,255);
+                break;
+            case 990:
+                this->popdown = true;
+                break;
+            case 1024:
+                this->white = false;
+                stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 128;
+                Gfx_SetClear(0,0,0);
+                break;
+            case 1280:
+                this->popup = true; 
+                break;
+            case 1552: //hello darwin
+                //black screen
+                break;
+            case 1568:
+                this->white = true;
+                stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 0;
+                Gfx_SetClear(255,255,255);
+                break; 
+        }
     }
     Debug_StageMoveDebug(&wall_dst, 5, fx, fy); 
-    Stage_DrawTex(&this->tex_back1, &wall_src, &wall_dst, stage.camera.bzoom, stage.camera.angle);
+    if (!this->white)
+        Stage_DrawTex(&this->tex_back1, &wall_src, &wall_dst, stage.camera.bzoom, stage.camera.angle);
 }
 
 void Back_Week1_DrawBG(StageBack *back)
@@ -107,7 +160,8 @@ void Back_Week1_DrawBG(StageBack *back)
     };
 
     Debug_StageMoveDebug(&back_dst, 4, fx, fy);
-    Stage_DrawTex(&this->tex_back0, &back_src, &back_dst, stage.camera.bzoom, stage.camera.angle);
+    if (!this->white)
+        Stage_DrawTex(&this->tex_back0, &back_src, &back_dst, stage.camera.bzoom, stage.camera.angle);
 }
 
 void Back_Week1_Free(StageBack *back)

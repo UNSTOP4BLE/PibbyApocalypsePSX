@@ -19,4 +19,6 @@ int16_t MUtil_Cos(uint8_t x);
 void MUtil_RotatePoint(POINT *p, int16_t s, int16_t c);
 fixed_t MUtil_Pull(fixed_t a, fixed_t b, fixed_t t);
 
+fixed_t FIXED_LERP(fixed_t current, fixed_t target, fixed_t speed);
+
 #endif

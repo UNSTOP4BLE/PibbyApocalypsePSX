@@ -200,7 +200,7 @@ typedef struct
     struct
     {
         fixed_t x, y, zoom;
-        fixed_t tx, ty, tz, td;
+        fixed_t tx, ty, tz, td, ta, hudta;
         fixed_t speed;
         fixed_t bzoom;
         fixed_t angle;
