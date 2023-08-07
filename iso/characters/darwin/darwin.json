@@ -1,0 +1,97 @@
+{
+    "spec": "CHAR_SPEC_MISSANIM",
+    "health_i": 0,
+    "health_bar": "0xFF29B5D6",
+    "focus": [[-50, 1], [-65, 1], [1, 1]],
+    "scale": [1,1],
+
+    "struct": [
+        "Darwin_ArcMain_D0",
+        "Darwin_ArcMain_D1",
+        "Darwin_ArcMain_D2",
+        "Darwin_ArcMain_D3",
+        "Darwin_ArcMain_D4",
+        "Darwin_ArcMain_D5"
+    ],
+
+    "frames": [
+        ["Darwin_ArcMain_D0", [  1,   1, 101,  84], [ 40,  82]], 
+        ["Darwin_ArcMain_D0", [103,   1, 100,  83], [ 40,  80]], 
+        ["Darwin_ArcMain_D0", [  1,  86, 101,  83], [ 40,  81]], 
+        ["Darwin_ArcMain_D0", [103,  85, 101,  84], [ 40,  82]], 
+
+        ["Darwin_ArcMain_D1", [  1,  70, 120,  81], [ 42,  81]], 
+        ["Darwin_ArcMain_D1", [121,  70, 119,  81], [ 41,  80]], 
+        ["Darwin_ArcMain_D1", [  1, 152, 119,  81], [  0,   0]], 
+        ["Darwin_ArcMain_D1", [121, 152, 119,  81], [  0,   0]], 
+
+        ["Darwin_ArcMain_D0", [  1, 170,  99,  66], [ 69,  66]], 
+        ["Darwin_ArcMain_D0", [101, 170,  98,  67], [ 68,  67]], 
+        ["Darwin_ArcMain_D1", [  1,   1,  99,  68], [ 67,  68]], 
+        ["Darwin_ArcMain_D1", [101,   1,  99,  68], [ 68,  68]], 
+
+        ["Darwin_ArcMain_D2", [  1,  81,  82, 103], [  0,   0]], 
+        ["Darwin_ArcMain_D2", [ 84,  81,  81, 100], [  0,   0]], 
+        ["Darwin_ArcMain_D2", [166,  81,  81,  99], [  0,   0]], 
+        ["Darwin_ArcMain_D3", [  1,  82,  81,  99], [  0,   0]], 
+
+        ["Darwin_ArcMain_D2", [  1,   1, 110,  79], [  0,   0]], 
+        ["Darwin_ArcMain_D2", [112,   1, 104,  78], [  0,   0]], 
+        ["Darwin_ArcMain_D3", [  1,   1, 104,  80], [  0,   0]], 
+        ["Darwin_ArcMain_D3", [106,   1,  96,  80], [  0,   0]], 
+
+        ["Darwin_ArcMain_D4", [  0,   0,   0,   0], [  0,   0]], 
+        ["Darwin_ArcMain_D4", [  0,   0,   0,   0], [  0,   0]], 
+
+        ["Darwin_ArcMain_D4", [  0,   0,   0,   0], [  0,   0]], 
+        ["Darwin_ArcMain_D4", [  0,   0,   0,   0], [  0,   0]], 
+
+        ["Darwin_ArcMain_D5", [  0,   0,   0,   0], [  0,   0]], 
+        ["Darwin_ArcMain_D5", [  0,   0,   0,   0], [  0,   0]], 
+
+        ["Darwin_ArcMain_D4", [  0,   0,   0,   0], [  0,   0]], 
+        ["Darwin_ArcMain_D4", [  0,   0,   0,   0], [  0,   0]]
+    ],
+
+    "animation": [
+        [3, [ 0,  1,  2,  3, "ASCR_CHGANI", 0]], 
+        [2, [ 4,  5,  6,  7, "ASCR_BACK", 0]],             
+        [0, ["ASCR_CHGANI", "CharAnim_Idle"]],       
+        [2, [ 8,  9, 10, 11, "ASCR_BACK", 0]],             
+        [0, ["ASCR_CHGANI", "CharAnim_Idle"]],       
+        [2, [12, 13, 14, 15, "ASCR_BACK", 0]],             
+        [0, ["ASCR_CHGANI", "CharAnim_Idle"]],       
+        [2, [16, 17, 18, 19, "ASCR_BACK", 0]],             
+        [0, ["ASCR_CHGANI", "CharAnim_Idle"]],       
+
+        [1, [ 5, 20, 20, 21, "ASCR_BACK", 1]],     
+        [1, [ 7, 22, 22, 23, "ASCR_BACK", 1]],     
+        [1, [ 9, 24, 24, 25, "ASCR_BACK", 1]],     
+        [1, [11, 26, 26, 27, "ASCR_BACK", 1]],
+
+        [2, [13, 14, 15, "ASCR_BACK", 1]],         
+        [2, [16, 17, 18, 19, "ASCR_REPEAT"]],      
+
+        [5, [28, 29, 30, 31, 31, 31, 31, 31, 31, 31, "ASCR_CHGANI", "PlayerAnim_Dead1"]], 
+        [5, [31, "ASCR_REPEAT"]],                                                       
+        [3, [32, 33, 34, 35, 35, 35, 35, 35, 35, 35, "ASCR_CHGANI", "PlayerAnim_Dead3"]], 
+        [3, [35, "ASCR_REPEAT"]],                                                       
+        [3, [36, 37, 35, 35, 35, 35, 35, "ASCR_CHGANI", "PlayerAnim_Dead3"]],             
+        [3, [38, 39, 35, 35, 35, 35, 35, "ASCR_CHGANI", "PlayerAnim_Dead3"]],             
+
+        [10, [35, 35, 35, "ASCR_BACK", 1]], 
+        [ 3, [38, 39, 35, "ASCR_REPEAT"]]
+    ],
+
+
+    "archive": "\\CHAR\\DARWIN.ARC;1",
+
+    "textures": [            
+        "d0.tim",            
+        "d1.tim",            
+        "d2.tim",            
+        "d3.tim",            
+        "d4.tim",            
+        "d5.tim" 
+    ]
+}

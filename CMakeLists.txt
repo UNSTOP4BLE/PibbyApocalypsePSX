@@ -196,6 +196,16 @@ funkin_add_archive(iso/characters/gf/weeb.arc
     iso/characters/gf/weeb1.tim
 )
 
+# darwin
+funkin_add_archive(iso/characters/darwin/main.arc
+    iso/characters/darwin/d0.tim 
+    iso/characters/darwin/d1.tim 
+    iso/characters/darwin/d2.tim 
+    iso/characters/darwin/d3.tim 
+    iso/characters/darwin/d4.tim
+    iso/characters/darwin/d5.tim
+)
+
 # dad
 funkin_add_archive(iso/characters/dad/main.arc
     iso/characters/dad/idle.tim 
@@ -246,7 +256,7 @@ psn00bsdk_add_executable(funkin STATIC ${_sources})
 
 # create bin and cue
 psn00bsdk_add_cd_image(iso
-    n00bfunkin # file name
+    Pibby_Apocalypse_PSX # file name
     funkin.xml # path to xml
     DEPENDS 
     funkin   

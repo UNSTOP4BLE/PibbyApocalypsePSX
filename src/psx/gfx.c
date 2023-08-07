@@ -440,8 +440,10 @@ void Gfx_BlendTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8
     int16_t sinVal = MUtil_Sin(angle);
     int16_t cosVal = MUtil_Cos(angle);
 
-    hx = hx * (cdst.w / csrc.w);
-    hy = hy * (cdst.h / csrc.h);
+    if (csrc.w != 0)
+        hx = hx * (cdst.w / csrc.w);
+    if (csrc.h != 0)
+        hy = hy * (cdst.h / csrc.h);
 
     // Get rotated points
     POINT points[4] = {

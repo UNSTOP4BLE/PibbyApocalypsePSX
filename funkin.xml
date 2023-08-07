@@ -61,9 +61,11 @@
                 <file name = "bf.arc" type = "data" source = "iso/characters/bf/main.arc"/>
                 <file name = "bf.chr" type = "data" source = "iso/characters/bf/bf.chr"/>
                 <file name = "bfdead.arc" type = "data" source = "iso/characters/bf/dead.arc"/>
-                <file name = "bfweeb.arc" type = "data" source = "iso/characters/bf/weeb.arc"/>
-                <file name = "bfweeb.chr" type = "data" source = "iso/characters/bf/bfweeb.chr"/>
                 
+                <!-- Darwin assets -->
+                <file name = "darwin.arc" type = "data" source = "iso/characters/darwin/main.arc"/>
+                <file name = "darwin.chr" type = "data" source = "iso/characters/darwin/darwin.chr"/>
+
                 <!-- Dad assets -->
                 <file name = "dad.arc" type = "data" source = "iso/characters/dad/main.arc"/>
                 <file name = "dad.chr" type = "data" source = "iso/characters/dad/dad.chr"/>
