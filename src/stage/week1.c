@@ -132,6 +132,7 @@ void Back_Week1_DrawFG(StageBack *back)
             case 1568:
                 this->white = true;
                 stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 0;
+                stage.player->mode = 1;
                 Gfx_SetClear(255,255,255);
                 break; 
         }

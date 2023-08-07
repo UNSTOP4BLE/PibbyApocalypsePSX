@@ -73,7 +73,7 @@ typedef struct Character
     fixed_t ghost_x, ghost_y;
 
     Gfx_Tex tex;
-    uint8_t frame, tex_id, r, g, b;
+    uint8_t frame, tex_id, r, g, b, mode;
 } Character;
 
 typedef struct __attribute__((packed)) CharacterFileHeader
