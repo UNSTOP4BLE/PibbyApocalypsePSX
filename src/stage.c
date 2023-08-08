@@ -115,13 +115,14 @@ static void Stage_ScrollCamera(void)
             //stage.camera.x = FIXED_LERP(stage.camera.x, stage.camera.tx, stage.camera.speed);
           //  stage.camera.y = FIXED_LERP(stage.camera.y, stage.camera.ty, stage.camera.speed);
         //    stage.camera.zoom = FIXED_LERP(stage.camera.zoom, stage.camera.tz, stage.camera.speed);
-        
-        //Scroll based off current divisor
-        stage.camera.x = FIXED_LERP(stage.camera.x, stage.camera.tx, stage.camera.speed);
-        stage.camera.y = FIXED_LERP(stage.camera.y, stage.camera.ty, stage.camera.speed);
-        stage.camera.zoom = FIXED_LERP(stage.camera.zoom, stage.camera.tz, stage.camera.speed);
-        stage.camera.angle = FIXED_LERP(stage.camera.angle, stage.camera.ta << FIXED_SHIFT, stage.camera.speed);
-        stage.camera.hudangle = FIXED_LERP(stage.camera.hudangle, stage.camera.hudta << FIXED_SHIFT, stage.camera.speed);
+            
+            //Scroll based off current divisor
+            stage.camera.x = FIXED_LERP(stage.camera.x, stage.camera.tx, stage.camera.speed);
+            stage.camera.y = FIXED_LERP(stage.camera.y, stage.camera.ty, stage.camera.speed);
+            stage.camera.zoom = FIXED_LERP(stage.camera.zoom, stage.camera.tz, stage.camera.speed);
+            stage.camera.angle = FIXED_LERP(stage.camera.angle, stage.camera.ta << FIXED_SHIFT, stage.camera.speed);
+            stage.camera.hudangle = FIXED_LERP(stage.camera.hudangle, stage.camera.hudta << FIXED_SHIFT, stage.camera.speed);
+            
         }
     }
         
@@ -301,8 +302,15 @@ static void Stage_NoteCheck(PlayerState *this, uint8_t type)
     //Perform note check
     for (Note *note = stage.cur_note;; note++)
     {
-        if (!(note->type & NOTE_FLAG_MINE))
+        if ((note->type & NOTE_FLAG_P2SING))
         {
+            stage.player2sing = "single";
+        }
+        else            
+            stage.player2sing = "none";
+
+//        if (!(note->type & NOTE_FLAG_MINE))
+  //      {
             //Check if note can be hit
             fixed_t note_fp = (fixed_t)note->pos << FIXED_SHIFT;
             if (note_fp - stage.early_safe > stage.note_scroll)
@@ -321,7 +329,7 @@ static void Stage_NoteCheck(PlayerState *this, uint8_t type)
             this->arrow_hitan[type & 0x3] = stage.step_time;
             (void)hit_type;
             return;
-        }
+       /* }
         else
         {
             //Check if mine can be hit
@@ -345,7 +353,7 @@ static void Stage_NoteCheck(PlayerState *this, uint8_t type)
             this->arrow_hitan[type & 0x3] = -1;
             
             return;
-        }
+        }*/
     }
     
     //Missed a note
@@ -374,6 +382,12 @@ static void Stage_SustainCheck(PlayerState *this, uint8_t type)
     //Perform note check
     for (Note *note = stage.cur_note;; note++)
     {
+        if ( (note->type & NOTE_FLAG_P2SING))
+        {
+            stage.player2sing = "single";
+        }
+        else            
+            stage.player2sing = "none";
         //Check if note can be hit
         fixed_t note_fp = (fixed_t)note->pos << FIXED_SHIFT;
         if (note_fp - stage.early_sus_safe > stage.note_scroll)
@@ -455,7 +469,7 @@ static void Stage_ProcessPlayer(PlayerState *this, Pad *pad, bool playing)
                     break;
                 if (note_fp + stage.late_safe < stage.note_scroll)
                     continue;
-                if ((note->type & NOTE_FLAG_MINE) || (note->type & NOTE_FLAG_OPPONENT) != i)
+                if ((note->type & NOTE_FLAG_OPPONENT) != i)
                     continue;
                 
                 //Handle note hit
@@ -860,7 +874,7 @@ static void Stage_DrawNotes(void)
                 continue;
             
             //Miss note if player's note
-            if (!((note->type ^ stage.note_swap) & (bot | NOTE_FLAG_HIT | NOTE_FLAG_MINE)))
+            if (!((note->type ^ stage.note_swap) & (bot | NOTE_FLAG_HIT)))
             {
                 if (stage.mode < StageMode_Net1 || i == ((stage.mode == StageMode_Net1) ? 0 : 1))
                 {
@@ -955,53 +969,6 @@ static void Stage_DrawNotes(void)
                             Stage_DrawTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, stage.camera.hudangle);
                     }
                 }
-            }
-            else if (note->type & NOTE_FLAG_MINE)
-            {
-                //Don't draw if already hit
-                if (note->type & NOTE_FLAG_HIT)
-                    continue;
-                
-                //Draw note body
-                note_src.x = 192 + ((note->type & 0x1) << 5);
-                note_src.y = (note->type & 0x2) << 4;
-                note_src.w = 32;
-                note_src.h = 32;
-                
-                note_dst.x = stage.noteshakex + note_x[(note->type & 0x7)] - FIXED_DEC(16,1);
-                note_dst.y = stage.noteshakey + y - FIXED_DEC(16,1);
-                note_dst.w = note_src.w << FIXED_SHIFT;
-                note_dst.h = note_src.h << FIXED_SHIFT;
-                
-                if (stage.prefs.downscroll)
-                    note_dst.y = -note_dst.y - note_dst.h;
-                //draw for opponent
-                if (stage.prefs.middlescroll && note->type & NOTE_FLAG_OPPONENT)
-                    Stage_BlendTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, 1, stage.camera.hudangle);
-                else
-                    Stage_DrawTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, stage.camera.hudangle);
-                
-                //Draw note fire
-                note_src.x = 192 + ((Timer_GetAnimfCount() & 0x1) << 5);
-                note_src.y = 64 + ((Timer_GetAnimfCount() & 0x2) * 24);
-                note_src.w = 32;
-                note_src.h = 48;
-                    
-                if (stage.prefs.downscroll)
-                {
-                    note_dst.y += note_dst.h;
-                    note_dst.h = note_dst.h * -3 / 2;
-                }
-                else
-                {
-                    note_dst.h = note_dst.h * 3 / 2;
-                }
-                //draw for opponent
-                if (stage.prefs.middlescroll && note->type & NOTE_FLAG_OPPONENT)
-                    Stage_BlendTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, 1, stage.camera.hudangle);
-                else
-                    Stage_DrawTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, stage.camera.hudangle);
-                
             }
             else
             {
@@ -1170,7 +1137,7 @@ static void Stage_LoadChart(void)
     stage.player_state[1].max_score = 0;
     for (Note *note = stage.notes; note->pos != 0xFFFF; note++)
     {
-        if (note->type & (NOTE_FLAG_SUSTAIN | NOTE_FLAG_MINE))
+        if (note->type & (NOTE_FLAG_SUSTAIN))
             continue;
         if (note->type & NOTE_FLAG_OPPONENT)
             stage.player_state[1].max_score += 35;
@@ -1301,6 +1268,7 @@ static void Stage_LoadState(void)
         stage.player_state[i].refresh_score = false;
         stage.player_state[i].score = 0;
         stage.song_beat = 0;
+        stage.bumpspeed = 16;
         timer.secondtimer = 0;
         timer.timer = 0;
         timer.timermin = 0;     
@@ -1867,8 +1835,8 @@ void Stage_Tick(void)
             if (playing && (stage.flag & STAGE_FLAG_JUST_STEP))
             {
                 //Check if screen should bump
-                bool is_bump_step = (stage.song_step & 0xF) == 0;
-                
+                bool is_bump_step = (stage.song_step & stage.bumpspeed-1) == 0;
+     
                 //Bump screen
                 if (is_bump_step)
                     stage.bump = FIXED_DEC(103,100);

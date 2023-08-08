@@ -114,7 +114,7 @@ typedef struct
 #define NOTE_FLAG_SUSTAIN     (1 << 3) //Note is a sustain note
 #define NOTE_FLAG_SUSTAIN_END (1 << 4) //Is either end of sustain
 #define NOTE_FLAG_ALT_ANIM    (1 << 5) //Note plays alt animation
-#define NOTE_FLAG_MINE        (1 << 6) //Note is a mine
+#define NOTE_FLAG_P2SING      (1 << 6) //Note is a mine
 #define NOTE_FLAG_HIT         (1 << 7) //Note has been hit
 
 typedef struct
@@ -236,6 +236,7 @@ typedef struct
     char* player2sing;
     char* oppo2sing;
 
+    int bumpspeed;
     bool freecam;
     
     uint8_t gf_speed; //Typically 4 steps, changes in Fresh

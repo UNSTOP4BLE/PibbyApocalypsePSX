@@ -128,14 +128,22 @@ void Back_Week1_DrawFG(StageBack *back)
         {
             switch(stage.song_step)
             {
+                case 0:
+                    stage.bumpspeed = 8;
+                    break;
                 case 160:
                     stage.opponent->focus_x = FIXED_DEC(-120,1);
                     break;
                 case 256:
                  stage.player->mode = 0;
                     this->popdown = true;
+                    stage.bumpspeed = 4;
+                    break;
+                case 497: 
+                    stage.bumpspeed = 16;
                     break;
                 case 512:
+                    stage.bumpspeed = 8;
                     this->white = true;
                     this->popup = true;
                     stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 0;
@@ -143,6 +151,7 @@ void Back_Week1_DrawFG(StageBack *back)
                     break;
                 case 990:
                     this->popdown = true;
+                    stage.bumpspeed = 4;
                     break;
                 case 1024:
                     this->white = false;
@@ -152,6 +161,7 @@ void Back_Week1_DrawFG(StageBack *back)
                     break;
                 case 1072:
                     this->popdown = true;
+                    stage.bumpspeed = 16;
                     break;
                 case 1280:
                     this->popup = true; 
@@ -166,12 +176,15 @@ void Back_Week1_DrawFG(StageBack *back)
                     Gfx_SetClear(255,255,255);
                     break; 
                 case 1823:
+                    stage.bumpspeed = 8;
+                    //show darwin
                     this->white = false;
                     stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 128;
                     this->popdown = true;
                     Gfx_SetClear(0,0,0);
                     break; 
                 case 2079:
+                    stage.bumpspeed = 16;
                     this->white = true;
                     stage.opponent->r = stage.opponent->g = stage.opponent->b = 0;
                     stage.player->visible = false;
@@ -179,6 +192,7 @@ void Back_Week1_DrawFG(StageBack *back)
                     Gfx_SetClear(255,255,255);
                     break; 
                 case 2144:
+                    stage.bumpspeed = 4;
                     this->white = false;
                     stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 128;
                     Gfx_SetClear(0,0,0);
