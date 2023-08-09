@@ -52,13 +52,22 @@ void Back_void_DrawBG(StageBack *back)
     fx = stage.camera.x;
     fy = stage.camera.y;
 
-    RECT back_src = {0, 0, 256, 256};
-    RECT_FIXED back_dst = {
+    
+//    rock.scrollFactor.set(1, 1);
+ //       rock2.scrollFactor.set(1.1, 1.1);
+   //     rock3.scrollFactor.set(0.9, 0.9);
+    //draw flying shits
+    RECT flyingshit_src = {0,  0, 256, 256};
+    RECT_FIXED flyingshit_dst = {
         FIXED_DEC(0,1)- fx,
         FIXED_DEC(0,1) - fy,
         FIXED_DEC(707,1),
         FIXED_DEC(442,1)
     };
+    Debug_StageMoveDebug(&flyingshit_dst, 10, fx, fy); 
+    Stage_DrawTex(&this->tex_back3, &flyingshit_src, &flyingshit_dst, stage.camera.bzoom, stage.camera.angle);
+
+    //draw island
     RECT island_src = {0, 101, 256, 155};
     RECT_FIXED island_dst = {
         FIXED_DEC(61,1)- fx,
@@ -67,30 +76,38 @@ void Back_void_DrawBG(StageBack *back)
         FIXED_DEC(166,1)
     };
     
-    RECT house_src = {0, 101, 256, 155};
-    RECT_FIXED island_dst = {
-        FIXED_DEC(61,1)- fx,
-        FIXED_DEC(276,1) - fy,
-        FIXED_DEC(592,1),
-        FIXED_DEC(166,1)
-    };
-    
-    
-    Debug_StageMoveDebug(&flyingshit_dst, 8, fx, fy); 
-    //if (!this->white)
-    Stage_DrawTex(&this->tex_back2, &flyingshit_src, &flyingshit_dst, stage.camera.bzoom, stage.camera.angle);
-
-    Debug_StageMoveDebug(&house_dst, 8, fx, fy); 
-    //if (!this->white)
-    Stage_DrawTex(&this->tex_back2, &house_src, &house_dst, stage.camera.bzoom, stage.camera.angle);
-
     Debug_StageMoveDebug(&island_dst, 8, fx, fy); 
-    //if (!this->white)
     Stage_DrawTex(&this->tex_back2, &island_src, &island_dst, stage.camera.bzoom, stage.camera.angle);
 
+    //draw house
+    fx = stage.camera.x * 85 / 100;
+    fy = stage.camera.y * 85 / 100;
+
+    RECT house_src = {0,  0, 256, 256};
+    RECT_FIXED house_dst = {
+        FIXED_DEC(202,1)- fx,
+        FIXED_DEC(9,1) - fy,
+        FIXED_DEC(304,1),
+        FIXED_DEC(301,1)
+    };
+    Debug_StageMoveDebug(&house_dst, 9, fx, fy); 
+    Stage_DrawTex(&this->tex_back1, &house_src, &house_dst, stage.camera.bzoom, stage.camera.angle);
+    //house.scrollFactor.set(0.85, 0.85);
+
+    //draw void
+    fx = stage.camera.x * 6 / 10;
+    fy = stage.camera.y * 6 / 10;
+
+    RECT back_src = {0, 0, 256, 256};
+    RECT_FIXED back_dst = {
+        FIXED_DEC(0,1)- fx,
+        FIXED_DEC(0,1) - fy,
+        FIXED_DEC(707,1),
+        FIXED_DEC(442,1)
+    };
     Debug_StageMoveDebug(&back_dst, 7, fx, fy); 
-    //if (!this->white)
     Stage_DrawTex(&this->tex_back0, &back_src, &back_dst, stage.camera.bzoom, stage.camera.angle);
+    //void.scrollFactor.set(0.6, 0.6);
 
 }
 
