@@ -232,6 +232,7 @@ funkin_add_archive(iso/void/back.arc
     iso/void/back1.tim
     iso/void/back2.tim
     iso/void/back3.tim
+    iso/void/back4.tim
 )
 
 # ADD ARCHIVES HERE

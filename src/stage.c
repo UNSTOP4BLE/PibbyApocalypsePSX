@@ -121,7 +121,7 @@ static void Stage_ScrollCamera(void)
             stage.camera.x = FIXED_LERP(stage.camera.x, stage.camera.tx, stage.camera.speed);
             stage.camera.y = FIXED_LERP(stage.camera.y, stage.camera.ty, stage.camera.speed);
             stage.camera.zoom = FIXED_LERP(stage.camera.zoom, stage.camera.tz, stage.camera.speed);
-            stage.camera.angle = FIXED_LERP(stage.camera.angle, stage.camera.ta << FIXED_SHIFT, stage.camera.speed);
+            stage.camera.angle = FIXED_LERP(stage.camera.angle, stage.camera.ta << FIXED_SHIFT, stage.camera.speed+FIXED_DEC(4,10));
             stage.camera.hudangle = FIXED_LERP(stage.camera.hudangle, stage.camera.hudta << FIXED_SHIFT, stage.camera.speed);
             
         }
@@ -1650,30 +1650,35 @@ void Stage_Tick(void)
         }
         case StageState_Play:
         {
+            Character *movecam[2];
             //move camera
             if (stage.cur_section->flag & SECTION_FLAG_OPPFOCUS)
             {
-                switch (stage.opponent->animatable.anim)
-                {
-                    case CharAnim_Up: stage.camera.y -= FIXED_DEC(2,10); break;
-                    case CharAnim_Down: stage.camera.y += FIXED_DEC(2,10); break;
-                    case CharAnim_Left: stage.camera.x -= FIXED_DEC(2,10); stage.camera.angle = FIXED_LERP(stage.camera.angle, FIXED_DEC(1,1), stage.camera.speed); break;
-                    case CharAnim_Right: stage.camera.x += FIXED_DEC(2,10); stage.camera.angle = FIXED_LERP(stage.camera.angle, -FIXED_DEC(1,1), stage.camera.speed); break;
-                    default:break;
-                }
+                if (strcmp(stage.oppo2sing, "single") == 0) 
+                    movecam[1] = stage.opponent2;
+                else
+                    movecam[0] = stage.opponent;
             }
             else
             {
-                switch (stage.player->animatable.anim)
+                if (strcmp(stage.player2sing, "single") == 0) 
+                    movecam[1] = stage.player2;
+                else
+                    movecam[0] = stage.player;
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                if (movecam[i] == NULL)
+                    continue;
+                switch (movecam[i]->animatable.anim)
                 {
                     case CharAnim_Up: stage.camera.y -= FIXED_DEC(2,10); break;
                     case CharAnim_Down: stage.camera.y += FIXED_DEC(2,10); break;
-                    case CharAnim_Left: stage.camera.x -= FIXED_DEC(2,10); stage.camera.angle = FIXED_LERP(stage.camera.angle, FIXED_DEC(1,1), stage.camera.speed); break;
-                    case CharAnim_Right: stage.camera.x += FIXED_DEC(2,10); stage.camera.angle = FIXED_LERP(stage.camera.angle, -FIXED_DEC(1,1), stage.camera.speed); break;
+                    case CharAnim_Left: stage.camera.x -= FIXED_DEC(2,10);  stage.camera.angle += FIXED_DEC(15,10); break;
+                    case CharAnim_Right: stage.camera.x += FIXED_DEC(2,10); stage.camera.angle -= FIXED_DEC(15,10); break;
                     default:break;
                 }
             }
-
 
             if (stage.prefs.songtimer)
                 StageTimer_Draw();

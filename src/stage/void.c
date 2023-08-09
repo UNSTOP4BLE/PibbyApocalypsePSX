@@ -9,7 +9,15 @@
 #include "../archive.h"
 #include <stdlib.h> 
 #include "../stage.h"
+#include "../mutil.h"
 
+typedef enum Elements
+{
+    Rock1,
+    Rock2,
+    Rock3,
+    House,
+} Elements;
 //void background structure
 typedef struct
 {
@@ -17,6 +25,7 @@ typedef struct
     StageBack back;
     RECT coolfuckinguhhup_dst;
     RECT coolfuckinguhhdown_dst;
+    uint8_t coolangles[5];
     bool white;
     bool popup;
     bool popdown;
@@ -26,6 +35,7 @@ typedef struct
     Gfx_Tex tex_back1;
     Gfx_Tex tex_back2;
     Gfx_Tex tex_back3;
+    Gfx_Tex tex_back4;
 } Back_void;
 
 //void background functions
@@ -42,6 +52,14 @@ void Back_void_DrawFG(StageBack *back)
     Gfx_DrawRect(&this->coolfuckinguhhdown_dst, 0, 0, 0);
 }
 
+uint8_t interpangle(uint8_t *start, uint8_t end, uint8_t speed) {
+    if (*start <= end)
+        start += speed;
+    
+    return *start;
+}
+
+
 void Back_void_DrawBG(StageBack *back)
 {
     Back_void *this = (Back_void*)back;
@@ -56,6 +74,17 @@ void Back_void_DrawBG(StageBack *back)
 //    rock.scrollFactor.set(1, 1);
  //       rock2.scrollFactor.set(1.1, 1.1);
    //     rock3.scrollFactor.set(0.9, 0.9);
+
+    //RECT rocks_src[3] = {
+    //    {},
+    //    {}
+    //};
+
+//    RECT_FIXED rocks_dst[3] = {
+  //      {},
+    //    {}
+    //};
+
     //draw flying shits
     RECT flyingshit_src = {0,  0, 256, 256};
     RECT_FIXED flyingshit_dst = {
@@ -91,8 +120,15 @@ void Back_void_DrawBG(StageBack *back)
         FIXED_DEC(301,1)
     };
     Debug_StageMoveDebug(&house_dst, 9, fx, fy); 
-    Stage_DrawTex(&this->tex_back1, &house_src, &house_dst, stage.camera.bzoom, stage.camera.angle);
-    //house.scrollFactor.set(0.85, 0.85);
+    if (pad_state.press & PAD_UP)
+        this->coolangles[House] ++;
+    if (pad_state.press & PAD_DOWN)
+        this->coolangles[House] --;
+
+        Stage_DrawTexRotate(&this->tex_back1, &house_src, &house_dst, this->coolangles[House], 256/2, 256/2, stage.camera.bzoom, stage.camera.angle);
+    
+
+//house.scrollFactor.set(0.85, 0.85);
 
     //draw void
     fx = stage.camera.x * 6 / 10;
@@ -100,8 +136,8 @@ void Back_void_DrawBG(StageBack *back)
 
     RECT back_src = {0, 0, 256, 256};
     RECT_FIXED back_dst = {
-        FIXED_DEC(0,1)- fx,
-        FIXED_DEC(0,1) - fy,
+        FIXED_DEC(-152,1)- fx,
+        FIXED_DEC(-122,1) - fy,
         FIXED_DEC(707,1),
         FIXED_DEC(442,1)
     };
@@ -138,7 +174,11 @@ StageBack *Back_void_New(void)
     Gfx_LoadTex(&this->tex_back1, Archive_Find(arc_back, "back1.tim"), 0);
     Gfx_LoadTex(&this->tex_back2, Archive_Find(arc_back, "back2.tim"), 0);
     Gfx_LoadTex(&this->tex_back3, Archive_Find(arc_back, "back3.tim"), 0);
+    Gfx_LoadTex(&this->tex_back4, Archive_Find(arc_back, "back4.tim"), 0);
     free(arc_back);
+
+    for (int i = 0; i < COUNT_OF(this->coolangles); i++)
+        this->coolangles[i] = 0;
 
     return (StageBack*)this;
 }
