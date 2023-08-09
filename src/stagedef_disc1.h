@@ -39,7 +39,7 @@
         {NULL},
         
         //Stage background
-        Back_Week1_New,
+        Back_void_New,
         
         //Song info
         1, 3,

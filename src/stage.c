@@ -45,6 +45,7 @@ bool noteshake;
 static uint32_t Sounds[7];
 
 #include "stage/week1.h"
+#include "stage/void.h"
 
 static const StageDef stage_defs[StageId_Max] = {
     #include "stagedef_disc1.h"
@@ -702,7 +703,7 @@ static void Stage_DrawHealthBar(int16_t x, int32_t color)
     if (stage.prefs.downscroll)
         dst.y = -dst.y - dst.h;
     
-    Stage_DrawTexCol(&stage.tex_hud1, &src, &dst, stage.bump, red >> 1, blue >> 1, green >> 1, stage.camera.hudangle);
+    Stage_DrawTexCol(&stage.tex_hud1, &src, &dst, stage.bump, stage.camera.hudangle, red >> 1, blue >> 1, green >> 1);
 }
 
 static void Stage_Player2(void)

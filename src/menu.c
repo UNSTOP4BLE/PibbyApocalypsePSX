@@ -784,6 +784,7 @@ void Menu_Tick(void){
                 {StageId_ChildsPlay, 0xFF9271FD, "CP"},
                 {StageId_MyAmazingWorld, 0xFF9271FD, "MAW"},
                 {StageId_Retcon, 0xFF9271FD, "RT"},
+                {StageId_ForgottenWorld, 0xFF9271FD, "FW"},
                 {StageId_Mindless, 0xFF9271FD, "ML"},
                 {StageId_BlessedBySwords, 0xFF9271FD, "BBTS"},
                 {StageId_BrotherlyLove, 0xFF9271FD, "BL"},

@@ -226,6 +226,14 @@ funkin_add_archive(iso/week1/channels.arc
     iso/week1/ch1.tim
     iso/week1/ch2.tim
 )
+# void
+funkin_add_archive(iso/void/back.arc
+    iso/void/back0.tim
+    iso/void/back1.tim
+    iso/void/back2.tim
+    iso/void/back3.tim
+)
+
 # ADD ARCHIVES HERE
 
 # build str files

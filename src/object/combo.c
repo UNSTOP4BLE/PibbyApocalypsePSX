@@ -259,7 +259,7 @@ Obj_Combo *Obj_Combo_New(fixed_t x, fixed_t y, uint8_t hit_type, uint16_t combo)
     
         //Regular combo
         this->obj.tick = Obj_Combo_Tick;
-        if ((x >= 0) ^ (stage.mode < StageMode_2P))
+        if (stage.mode != StageMode_2P)
             this->x = FIXED_DEC(-112,1) - FIXED_DEC(screen.SCREEN_WIDEADD,4);
         else
             this->x = FIXED_DEC(30,1) + FIXED_DEC(screen.SCREEN_WIDEADD,4);
