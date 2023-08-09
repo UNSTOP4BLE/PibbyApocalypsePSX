@@ -25,20 +25,20 @@
         ["Darwin_ArcMain_D1", [  1, 152, 119,  81], [ 41,  81]], 
         ["Darwin_ArcMain_D1", [121, 152, 119,  81], [ 41,  81]], 
 
-        ["Darwin_ArcMain_D0", [  1, 170,  99,  66], [ 69,  66]], 
-        ["Darwin_ArcMain_D0", [101, 170,  98,  67], [ 68,  67]], 
-        ["Darwin_ArcMain_D1", [  1,   1,  99,  68], [ 67,  68]], 
-        ["Darwin_ArcMain_D1", [101,   1,  99,  68], [ 68,  68]], 
+        ["Darwin_ArcMain_D0", [  1, 170,  99,  66], [ 59,  66]], 
+        ["Darwin_ArcMain_D0", [101, 170,  98,  67], [ 58,  67]], 
+        ["Darwin_ArcMain_D1", [  1,   1,  99,  68], [ 57,  68]], 
+        ["Darwin_ArcMain_D1", [101,   1,  99,  68], [ 58,  68]], 
 
-        ["Darwin_ArcMain_D2", [  1,  81,  82, 103], [  0,   0]], 
-        ["Darwin_ArcMain_D2", [ 84,  81,  81, 100], [  0,   0]], 
-        ["Darwin_ArcMain_D2", [166,  81,  81,  99], [  0,   0]], 
-        ["Darwin_ArcMain_D3", [  1,  82,  81,  99], [  0,   0]], 
+        ["Darwin_ArcMain_D2", [  1,  81,  82, 103], [ 36, 103]], 
+        ["Darwin_ArcMain_D2", [ 84,  81,  81, 100], [ 37, 101]], 
+        ["Darwin_ArcMain_D2", [166,  81,  81,  99], [ 37,  99]], 
+        ["Darwin_ArcMain_D3", [  1,  82,  81,  99], [ 37,  99]], 
 
-        ["Darwin_ArcMain_D2", [  1,   1, 110,  79], [  0,   0]], 
-        ["Darwin_ArcMain_D2", [112,   1, 104,  78], [  0,   0]], 
-        ["Darwin_ArcMain_D3", [  1,   1, 104,  80], [  0,   0]], 
-        ["Darwin_ArcMain_D3", [106,   1,  96,  80], [  0,   0]], 
+        ["Darwin_ArcMain_D2", [  1,   1, 110,  79], [ 23,  77]], 
+        ["Darwin_ArcMain_D2", [112,   1, 104,  78], [ 23,  77]], 
+        ["Darwin_ArcMain_D3", [  1,   1, 104,  80], [ 23,  78]], 
+        ["Darwin_ArcMain_D3", [106,   1,  96,  80], [ 23,  78]], 
 
         ["Darwin_ArcMain_D4", [  0,   0,   0,   0], [  0,   0]], 
         ["Darwin_ArcMain_D4", [  0,   0,   0,   0], [  0,   0]], 
@@ -54,7 +54,7 @@
     ],
 
     "animation": [
-        [3, [ 0,  1,  2,  3, "ASCR_CHGANI", 0]], 
+        [2, [ 0,  1,  2, 2, 0, 0, 1, 2,  3, "ASCR_CHGANI", 0]], 
         [2, [ 4,  5,  6,  7, "ASCR_BACK", 0]],             
         [0, ["ASCR_CHGANI", "CharAnim_Idle"]],       
         [2, [ 8,  9, 10, 11, "ASCR_BACK", 0]],             

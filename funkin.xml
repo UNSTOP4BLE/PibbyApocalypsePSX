@@ -52,7 +52,19 @@
                 <file name = "back.arc" type = "data" source = "iso/week1/back.arc"/>
                 <file name = "channels.arc" type = "data" source = "iso/week1/channels.arc"/>
                 
-                <file name = "1.1n.cht" type = "data" source = "iso/chart/My-Amazing-World.cht"/>
+                <file name = "1.1n.cht" type = "data" source = "iso/chart/childs-play.cht"/>
+                <file name = "1.2n.cht" type = "data" source = "iso/chart/My-Amazing-World.cht"/>
+                <file name = "1.3n.cht" type = "data" source = "iso/chart/Retcon.cht"/>
+                <file name = "1.4n.cht" type = "data" source = "iso/chart/Forgotten-World.cht"/>
+            </dir>
+
+            <!-- Week 2 assets -->
+            <dir name = "week2">
+                <file name = "2.1n.cht" type = "data" source = "iso/chart/Mindless.cht"/>
+                <file name = "2.2n.cht" type = "data" source = "iso/chart/Blessed-By-Swords.cht"/>
+                <file name = "2.3n.cht" type = "data" source = "iso/chart/Brotherly-Love.cht"/>
+                <file name = "2.4n.cht" type = "data" source = "iso/chart/Suffering-Siblings.cht"/>
+                <file name = "2.5n.cht" type = "data" source = "iso/chart/Come-Along-With-Me.cht"/>
             </dir>
 
             <!-- Character assets -->
@@ -108,7 +120,16 @@
             <dir name = "music">
                 <file name = "freaky.vag" type = "data" source = "iso/music/freakyMenu/freakyMenu.vag"/>
 
-                <file name = "1_1.vag" type = "data" source = "iso/music/My-Amazing-World/My-Amazing-World.vag"/>
+                <file name = "1_1.vag" type = "data" source = "iso/music/Childs-Play/Childs-Play.vag"/>
+                <file name = "1_2.vag" type = "data" source = "iso/music/My-Amazing-World/My-Amazing-World.vag"/>
+                <file name = "1_3.vag" type = "data" source = "iso/music/Retcon/Retcon.vag"/>
+                <file name = "1_4.vag" type = "data" source = "iso/music/Forgotten-World/Forgotten-World.vag"/>
+
+                <file name = "2_1.vag" type = "data" source = "iso/music/Mindless/Mindless.vag"/>
+                <file name = "2_2.vag" type = "data" source = "iso/music/Blessed-By-Swords/Blessed-By-Swords.vag"/>
+                <file name = "2_3.vag" type = "data" source = "iso/music/Brotherly-Love/Brotherly-Love.vag"/>
+                <file name = "2_4.vag" type = "data" source = "iso/music/Suffering-Siblings/Suffering-Siblings.vag"/>
+                <file name = "2_5.vag" type = "data" source = "iso/music/Come-Along-With-Me/Come-Along-With-Me.vag"/>
             </dir>
         
             <!-- Videos -->

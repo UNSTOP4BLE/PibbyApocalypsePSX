@@ -92,6 +92,7 @@ void Back_Week1_DrawFG(StageBack *back)
         //init
         if (stage.song_step < 0)
         {
+            stage.player2->visible = false;
             Gfx_SetClear(0,0,0);
             for (int i = 0; i < COUNT_OF(this->chvisible); i++)
                 this->chvisible[i] = false;
@@ -171,15 +172,15 @@ void Back_Week1_DrawFG(StageBack *back)
                     break;
                 case 1568:
                     this->white = true;
-                    stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 0;
+                    stage.player2->visible = true;
+                    stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = stage.player2->r = stage.player2->g = stage.player2->b = 0;
                     stage.player->mode = 4;
                     Gfx_SetClear(255,255,255);
                     break; 
                 case 1823:
                     stage.bumpspeed = 8;
-                    //show darwin
                     this->white = false;
-                    stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 128;
+                    stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = stage.player2->r = stage.player2->g = stage.player2->b = 128;
                     this->popdown = true;
                     Gfx_SetClear(0,0,0);
                     break; 
@@ -211,6 +212,10 @@ void Back_Week1_DrawFG(StageBack *back)
                     printf("focusx %d\n", stage.opponent->focus_x/1024);
                     stage.opponent->focus_y = stage.player->focus_y = FIXED_DEC(-47, 1);
                     stage.opponent->focus_zoom = stage.player->focus_zoom = FIXED_DEC(1, 1);
+                    
+                    //move darwin
+                    stage.player2->x = FIXED_DEC(20,1);
+                    stage.player2->y = FIXED_DEC(51,1);
                     break;
                 case 2176:
                     this->chvisible[0] = false;
@@ -323,7 +328,7 @@ void Back_Week1_DrawFG(StageBack *back)
             }
         }
     }
-    Debug_StageMoveDebug(&wall_dst, 5, fx, fy); 
+    Debug_StageMoveDebug(&wall_dst, 7, fx, fy); 
     if (!this->white && (stage.stage_id == StageId_MyAmazingWorld && stage.song_step <= 2144))
         Stage_DrawTex(&this->tex_back1, &wall_src, &wall_dst, stage.camera.bzoom, stage.camera.angle);
 }
@@ -346,7 +351,7 @@ void Back_Week1_DrawBG(StageBack *back)
         FIXED_DEC(216,1)
     };
 
-    Debug_StageMoveDebug(&back_dst, 4, fx, fy);
+    Debug_StageMoveDebug(&back_dst, 8, fx, fy);
     if (!this->white && stage.song_step <= 2144)
         Stage_DrawTex(&this->tex_back0, &back_src, &back_dst, stage.camera.bzoom, stage.camera.angle);
 

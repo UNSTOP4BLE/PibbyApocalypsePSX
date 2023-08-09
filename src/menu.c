@@ -781,7 +781,14 @@ void Menu_Tick(void){
                 const char *text;
             } menu_options[] = {
                 //{StageId_4_4, 0xFFFC96D7, "TEST"},
-                {StageId_MyAmazingWorld, 0xFF9271FD, "BOPEEBO"},
+                {StageId_ChildsPlay, 0xFF9271FD, "CP"},
+                {StageId_MyAmazingWorld, 0xFF9271FD, "MAW"},
+                {StageId_Retcon, 0xFF9271FD, "RT"},
+                {StageId_Mindless, 0xFF9271FD, "ML"},
+                {StageId_BlessedBySwords, 0xFF9271FD, "BBTS"},
+                {StageId_BrotherlyLove, 0xFF9271FD, "BL"},
+                {StageId_SufferingSiblings, 0xFF9271FD, "SS"},
+                {StageId_ComeAlongWithMe, 0xFF9271FD, "CAWM"},
             };
 
             menu.font_arial.draw(&menu.font_arial,

@@ -40,8 +40,17 @@
 //Stage enums
 typedef enum
 {
-    StageId_MyAmazingWorld, //My Amazing World
-    
+    StageId_ChildsPlay,
+    StageId_MyAmazingWorld,
+    StageId_Retcon,
+    StageId_ForgottenWorld,
+
+    StageId_Mindless,
+    StageId_BlessedBySwords,
+    StageId_BrotherlyLove,
+    StageId_SufferingSiblings,
+    StageId_ComeAlongWithMe,
+
     StageId_Max
 } StageId;
 
