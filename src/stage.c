@@ -1329,7 +1329,6 @@ static void Stage_LoadState(void)
 }
 
 //Stage functions
-char iconpath[30];
 
 void Stage_Load(StageId id, StageDiff difficulty, bool story)
 {
@@ -1340,7 +1339,7 @@ void Stage_Load(StageId id, StageDiff difficulty, bool story)
     
     //Load HUD textures
         Gfx_LoadTex(&stage.tex_hud0, IO_Read("\\STAGE\\HUD0.TIM;1"), GFX_LOADTEX_FREE);
-    
+    char iconpath[30];
     sprintf(iconpath, "\\STAGE\\HUD1-%d.TIM;1", stage.stage_def->week);
     Gfx_LoadTex(&stage.tex_hud1, IO_Read(iconpath), GFX_LOADTEX_FREE);
 
