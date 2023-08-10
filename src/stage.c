@@ -937,7 +937,7 @@ static void Stage_DrawNotes(void)
                         }
                         //draw for opponent
                         if (stage.prefs.middlescroll && note->type & NOTE_FLAG_OPPONENT)
-                            Stage_BlendTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, 1, stage.camera.hudangle);
+                            Stage_BlendTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, 4, stage.camera.hudangle);
                         else
                             Stage_DrawTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, stage.camera.hudangle);
                     }
@@ -965,7 +965,7 @@ static void Stage_DrawNotes(void)
                             note_dst.y = -note_dst.y - note_dst.h;
                         //draw for opponent
                         if (stage.prefs.middlescroll && note->type & NOTE_FLAG_OPPONENT)
-                            Stage_BlendTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, 1, stage.camera.hudangle);
+                            Stage_BlendTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, 4, stage.camera.hudangle);
                         else
                             Stage_DrawTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, stage.camera.hudangle);
                     }
@@ -992,7 +992,7 @@ static void Stage_DrawNotes(void)
                     note_dst.y = -note_dst.y - note_dst.h;
                 //draw for opponent
                 if (stage.prefs.middlescroll && note->type & NOTE_FLAG_OPPONENT)
-                    Stage_BlendTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, 1, stage.camera.hudangle);
+                    Stage_BlendTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, 4, stage.camera.hudangle);
                 else
                     Stage_DrawTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, stage.camera.hudangle);
             }
@@ -1036,17 +1036,17 @@ static void Stage_CountDown(void)
     if (drawshit == 3 && stage.song_step >= -15 && stage.song_step <= -12)
         Stage_DrawTex(&stage.tex_hud1, &ready_src, &ready_dst, stage.bump, FIXED_DEC(90,1));
     else if (drawshit == 3 && stage.song_step >= -12 && stage.song_step <= -11)
-        Stage_BlendTex(&stage.tex_hud1, &ready_src, &ready_dst, stage.bump, FIXED_DEC(90,1), 1);
+        Stage_BlendTex(&stage.tex_hud1, &ready_src, &ready_dst, stage.bump, FIXED_DEC(90,1), 4);
 
     if (drawshit == 2 && stage.song_step >= -10 && stage.song_step <= -7)
         Stage_DrawTex(&stage.tex_hud0, &set_src, &set_dst, stage.bump, FIXED_DEC(90,1));
     else if (drawshit == 2 && stage.song_step >= -7 && stage.song_step <= -6)
-        Stage_BlendTex(&stage.tex_hud0, &set_src, &set_dst, stage.bump, FIXED_DEC(90,1), 1);
+        Stage_BlendTex(&stage.tex_hud0, &set_src, &set_dst, stage.bump, FIXED_DEC(90,1), 4);
 
     if (drawshit == 1 && stage.song_step >= -5 && stage.song_step <= -2)
         Stage_DrawTex(&stage.tex_hud1, &go_src, &go_dst, stage.bump, FIXED_DEC(90,1));
     else if (drawshit == 1 && stage.song_step >= -2 && stage.song_step <= -1)
-        Stage_BlendTex(&stage.tex_hud1, &go_src, &go_dst, stage.bump, FIXED_DEC(90,1), 1);
+        Stage_BlendTex(&stage.tex_hud1, &go_src, &go_dst, stage.bump, FIXED_DEC(90,1), 4);
 }
 
 //Stage loads
@@ -1673,8 +1673,8 @@ void Stage_Tick(void)
                 {
                     case CharAnim_Up: stage.camera.y -= FIXED_DEC(2,10); break;
                     case CharAnim_Down: stage.camera.y += FIXED_DEC(2,10); break;
-                    case CharAnim_Left: stage.camera.x -= FIXED_DEC(2,10);  stage.camera.angle += FIXED_DEC(15,10); break;
-                    case CharAnim_Right: stage.camera.x += FIXED_DEC(2,10); stage.camera.angle -= FIXED_DEC(15,10); break;
+                    case CharAnim_Left:  if (movecam[i] == stage.player || movecam[i] == stage.player2) stage.camera.angle -= FIXED_DEC(15,10); else stage.camera.angle += FIXED_DEC(15,10); stage.camera.x -= FIXED_DEC(2,10); break;
+                    case CharAnim_Right: if (movecam[i] == stage.player || movecam[i] == stage.player2) stage.camera.angle += FIXED_DEC(15,10); else stage.camera.angle -= FIXED_DEC(15,10); stage.camera.x += FIXED_DEC(2,10); break;
                     default:break;
                 }
             }
@@ -2053,7 +2053,7 @@ void Stage_Tick(void)
                     Stage_DrawStrum(i | 4, &note_src, &note_dst);
 
                     if (stage.prefs.middlescroll)
-                        Stage_BlendTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, 1, stage.camera.hudangle);
+                        Stage_BlendTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, 4, stage.camera.hudangle);
                     else
                         Stage_DrawTex(&stage.tex_hud0, &note_src, &note_dst, stage.bump, stage.camera.hudangle);
                 }

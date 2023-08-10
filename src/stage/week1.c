@@ -174,7 +174,7 @@ void Back_Week1_DrawFG(StageBack *back)
                     this->white = true;
                     stage.player2->visible = true;
                     stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = stage.player2->r = stage.player2->g = stage.player2->b = 0;
-                    stage.player->mode = 4;
+                    stage.player->mode = 3;
                     Gfx_SetClear(255,255,255);
                     break; 
                 case 1823:
@@ -352,10 +352,10 @@ void Back_Week1_DrawBG(StageBack *back)
     };
 
     Debug_StageMoveDebug(&back_dst, 8, fx, fy);
-    if (!this->white && stage.song_step <= 2144)
+    if (!this->white && (stage.stageid == StageId_MyAmazingWorld && stage.song_step <= 2144))
         Stage_DrawTex(&this->tex_back0, &back_src, &back_dst, stage.camera.bzoom, stage.camera.angle);
 
-    if (stage.song_step >= 2144 && stage.song_step <= 2688)
+    if (stage.song_step >= 2144 && stage.song_step <= 2688 && this->curchannel != NULL && stage.stage_id == StageId_MyAmazingWorld)
         Stage_DrawTex(&this->curchannel, &back_src, &back_dst, stage.camera.bzoom, stage.camera.angle);
 }
 
