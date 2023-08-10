@@ -31,12 +31,12 @@
         ["Dad_ArcMain_Idle2", [  1, 121, 126, 118], [  0,   0]], 
         ["Dad_ArcMain_Idle3", [  1,   1, 128, 119], [  0,   0]], 
         ["Dad_ArcMain_Idle3", [  1, 121, 126, 118], [  0,   0]], 
-        ["Dad_ArcMain_Idle4", [  1,   1,   0,   0], [  0,   0]], 
-        ["Dad_ArcMain_Idle4", [  1,   0,   0,   0], [  0,   0]], 
-        ["Dad_ArcMain_Idle5", [  1,   1,   0,   0], [  0,   0]], 
+        ["Dad_ArcMain_Idle4", [  1,   1, 127, 119], [  0,   0]], 
+        ["Dad_ArcMain_Idle4", [  1, 121, 127, 119], [  0,   0]], 
+        ["Dad_ArcMain_Idle5", [  1,   1, 128, 118], [  0,   0]], 
        
-        ["Dad_ArcMain_Left", [  0,   0,   0,   0], [  0,   0]], 
-        ["Dad_ArcMain_Left", [  0,   0,   0,   0], [  0,   0]], 
+        ["Dad_ArcMain_Left", [  1,   1, 154, 125], [  0,   0]], 
+        ["Dad_ArcMain_Left", [  1, 127, 160, 123], [  0,   0]], 
         
         ["Dad_ArcMain_Down", [  0,   0,   0,   0], [  0,   0]], 
         ["Dad_ArcMain_Down", [  0,   0,   0,   0], [  0,   0]], 
