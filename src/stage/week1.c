@@ -329,7 +329,7 @@ void Back_Week1_DrawFG(StageBack *back)
         }
     }
     Debug_StageMoveDebug(&wall_dst, 7, fx, fy); 
-    if (!this->white && (stage.stage_id == StageId_MyAmazingWorld && stage.song_step <= 2144))
+    if (!this->white && stage.stage_id == StageId_MyAmazingWorld && stage.song_step <= 2144)
         Stage_DrawTex(&this->tex_back1, &wall_src, &wall_dst, stage.camera.bzoom, stage.camera.angle);
 }
 
@@ -352,10 +352,10 @@ void Back_Week1_DrawBG(StageBack *back)
     };
 
     Debug_StageMoveDebug(&back_dst, 8, fx, fy);
-    if (!this->white && (stage.stageid == StageId_MyAmazingWorld && stage.song_step <= 2144))
+    if (!this->white && (stage.stage_id == StageId_MyAmazingWorld && stage.song_step <= 2144))
         Stage_DrawTex(&this->tex_back0, &back_src, &back_dst, stage.camera.bzoom, stage.camera.angle);
 
-    if (stage.song_step >= 2144 && stage.song_step <= 2688 && this->curchannel != NULL && stage.stage_id == StageId_MyAmazingWorld)
+    if (stage.song_step >= 2144 && stage.song_step <= 2688 && stage.stage_id == StageId_MyAmazingWorld)
         Stage_DrawTex(&this->curchannel, &back_src, &back_dst, stage.camera.bzoom, stage.camera.angle);
 }
 
