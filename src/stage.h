@@ -86,6 +86,7 @@ typedef struct StageBack
     void (*draw_fg)(struct StageBack*);
     void (*draw_md)(struct StageBack*);
     void (*draw_bg)(struct StageBack*);
+    void (*load)();
     void (*free)(struct StageBack*);
 } StageBack;
 
@@ -224,6 +225,9 @@ typedef struct
     Character *opponent;
     Character *opponent2;
     Character *gf;
+
+    Character *charptrs[16];
+    Character *charswitchable[16];
     
     Section *cur_section; //Current section
     Note *cur_note; //First visible and hittable note, used for drawing and hit detection
@@ -287,13 +291,9 @@ void Stage_DrawTexArb(Gfx_Tex *tex, const RECT *src, const POINT_FIXED *p0, cons
 void Stage_BlendTexArb(Gfx_Tex *tex, const RECT *src, const POINT_FIXED *p0, const POINT_FIXED *p1, const POINT_FIXED *p2, const POINT_FIXED *p3, fixed_t zoom, uint8_t mode);
 
 //Stage functions
+Character *Stage_SwitchCharacter(Character *switchchar, int switchbuffer);
 void Stage_Load(StageId id, StageDiff difficulty, bool story);
 void Stage_Unload();
 void Stage_Tick();
-
-#ifdef PSXF_NETWORK
-void Stage_NetHit(Packet *packet);
-void Stage_NetMiss(Packet *packet);
-#endif
 
 #endif

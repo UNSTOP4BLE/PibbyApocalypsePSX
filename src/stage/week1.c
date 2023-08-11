@@ -174,7 +174,7 @@ void Back_Week1_DrawFG(StageBack *back)
                     this->white = true;
                     stage.player2->visible = true;
                     stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = stage.player2->r = stage.player2->g = stage.player2->b = 0;
-                    stage.player->mode = 3;
+                    stage.player->mode = 4;
                     Gfx_SetClear(255,255,255);
                     break; 
                 case 1823:
@@ -379,6 +379,7 @@ StageBack *Back_Week1_New(void)
     this->back.draw_fg = Back_Week1_DrawFG;
     this->back.draw_md = NULL;
     this->back.draw_bg = Back_Week1_DrawBG;
+    this->back.load = NULL;
     this->back.free = Back_Week1_Free;
     
     //Load background textures
@@ -391,6 +392,5 @@ StageBack *Back_Week1_New(void)
     this->channels_ptr[0] = Archive_Find(this->channels, "ch0.tim");
     this->channels_ptr[1] = Archive_Find(this->channels, "ch1.tim");
     this->channels_ptr[2] = Archive_Find(this->channels, "ch2.tim");
-
     return (StageBack*)this;
 }
