@@ -155,6 +155,11 @@ void Back_void_Free(StageBack *back)
     free(this);
 }
 
+void Back_void_LoadCharacterSwap(void)
+{
+    stage.charswitchable[0] = Character_FromFile(stage.charswitchable[0], "\\CHAR\\DARWIN.CHR;1", stage.stage_def->pchar.x, stage.stage_def->pchar.y);
+}
+
 StageBack *Back_void_New(void)
 {
     //Allocate background structure
@@ -166,6 +171,7 @@ StageBack *Back_void_New(void)
     this->back.draw_fg = Back_void_DrawFG;
     this->back.draw_md = NULL;
     this->back.draw_bg = Back_void_DrawBG;
+    this->back.load = Back_void_LoadCharacterSwap;
     this->back.free = Back_void_Free;
     
     //Load background textures

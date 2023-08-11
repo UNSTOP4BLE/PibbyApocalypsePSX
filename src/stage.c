@@ -1120,6 +1120,63 @@ static void Stage_LoadMusic(void)
 }
 
 bool str_done, str_canplay;
+
+void Stage_InitChars(Character *opponent, Character *player) {
+    if (stage.mode == StageMode_Swap)
+    {
+        if (opponent != NULL)
+            stage.player_state[0].character = opponent;
+        if (player != NULL)
+            stage.player_state[1].character = player;
+    }
+    else
+    {   
+        if (player != NULL)
+            stage.player_state[0].character = player;   
+        if (opponent != NULL)
+            stage.player_state[1].character = opponent;
+    }
+}
+
+Character *Stage_SwitchCharacter(Character *switchchar, int switchbuffer) {
+    bool containsfunny = false;
+    printf("switching character\n");
+    for (int i = 0; i < 16; i++)
+    {
+        if (switchchar == stage.charptrs[i])
+        {
+            containsfunny = true;
+            break;
+        }
+    }
+
+    Character *ch = stage.charswitchable[switchbuffer];
+    if ((stage.charptrs[switchbuffer] != NULL && !containsfunny) || switchbuffer > 15)
+    {
+        sprintf(error_msg, "Stage_SwitchCharacter: STOP! YOU ARE MAKING A MEMORY LEAK!\n ERRCODE %d", switchbuffer);
+        ErrorLock();
+        return NULL;
+    }
+    if (ch == NULL)
+    {
+        sprintf(error_msg, "Stage_SwitchCharacter: Failed to allocate character %d", switchbuffer);
+        ErrorLock();
+        return NULL;
+    }
+   
+    stage.charptrs[switchbuffer] = switchchar;
+    if (switchchar != stage.player2 || switchchar != stage.opponent2)
+    {
+        if (switchchar == stage.opponent)
+            Stage_InitChars(NULL, ch);
+        if (switchchar == stage.player)
+            Stage_InitChars(ch, NULL);
+    }
+
+    printf("done initializing\n");
+    return ch;
+}
+
 static void Stage_LoadState(void)
 {
     //Initialize stage state
@@ -1129,19 +1186,7 @@ static void Stage_LoadState(void)
     
     stage.state = StageState_Play;
     
-    if (stage.mode == StageMode_Swap)
-    {
-        if (stage.opponent != NULL)
-            stage.player_state[0].character = stage.opponent;
-        stage.player_state[1].character = stage.player;
-    }
-    else
-    {   
-        stage.player_state[0].character = stage.player;
-        
-        if (stage.opponent != NULL)
-            stage.player_state[1].character = stage.opponent;
-    }
+    Stage_InitChars(stage.opponent, stage.player);
 
     for (int i = 0; i < 2; i++)
     {
@@ -1249,6 +1294,10 @@ void Stage_Load(StageId id, StageDiff difficulty, bool story)
     Stage_LoadOpponent2();  
     Stage_LoadGirlfriend();
 
+    //load switching chars
+    if (stage.back->load != NULL)
+        stage.back->load();
+
     //Load stage chart
     Stage_LoadChart();
 
@@ -1320,6 +1369,14 @@ void Stage_Unload(void)
     stage.opponent2 = NULL;
     Character_Free(stage.gf);
     stage.gf = NULL;
+    for (int i = 0; i < 16; i++)
+    {
+        Character_Free(stage.charptrs[i]);
+        stage.charptrs[i] = NULL;
+        Character_Free(stage.charswitchable[i]);
+        stage.charswitchable[i] = NULL;
+    }
+
     
     Audio_DestroyStream();
 }

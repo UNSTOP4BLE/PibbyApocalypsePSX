@@ -88,6 +88,7 @@ typedef struct StageBack
     void (*draw_fg)(struct StageBack*);
     void (*draw_md)(struct StageBack*);
     void (*draw_bg)(struct StageBack*);
+    void (*load)();
     void (*free)(struct StageBack*);
 } StageBack;
 
@@ -226,6 +227,9 @@ typedef struct
     Character *opponent;
     Character *opponent2;
     Character *gf;
+
+    Character *charptrs[16];
+    Character *charswitchable[16];
     
     Section *cur_section; //Current section
     Note *cur_note; //First visible and hittable note, used for drawing and hit detection
@@ -275,13 +279,9 @@ typedef struct
 extern Stage stage;
 
 //Stage functions
+Character *Stage_SwitchCharacter(Character *switchchar, int switchbuffer);
 void Stage_Load(StageId id, StageDiff difficulty, bool story);
 void Stage_Unload();
 void Stage_Tick();
-
-#ifdef PSXF_NETWORK
-void Stage_NetHit(Packet *packet);
-void Stage_NetMiss(Packet *packet);
-#endif
 
 #endif
