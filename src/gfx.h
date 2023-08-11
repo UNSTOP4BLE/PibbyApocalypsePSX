@@ -69,6 +69,6 @@ void Gfx_DrawTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_
 void Gfx_DrawTexRotate(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy);
 void Gfx_BlendTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t r, uint8_t g, uint8_t b, uint8_t mode);
 void Gfx_BlendTexRotate(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t mode);
-
+void Gfx_Drawall(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t r, uint8_t g, uint8_t b, uint8_t mode);
 
 #endif

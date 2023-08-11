@@ -314,107 +314,29 @@ void Gfx_DrawTex(Gfx_Tex *tex, const RECT *src, const RECT *dst)
     Gfx_DrawTexCol(tex, src, dst, 0x80, 0x80, 0x80);
 }
 
-void Gfx_DrawTexArbCol(Gfx_Tex *tex, const RECT *src, const POINT *p0, const POINT *p1, const POINT *p2, const POINT *p3, uint8_t r, uint8_t g, uint8_t b)
-{
-    //Add quad
-    POLY_FT4 *quad = (POLY_FT4*)nextpri;
-    setPolyFT4(quad);
-    setUVWH(quad, src->x, src->y, src->w, src->h);
-    setXY4(quad, p0->x, p0->y, p1->x, p1->y, p2->x, p2->y, p3->x, p3->y);
-    setRGB0(quad, r, g, b);
-    quad->tpage = tex->tpage;
-    quad->clut = tex->clut;
-    
-    addPrim(ot[db], quad);
-    nextpri += sizeof(POLY_FT4);
-}
-
-void Gfx_DrawTexArb(Gfx_Tex *tex, const RECT *src, const POINT *p0, const POINT *p1, const POINT *p2, const POINT *p3)
-{
-    Gfx_DrawTexArbCol(tex, src, p0, p1, p2, p3, 0x80, 0x80, 0x80);
-}
-
-void Gfx_BlendTexArb(Gfx_Tex *tex, const RECT *src, const POINT *p0, const POINT *p1, const POINT *p2, const POINT *p3, uint8_t mode)
-{
-    //Add quad
-    POLY_FT4 *quad = (POLY_FT4*)nextpri;
-    setPolyFT4(quad);
-    setUVWH(quad, src->x, src->y, src->w, src->h);
-    setXY4(quad, p0->x, p0->y, p1->x, p1->y, p2->x, p2->y, p3->x, p3->y);
-    setRGB0(quad, 0x80, 0x80, 0x80);
-    setSemiTrans(quad, 1);
-    quad->tpage = tex->tpage | getTPage(0, mode, 0, 0);
-    quad->clut = tex->clut;
-    
-    addPrim(ot[db], quad);
-    nextpri += sizeof(POLY_FT4);
-}
+//rotation stuffs
 
 void Gfx_DrawTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t r, uint8_t g, uint8_t b)
 {   
-    //Manipulate rects to comply with GPU restrictions
-    RECT csrc = *src;
-    RECT cdst = *dst;
-
-    if (dst->w < 0)
-        csrc.x--;
-    if (dst->h < 0)
-        csrc.y--;
-
-    if ((csrc.x + csrc.w) >= 0x100)
-    {
-        csrc.w = 0xFF - csrc.x;
-        cdst.w = cdst.w * csrc.w / src->w;
-    }
-    if ((csrc.y + csrc.h) >= 0x100)
-    {
-        csrc.h = 0xFF - csrc.y;
-        cdst.h = cdst.h * csrc.h / src->h;
-    }
-
-    int16_t sinVal = MUtil_Sin(angle);
-    int16_t cosVal = MUtil_Cos(angle);
-
-    if (csrc.w != 0)
-        hx = hx * (cdst.w / csrc.w);
-    if (csrc.h != 0)    
-        hy = hy * (cdst.h / csrc.h);
-
-    // Get rotated points
-    POINT points[4] = {
-        {0 - hx, 0 - hy},
-        {cdst.w - hx, 0 - hy},
-        {0 - hx, cdst.h - hy},
-        {cdst.w - hx, cdst.h - hy}
-    };
-
-    for (int i = 0; i < 4; i++)
-    {
-        MUtil_RotatePoint(&points[i], sinVal, cosVal);
-        points[i].x += cdst.x;
-        points[i].y += cdst.y;
-    }
-    
-    //Add quad
-    POLY_FT4 *quad = (POLY_FT4*)nextpri;
-    setPolyFT4(quad);
-    setUVWH(quad, src->x, csrc.y, csrc.w, csrc.h);
-    setXY4(quad, points[0].x, points[0].y, points[1].x, points[1].y, points[2].x, points[2].y, points[3].x, points[3].y);
-    setRGB0(quad, r, g, b);
-    quad->tpage = tex->tpage;
-    quad->clut = tex->clut;
-    
-    addPrim(ot[db], quad);
-    nextpri += sizeof(POLY_FT4);
+    Gfx_Drawall(tex, src, dst, angle, hx, hy, r, g, b, 0);
 }
 
 void Gfx_DrawTexRotate(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy)
 {
-    Gfx_DrawTexRotateCol(tex, src, dst, angle, hx, hy, 128, 128, 128);
+    Gfx_Drawall(tex, src, dst, angle, hx, hy, 128, 128, 128, 0);
 }
 
-
 void Gfx_BlendTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t r, uint8_t g, uint8_t b, uint8_t mode)
+{
+    Gfx_Drawall(tex, src, dst, angle, hx, hy, r, g, b, mode);
+}
+
+void Gfx_BlendTexRotate(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t mode)
+{
+    Gfx_Drawall(tex, src, dst, angle, hx, hy, 128, 128, 128, mode);
+}
+
+void Gfx_Drawall(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t r, uint8_t g, uint8_t b, uint8_t mode)
 {   
     //Manipulate rects to comply with GPU restrictions
     RECT csrc, cdst;
@@ -475,9 +397,39 @@ void Gfx_BlendTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8
     nextpri += sizeof(POLY_FT4);
 }
 
-void Gfx_BlendTexRotate(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t mode)
+//Arb Draw Functions
+void Gfx_DrawTexArb(Gfx_Tex *tex, const RECT *src, const POINT *p0, const POINT *p1, const POINT *p2, const POINT *p3)
 {
-    Gfx_BlendTexRotateCol(tex, src, dst, angle, hx, hy, 128, 128, 128, mode);
+    Gfx_DrawTexArbCol(tex, src, p0, p1, p2, p3, 0x80, 0x80, 0x80);
 }
 
+void Gfx_DrawTexArbCol(Gfx_Tex *tex, const RECT *src, const POINT *p0, const POINT *p1, const POINT *p2, const POINT *p3, uint8_t r, uint8_t g, uint8_t b)
+{
+    //Add quad
+    POLY_FT4 *quad = (POLY_FT4*)nextpri;
+    setPolyFT4(quad);
+    setUVWH(quad, src->x, src->y, src->w, src->h);
+    setXY4(quad, p0->x, p0->y, p1->x, p1->y, p2->x, p2->y, p3->x, p3->y);
+    setRGB0(quad, r, g, b);
+    quad->tpage = tex->tpage;
+    quad->clut = tex->clut;
+    
+    addPrim(ot[db], quad);
+    nextpri += sizeof(POLY_FT4);
+}
 
+void Gfx_BlendTexArb(Gfx_Tex *tex, const RECT *src, const POINT *p0, const POINT *p1, const POINT *p2, const POINT *p3, uint8_t mode)
+{
+    //Add quad
+    POLY_FT4 *quad = (POLY_FT4*)nextpri;
+    setPolyFT4(quad);
+    setUVWH(quad, src->x, src->y, src->w, src->h);
+    setXY4(quad, p0->x, p0->y, p1->x, p1->y, p2->x, p2->y, p3->x, p3->y);
+    setRGB0(quad, 0x80, 0x80, 0x80);
+    setSemiTrans(quad, 1);
+    quad->tpage = tex->tpage | getTPage(0, mode, 0, 0);
+    quad->clut = tex->clut;
+    
+    addPrim(ot[db], quad);
+    nextpri += sizeof(POLY_FT4);
+}
