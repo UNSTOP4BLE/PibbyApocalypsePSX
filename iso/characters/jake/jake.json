@@ -23,29 +23,29 @@
     ],
 
     "frames": [
-        ["Jake_ArcMain_Idle0", [  1,   1, 131, 119], [  0,   0]], 
-        ["Jake_ArcMain_Idle0", [  1, 121, 130, 119], [  0,   0]], 
-        ["Jake_ArcMain_Idle1", [  1,   1, 131, 118], [  0,   0]], 
-        ["Jake_ArcMain_Idle1", [  1, 119, 130, 119], [  0,   0]], 
-        ["Jake_ArcMain_Idle2", [  1,   1, 128, 119], [  0,   0]], 
-        ["Jake_ArcMain_Idle2", [  1, 121, 126, 118], [  0,   0]], 
-        ["Jake_ArcMain_Idle3", [  1,   1, 128, 119], [  0,   0]], 
-        ["Jake_ArcMain_Idle3", [  1, 121, 126, 118], [  0,   0]], 
-        ["Jake_ArcMain_Idle4", [  1,   1, 127, 119], [  0,   0]], 
-        ["Jake_ArcMain_Idle4", [  1, 121, 127, 119], [  0,   0]], 
-        ["Jake_ArcMain_Idle5", [  1,   1, 128, 118], [  0,   0]], 
+        ["Jake_ArcMain_Idle0", [  1,   1, 131, 119], [131, 119]], 
+        ["Jake_ArcMain_Idle0", [  1, 121, 130, 119], [130, 119]], 
+        ["Jake_ArcMain_Idle1", [  1,   1, 131, 118], [126, 118]], 
+        ["Jake_ArcMain_Idle1", [  1, 119, 130, 119], [124, 119]], 
+        ["Jake_ArcMain_Idle2", [  1,   1, 128, 119], [120, 119]], 
+        ["Jake_ArcMain_Idle2", [  1, 121, 126, 118], [119, 118]], 
+        ["Jake_ArcMain_Idle3", [  1,   1, 128, 119], [121, 119]], 
+        ["Jake_ArcMain_Idle3", [  1, 121, 126, 118], [119, 118]], 
+        ["Jake_ArcMain_Idle4", [  1,   1, 127, 119], [126, 119]], 
+        ["Jake_ArcMain_Idle4", [  1, 121, 127, 119], [127, 119]], 
+        ["Jake_ArcMain_Idle5", [  1,   1, 128, 118], [128, 118]], 
        
-        ["Jake_ArcMain_Left", [  1,   1, 154, 125], [  0,   0]], 
-        ["Jake_ArcMain_Left", [  1, 127, 160, 123], [  0,   0]], 
+        ["Jake_ArcMain_Left", [  1,   1, 154, 125], [154,  124]], 
+        ["Jake_ArcMain_Left", [  1, 127, 160, 123], [160,  122]], 
         
-        ["Jake_ArcMain_Down", [  0,   0,   0,   0], [  0,   0]], 
-        ["Jake_ArcMain_Down", [  0,   0,   0,   0], [  0,   0]], 
+        ["Jake_ArcMain_Down", [  1,   1, 133, 100], [127, 100]], 
+        ["Jake_ArcMain_Down", [  1, 102, 131,  92], [127,  91]], 
         
-        ["Jake_ArcMain_Up0", [  0,   0,   0,   0], [  0,   0]], 
-        ["Jake_ArcMain_Up1", [  0,   0,   0,   0], [  0,   0]], 
+        ["Jake_ArcMain_Up0", [  1,   1, 129, 200], [128, 199]], 
+        ["Jake_ArcMain_Up1", [  1,   1, 178, 207], [151, 207]], 
 
-        ["Jake_ArcMain_Right0", [  1,   1, 208, 143], [  0,   0]], 
-        ["Jake_ArcMain_Right1", [  1,   1, 207, 143], [  0,   0]]
+        ["Jake_ArcMain_Right0", [  1,   1, 208, 143], [139, 143]], 
+        ["Jake_ArcMain_Right1", [  1,   1, 207, 143], [139, 143]]
     ],
 
     "animation": [
