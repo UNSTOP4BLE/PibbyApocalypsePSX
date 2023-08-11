@@ -87,6 +87,10 @@
                 <!-- Dad assets -->
                 <file name = "dad.arc" type = "data" source = "iso/characters/dad/main.arc"/>
                 <file name = "dad.chr" type = "data" source = "iso/characters/dad/dad.chr"/>
+
+                <!-- Finn assets -->
+                <file name = "finncn.arc" type = "data" source = "iso/characters/finncn/main.arc"/>
+                <file name = "finncn.chr" type = "data" source = "iso/characters/finncn/finncn.chr"/>
             
                 <!-- Jake assets -->
                 <file name = "jake.arc" type = "data" source = "iso/characters/jake/main.arc"/>

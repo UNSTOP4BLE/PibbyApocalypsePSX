@@ -215,6 +215,21 @@ funkin_add_archive(iso/characters/dad/main.arc
     iso/characters/dad/right.tim
 )
 
+# finn
+funkin_add_archive(iso/characters/finncn/main.arc
+    iso/characters/finncn/idle0.tim 
+    iso/characters/finncn/idle1.tim 
+    iso/characters/finncn/idle2.tim 
+    iso/characters/finncn/idle3.tim 
+    iso/characters/finncn/idle4.tim 
+    iso/characters/finncn/left0.tim 
+    iso/characters/finncn/left1.tim 
+    iso/characters/finncn/down.tim 
+    iso/characters/finncn/up.tim 
+    iso/characters/finncn/right0.tim
+    iso/characters/finncn/right1.tim
+)
+
 # jok
 funkin_add_archive(iso/characters/jake/main.arc
     iso/characters/jake/idle0.tim 
