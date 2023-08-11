@@ -18,10 +18,12 @@ void LoadScr_Start(void)
 {
     Gfx_Tex loading_tex;
 
-    Gfx_LoadTex(&loading_tex, IO_Read("\\MENU\\LOADING.TIM;1"), GFX_LOADTEX_FREE);
     //Stop VAG playback
     Audio_StopStream();
     Audio_ResetChannels(); 
+    CdReadSync(0,0);
+    Gfx_LoadTex(&loading_tex, IO_Read("\\MENU\\LOADING.TIM;1"), GFX_LOADTEX_FREE);
+
 
     //free all sounds it loaded before and make sure frame has been drawn
     Audio_ClearAlloc();

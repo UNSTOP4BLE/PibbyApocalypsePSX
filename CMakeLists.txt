@@ -237,7 +237,6 @@ funkin_add_archive(iso/characters/jake/main.arc
     iso/characters/jake/idle2.tim 
     iso/characters/jake/idle3.tim 
     iso/characters/jake/idle4.tim 
-    iso/characters/jake/idle5.tim 
     iso/characters/jake/left.tim 
     iso/characters/jake/down.tim 
     iso/characters/jake/up0.tim 

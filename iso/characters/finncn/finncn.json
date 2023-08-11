@@ -21,28 +21,28 @@
     ],
 
     "frames": [
-        ["FinnCn_ArcMain_Idle0", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Idle0", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Idle1", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Idle1", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Idle2", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Idle2", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Idle3", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Idle3", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Idle4", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Idle4", [  0,   0,   0,   0], [  0,   0]],
+        ["FinnCn_ArcMain_Idle0", [  1,   1, 107, 163], [ 98, 163]],
+        ["FinnCn_ArcMain_Idle0", [109,   1, 106, 163], [100, 162]],
+        ["FinnCn_ArcMain_Idle1", [  1,   2, 105, 164], [100, 164]],
+        ["FinnCn_ArcMain_Idle1", [107,   2, 107, 167], [101, 167]],
+        ["FinnCn_ArcMain_Idle2", [  1,   1, 110, 169], [103, 169]],
+        ["FinnCn_ArcMain_Idle2", [112,   2, 113, 155], [ 97, 155]],
+        ["FinnCn_ArcMain_Idle3", [  1,   1, 105, 155], [ 95, 155]],
+        ["FinnCn_ArcMain_Idle3", [107,   1, 104, 155], [ 94, 155]],
+        ["FinnCn_ArcMain_Idle4", [  1,   1, 105, 158], [ 92, 158]],
+        ["FinnCn_ArcMain_Idle4", [107,   1, 106, 161], [ 92, 161]],
 
-        ["FinnCn_ArcMain_Left0", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Left1", [  0,   0,   0,   0], [  0,   0]],
+        ["FinnCn_ArcMain_Left0", [  1,   1, 170, 139], [170, 136]],
+        ["FinnCn_ArcMain_Left1", [  1,   1, 169, 134], [169, 131]],
 
-        ["FinnCn_ArcMain_Down", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Down", [  0,   0,   0,   0], [  0,   0]],
+        ["FinnCn_ArcMain_Down", [  1,   1, 139, 124], [99, 124]],
+        ["FinnCn_ArcMain_Down", [  1, 126, 135, 119], [95, 119]],
 
-        ["FinnCn_ArcMain_Up", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Up", [  0,   0,   0,   0], [  0,   0]],
+        ["FinnCn_ArcMain_Up", [  1,   1,  92, 194], [ 88, 193]],
+        ["FinnCn_ArcMain_Up", [ 94,   1,  93, 197], [ 89, 197]],
 
-        ["FinnCn_ArcMain_Right0", [  0,   0,   0,   0], [  0,   0]],
-        ["FinnCn_ArcMain_Right1", [  0,   0,   0,   0], [  0,   0]]
+        ["FinnCn_ArcMain_Right0", [  1,   1, 165, 167], [99, 167]],
+        ["FinnCn_ArcMain_Right1", [  1,   1, 167, 160], [94, 160]]
     ],
 
     "animation": [
