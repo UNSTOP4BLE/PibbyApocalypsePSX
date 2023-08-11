@@ -98,7 +98,7 @@
         //Characters
         {"\\CHAR\\BF.CHR;1",  FIXED_DEC(41,1),   FIXED_DEC(44,1)},
         {"\\CHAR\\DARWIN.CHR;1",  FIXED_DEC(12,1),   FIXED_DEC(27,1)},
-        {"\\CHAR\\DAD.CHR;1", FIXED_DEC(-164,1), FIXED_DEC(49,1)},
+        {"\\CHAR\\JAKE.CHR;1", FIXED_DEC(-164,1), FIXED_DEC(49,1)},
         {NULL},
         {NULL},
         
@@ -114,7 +114,7 @@
         //Characters
         {"\\CHAR\\BF.CHR;1",  FIXED_DEC(41,1),   FIXED_DEC(44,1)},
         {"\\CHAR\\DARWIN.CHR;1",  FIXED_DEC(12,1),   FIXED_DEC(27,1)},
-        {"\\CHAR\\DAD.CHR;1", FIXED_DEC(-164,1), FIXED_DEC(49,1)},
+        {"\\CHAR\\JAKE.CHR;1", FIXED_DEC(-164,1), FIXED_DEC(49,1)},
         {NULL},
         {NULL},
         

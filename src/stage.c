@@ -1651,31 +1651,34 @@ void Stage_Tick(void)
         {
             Character *movecam[2];
             //move camera
-            if (stage.cur_section->flag & SECTION_FLAG_OPPFOCUS)
+            if (!stage.prefs.debug)
             {
-                if (strcmp(stage.oppo2sing, "single") == 0) 
-                    movecam[1] = stage.opponent2;
-                else
-                    movecam[0] = stage.opponent;
-            }
-            else
-            {
-                if (strcmp(stage.player2sing, "single") == 0) 
-                    movecam[1] = stage.player2;
-                else
-                    movecam[0] = stage.player;
-            }
-            for (int i = 0; i < 2; i++)
-            {
-                if (movecam[i] == NULL)
-                    continue;
-                switch (movecam[i]->animatable.anim)
+                if (stage.cur_section->flag & SECTION_FLAG_OPPFOCUS)
                 {
-                    case CharAnim_Up: stage.camera.y -= FIXED_DEC(2,10); break;
-                    case CharAnim_Down: stage.camera.y += FIXED_DEC(2,10); break;
-                    case CharAnim_Left:  if (movecam[i] == stage.player || movecam[i] == stage.player2) stage.camera.angle -= FIXED_DEC(15,10); else stage.camera.angle += FIXED_DEC(15,10); stage.camera.x -= FIXED_DEC(2,10); break;
-                    case CharAnim_Right: if (movecam[i] == stage.player || movecam[i] == stage.player2) stage.camera.angle += FIXED_DEC(15,10); else stage.camera.angle -= FIXED_DEC(15,10); stage.camera.x += FIXED_DEC(2,10); break;
-                    default:break;
+                    if (strcmp(stage.oppo2sing, "single") == 0) 
+                        movecam[1] = stage.opponent2;
+                    else
+                        movecam[0] = stage.opponent;
+                }
+                else
+                {
+                    if (strcmp(stage.player2sing, "single") == 0) 
+                        movecam[1] = stage.player2;
+                    else
+                        movecam[0] = stage.player;
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    if (movecam[i] == NULL)
+                        continue;
+                    switch (movecam[i]->animatable.anim)
+                    {
+                        case CharAnim_Up: stage.camera.y -= FIXED_DEC(2,10); break;
+                        case CharAnim_Down: stage.camera.y += FIXED_DEC(2,10); break;
+                        case CharAnim_Left:  if (movecam[i] == stage.player || movecam[i] == stage.player2) stage.camera.angle -= FIXED_DEC(15,10); else stage.camera.angle += FIXED_DEC(15,10); stage.camera.x -= FIXED_DEC(2,10); break;
+                        case CharAnim_Right: if (movecam[i] == stage.player || movecam[i] == stage.player2) stage.camera.angle += FIXED_DEC(15,10); else stage.camera.angle -= FIXED_DEC(15,10); stage.camera.x += FIXED_DEC(2,10); break;
+                        default:break;
+                    }
                 }
             }
 

@@ -88,6 +88,10 @@
                 <file name = "dad.arc" type = "data" source = "iso/characters/dad/main.arc"/>
                 <file name = "dad.chr" type = "data" source = "iso/characters/dad/dad.chr"/>
             
+                <!-- Jake assets -->
+                <file name = "jake.arc" type = "data" source = "iso/characters/jake/main.arc"/>
+                <file name = "jake.chr" type = "data" source = "iso/characters/jake/jake.chr"/>
+            
                 <!-- Girlfriend assets -->
                 <file name = "gf.arc" type = "data" source = "iso/characters/gf/main.arc"/>
                 <file name = "gf.chr" type = "data" source = "iso/characters/gf/gf.chr"/>

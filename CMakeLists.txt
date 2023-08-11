@@ -215,6 +215,22 @@ funkin_add_archive(iso/characters/dad/main.arc
     iso/characters/dad/right.tim
 )
 
+# jok
+funkin_add_archive(iso/characters/jake/main.arc
+    iso/characters/jake/idle0.tim 
+    iso/characters/jake/idle1.tim 
+    iso/characters/jake/idle2.tim 
+    iso/characters/jake/idle3.tim 
+    iso/characters/jake/idle4.tim 
+    iso/characters/jake/idle5.tim 
+    iso/characters/jake/left.tim 
+    iso/characters/jake/down.tim 
+    iso/characters/jake/up0.tim 
+    iso/characters/jake/up1.tim 
+    iso/characters/jake/right0.tim
+    iso/characters/jake/right1.tim
+)
+
 # week 1
 funkin_add_archive(iso/week1/back.arc
     iso/week1/back0.tim
