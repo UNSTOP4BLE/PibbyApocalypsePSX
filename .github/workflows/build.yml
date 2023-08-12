@@ -24,7 +24,7 @@ jobs:
           mv PSn00bSDK-0.24-Linux /opt/psn00bsdk
           export PATH=$PATH:/opt/psn00bsdk/bin
           export PSN00BSDK_LIBS=/opt/psn00bsdk/lib/libpsn00b
-          sudo apt install libavformat-dev libswscale-dev
+          sudo apt install libavformat60-dev libswscale-dev
           sudo add-apt-repository ppa:savoury1/ffmpeg6
           sudo add-apt-repository ppa:savoury1/ffmpeg4
           sudo apt-get update
