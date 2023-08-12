@@ -18,17 +18,32 @@ jobs:
           repository: "UNSTOP4BLE/PSn00bSDK-kuseg"
           tag: "v0.24-kuseg"
           fileName: "PSn00bSDK-0.24-Linux.zip"
+          
+     - name: Restore FFmpeg
+       id: cache-ffmpeg
+       uses: actions/cache/restore@v3
+       with:
+          path: ffmpeg
+          key: ffmpeg-6.0
+            - name: Install and Build FFmpeg
+      if: steps.cache-ffmpeg.outputs.cache-hit != 'true'
+      run: |
+        sudo apt install libavformat-dev libswscale-dev
+        wget http://ffmpeg.org/releases/ffmpeg-6.0.tar.xz
+        tar Jxf ffmpeg-6.0.tar.xz
+
+        cd ffmpeg-6.0
+        sudo ./configure --prefix=../ffmpeg --enable-shared --disable-static --enable-small --disable-programs --disable-doc --disable-avdevice --disable-postproc --disable-avfilter --disable-network --disable-encoders --disable-hwaccels --disable-muxers --disable-bsfs --disable-devices --disable-filters --disable-mmx
+        make -j
+        sudo make install
+        
       - name: Compile
         run: |
           unzip -q PSn00bSDK-0.24-Linux.zip
           mv PSn00bSDK-0.24-Linux /opt/psn00bsdk
           export PATH=$PATH:/opt/psn00bsdk/bin
           export PSN00BSDK_LIBS=/opt/psn00bsdk/lib/libpsn00b
-          sudo apt install libavformat60-dev libswscale-dev
-          sudo add-apt-repository ppa:savoury1/ffmpeg6
-          sudo add-apt-repository ppa:savoury1/ffmpeg4
-          sudo apt-get update
-          sudo apt install ffmpeg
+          sudo apt install libavformat-dev libswscale-dev
           cmake -S ./tools -B ./tools/build -G "Ninja"
           cmake --build ./tools/build
           cmake -S . -B ./build -G "Ninja" -DCMAKE_TOOLCHAIN_FILE=/opt/psn00bsdk/lib/libpsn00b/cmake/sdk.cmake -DCMAKE_BUILD_TYPE=${{ matrix.build }}
