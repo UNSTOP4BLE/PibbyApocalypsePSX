@@ -37,6 +37,12 @@ jobs:
           make -j
           sudo make install
         
+      - name: Move FFmpeg path
+        run: |
+          sudo mv ffmpeg/lib/* /usr/local/lib
+          sudo mv ffmpeg/include/* /usr/local/include
+
+          sudo ldconfig
       - name: Compile
         run: |
           unzip -q PSn00bSDK-0.24-Linux.zip
