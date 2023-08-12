@@ -2012,7 +2012,8 @@ void Stage_Tick(void)
             }
 
             //Tick foreground objects
-            ObjectList_Tick(&stage.objlist_fg);
+            if (!stage.prefs.hidecombo)
+                ObjectList_Tick(&stage.objlist_fg);
 
             //Draw stage foreground
             if (stage.back->draw_fg != NULL)

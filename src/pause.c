@@ -107,7 +107,8 @@ void OptionsState(int *note_x)
         "SHOW SONG TIME",
         "WIDESCREEN",
         "AUDIO OFFSET",
-        "DEBUG MODE"
+        "DEBUG MODE",
+        "HIDE COMBO"
     };
 
     //Select option if cross or start is pressed
@@ -179,6 +180,9 @@ void OptionsState(int *note_x)
                 break;
             case 10: //Debug mode
                 stage.prefs.debug = !stage.prefs.debug;
+                break;
+            case 11: //combo
+                stage.prefs.hidecombo = !stage.prefs.hidecombo;
                 break;
         }
     }

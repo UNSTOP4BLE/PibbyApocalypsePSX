@@ -1060,6 +1060,7 @@ void Menu_Tick(void){
                 {OptType_bool, "DOWNSCROLL", &stage.prefs.downscroll, {.spec_bool = {0}}},
                 {OptType_bool, "MIDDLESCROLL", &stage.prefs.middlescroll, {.spec_bool = {0}}},
                 {OptType_bool, "BOTPLAY", &stage.prefs.botplay, {.spec_bool = {0}}},
+                {OptType_bool, "HIDE COMBO", &stage.prefs.hidecombo, {.spec_bool = {0}}},
                 {OptType_bool, "SHOW SONG TIME", &stage.prefs.songtimer, {.spec_bool = {0}}},
                 {OptType_bool, "PRACTICE MODE", &stage.prefs.practice, {.spec_bool = {0}}},
                 {OptType_bool, "WIDESCREEN", &stage.prefs.widescreen, {.spec_bool = {0}}},
