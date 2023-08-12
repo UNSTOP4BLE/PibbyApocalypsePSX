@@ -298,6 +298,8 @@ void Menu_Load(MenuPage page)
     Sounds[0] = Audio_LoadSound("\\SOUNDS\\SCROLL.VAG;1");
     Sounds[1] = Audio_LoadSound("\\SOUNDS\\CONFIRM.VAG;1");
     Sounds[2] = Audio_LoadSound("\\SOUNDS\\CANCEL.VAG;1");
+	Audio_SetVolume(0, 0x3FFF, 0x3FFF);
+	Audio_SetVolume(1, 0x0000, 0x0000);
     Audio_StartStream(false);
 
     //Set background colour
@@ -520,8 +522,12 @@ void Menu_Tick(void){
             
             //Initialize page
             if (menu.page_swap)
+			{
                 menu.scroll = menu.select * FIXED_DEC(12,1);
-                
+				Audio_SetVolume(0, 0x3FFF, 0x3FFF);
+				Audio_SetVolume(1, 0x0000, 0x0000);
+				//Audio_SetStreamTime(0, 1000);
+			}			 
             
             //Draw version identification
             menu.font_bold.draw(&menu.font_bold,
@@ -670,9 +676,6 @@ void Menu_Tick(void){
                 menu.page_state.title.fade -= FIXED_MUL(menu.page_state.title.fadespd, Timer_GetDT());
             }
             
-            //Draw difficulty selector
-            Menu_DifficultySelector(screen.SCREEN_WIDTH - 75, 80);
-            
             //Handle option and selection
             if (menu.trans_time > 0 && (menu.trans_time -= Timer_GetDT()) <= 0)
                 Trans_Start();
@@ -804,6 +807,9 @@ void Menu_Tick(void){
             //Initialize page
             if (menu.page_swap)
             {
+				Audio_SetVolume(1, 0x3FFF, 0x3FFF);
+				Audio_SetVolume(0, 0x0000, 0x0000);
+				//Audio_SetStreamTime(0, 1000);
                 menu.scroll = COUNT_OF(menu_options) * FIXED_DEC(24 + screen.SCREEN_HEIGHT2,1);
                 menu.page_param.stage.diff = StageDiff_Normal;
                 menu.page_state.freeplay.back_r = FIXED_DEC(255,1);
@@ -818,9 +824,6 @@ void Menu_Tick(void){
                 screen.SCREEN_HEIGHT - 32,
                 FontAlign_Left
             );
-            
-            //Draw difficulty selector
-            Menu_DifficultySelector(screen.SCREEN_WIDTH - 100, screen.SCREEN_HEIGHT2 - 48);
             
             //Handle option and selection
             if (menu.next_page == menu.page && Trans_Idle())
@@ -957,10 +960,6 @@ void Menu_Tick(void){
                 screen.SCREEN_HEIGHT - 32,
                 FontAlign_Left
             );
-            
-            //Draw difficulty selector
-            if (menu_options[menu.select].difficulty)
-                Menu_DifficultySelector(screen.SCREEN_WIDTH - 100, screen.SCREEN_HEIGHT2 - 48);
             
             //Handle option and selection
             if (menu.next_page == menu.page && Trans_Idle())

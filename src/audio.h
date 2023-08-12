@@ -29,4 +29,6 @@ void Audio_PlaySoundOnChannel(uint32_t addr, uint32_t channel, int volume);
 void Audio_PlaySound(uint32_t addr, int volume);
 uint32_t Audio_LoadSound(const char *path);
 
+void Audio_SetStreamTime(uint64_t time, int unit);
+
 #endif

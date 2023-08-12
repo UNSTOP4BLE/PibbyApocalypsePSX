@@ -52,10 +52,10 @@
                 <file name = "back.arc" type = "data" source = "iso/week1/back.arc"/>
                 <file name = "channels.arc" type = "data" source = "iso/week1/channels.arc"/>
                 
-                <file name = "1.1n.cht" type = "data" source = "iso/chart/childs-play.cht"/>
-                <file name = "1.2n.cht" type = "data" source = "iso/chart/My-Amazing-World.cht"/>
-                <file name = "1.3n.cht" type = "data" source = "iso/chart/Retcon.cht"/>
-                <file name = "1.4n.cht" type = "data" source = "iso/chart/Forgotten-World.cht"/>
+                <file name = "1.1.cht" type = "data" source = "iso/chart/childs-play.cht"/>
+                <file name = "1.2.cht" type = "data" source = "iso/chart/My-Amazing-World.cht"/>
+                <file name = "1.3.cht" type = "data" source = "iso/chart/Retcon.cht"/>
+                <file name = "1.4.cht" type = "data" source = "iso/chart/Forgotten-World.cht"/>
             </dir>
 
             <!-- Backgrounds -->
@@ -66,11 +66,11 @@
 
             <!-- Week 2 assets -->
             <dir name = "week2">
-                <file name = "2.1n.cht" type = "data" source = "iso/chart/Mindless.cht"/>
-                <file name = "2.2n.cht" type = "data" source = "iso/chart/Blessed-By-Swords.cht"/>
-                <file name = "2.3n.cht" type = "data" source = "iso/chart/Brotherly-Love.cht"/>
-                <file name = "2.4n.cht" type = "data" source = "iso/chart/Suffering-Siblings.cht"/>
-                <file name = "2.5n.cht" type = "data" source = "iso/chart/Come-Along-With-Me.cht"/>
+                <file name = "2.1.cht" type = "data" source = "iso/chart/Mindless.cht"/>
+                <file name = "2.2.cht" type = "data" source = "iso/chart/Blessed-By-Swords.cht"/>
+                <file name = "2.3.cht" type = "data" source = "iso/chart/Brotherly-Love.cht"/>
+                <file name = "2.4.cht" type = "data" source = "iso/chart/Suffering-Siblings.cht"/>
+                <file name = "2.5.cht" type = "data" source = "iso/chart/Come-Along-With-Me.cht"/>
             </dir>
 
             <!-- Character assets -->

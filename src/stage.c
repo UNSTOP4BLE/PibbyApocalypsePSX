@@ -1010,7 +1010,7 @@ static void Stage_LoadChart(void)
     char chart_path[64];
     
     //Use standard path convention
-    sprintf(chart_path, "\\WEEK%d\\%d.%d%c.CHT;1", stage.stage_def->week, stage.stage_def->week, stage.stage_def->week_song, "ENH"[stage.stage_diff]);
+    sprintf(chart_path, "\\WEEK%d\\%d.%d.CHT;1", stage.stage_def->week, stage.stage_def->week, stage.stage_def->week_song);
     
     
     if (stage.chart_data != NULL)

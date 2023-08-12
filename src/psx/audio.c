@@ -366,3 +366,27 @@ uint32_t Audio_LoadSound(const char *path) {
     free(sfx_data);
     return addr;
 }
+
+void Audio_SetStreamTime(uint64_t time, int unit) {
+    if (stream_ctx.sample_rate == 0)
+        return;
+
+    uint64_t samples = (time * (uint64_t) stream_ctx.sample_rate) / (uint64_t) unit;
+
+    //Calculate the number of sectors needed to reach the desired sample position.
+    int num_sectors = samples / stream_ctx.chunk_size;
+    int sector_offset = samples % stream_ctx.chunk_size;
+
+    //Calculate the LBA of the sector containing the desired sample position.
+    int target_lba = read_ctx.start_lba + (num_sectors * (stream_ctx.chunk_size / 2048));
+
+    //Seek the CD drive to the target LBA.
+    CdlLOC pos;
+    CdIntToPos(target_lba, &pos);
+    CdControl(CdlSetloc, &pos, 0);
+
+    //Update the read context to start from the desired sector and refill the stream buffer.
+    read_ctx.next_sector = sector_offset;
+    read_ctx.refill_length = 0;
+    Audio_FeedStream();
+}
