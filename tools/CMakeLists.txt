@@ -72,4 +72,4 @@ add_executable(psxavenc
     psxavenc/libpsxav/adpcm.c 
     psxavenc/libpsxav/cdrom.c
 )
-target_link_libraries(psxavenc PRIVATE libav)
+target_link_libraries(psxavenc PRIVATE libav m)
