@@ -174,7 +174,7 @@ typedef struct
     fixed_t pause_scroll;
     struct
     {
-        bool ghost, downscroll, middlescroll, practice, debug, palmode, widescreen, stereo, sfxmiss, songtimer, botplay;
+        bool ghost, downscroll, middlescroll, practice, debug, palmode, widescreen, stereo, sfxmiss, songtimer, botplay, hidecombo;
         int16_t scr_x, scr_y;
         int32_t savescore[StageId_Max][3];
         int32_t audio_offset;
