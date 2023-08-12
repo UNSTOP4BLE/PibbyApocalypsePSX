@@ -28,7 +28,6 @@ jobs:
           sudo add-apt-repository ppa:savoury1/ffmpeg6
           sudo add-apt-repository ppa:savoury1/ffmpeg4
           sudo apt-get update
-          sudo apt full-upgrade
           sudo apt install ffmpeg
           cmake -S ./tools -B ./tools/build -G "Ninja"
           cmake --build ./tools/build
