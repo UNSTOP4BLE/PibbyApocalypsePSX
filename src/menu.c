@@ -115,6 +115,7 @@ static struct
     
     //Menu assets
     Gfx_Tex tex_back, tex_ng, tex_story, tex_title;
+    Gfx_Tex tex_bg0, tex_bg1;
     FontData font_bold, font_arial;
 
     Character *gf; //Title Girlfriend
@@ -262,6 +263,8 @@ void Menu_Load(MenuPage page)
     Gfx_LoadTex(&menu.tex_ng,    Archive_Find(menu_arc, "ng.tim"),    0);
     Gfx_LoadTex(&menu.tex_story, Archive_Find(menu_arc, "story.tim"), 0);
     Gfx_LoadTex(&menu.tex_title, Archive_Find(menu_arc, "title.tim"), 0);
+    Gfx_LoadTex(&menu.tex_bg0, Archive_Find(menu_arc, "bg0.tim"), 0);
+    Gfx_LoadTex(&menu.tex_bg1, Archive_Find(menu_arc, "bg1.tim"), 0);
     free(menu_arc);
     
     FontData_Load(&menu.font_bold, Font_Bold);
@@ -627,12 +630,12 @@ void Menu_Tick(void){
             }
             
             //Draw background
-            Menu_DrawBack(
-                menu.next_page == menu.page || menu.next_page == MenuPage_Title,
-                menu.scroll >> (FIXED_SHIFT + 3),
-                253 >> 1, 231 >> 1, 113 >> 1,
-                253 >> 1, 113 >> 1, 155 >> 1
-            );
+			RECT back_src = {0, 0, 256, 256};
+			RECT back_dst = {0, 0, 256, 256};
+			
+			Gfx_DrawTex(&menu.tex_bg0, &back_src, &back_dst);
+			back_dst.x += 255;
+			Gfx_DrawTex(&menu.tex_bg1, &back_src, &back_dst);
             break;
         }
         case MenuPage_Story:

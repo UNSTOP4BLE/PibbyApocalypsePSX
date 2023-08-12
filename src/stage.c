@@ -926,19 +926,19 @@ static void Stage_CountDown(void)
     RECT_FIXED go_dst = {FIXED_DEC(10,1), FIXED_DEC(30,1), FIXED_DEC(48 * 2,1), FIXED_DEC(95 * 2,1)};   
 
     if (drawshit == 3 && stage.song_step >= -15 && stage.song_step <= -12)
-        Stage_DrawTex(&stage.tex_hud1, &ready_src, &ready_dst, stage.bump, FIXED_DEC(90,1));
+        Stage_DrawTexRotate(&stage.tex_hud1, &ready_src, &ready_dst, 190, ready_src.w / 2, ready_src.h / 2, stage.bump, stage.camera.hudangle);
     else if (drawshit == 3 && stage.song_step >= -12 && stage.song_step <= -11)
-        Stage_BlendTex(&stage.tex_hud1, &ready_src, &ready_dst, stage.bump, FIXED_DEC(90,1), 4);
+        Stage_BlendTexRotate(&stage.tex_hud1, &ready_src, &ready_dst, 190, ready_src.w / 2, ready_src.h / 2, stage.bump, stage.camera.hudangle, 4);
 
     if (drawshit == 2 && stage.song_step >= -10 && stage.song_step <= -7)
-        Stage_DrawTex(&stage.tex_hud0, &set_src, &set_dst, stage.bump, FIXED_DEC(90,1));
+        Stage_DrawTexRotate(&stage.tex_hud0, &set_src, &set_dst, 190, set_src.w / 2, set_src.h / 2, stage.bump, stage.camera.hudangle);
     else if (drawshit == 2 && stage.song_step >= -7 && stage.song_step <= -6)
-        Stage_BlendTex(&stage.tex_hud0, &set_src, &set_dst, stage.bump, FIXED_DEC(90,1), 4);
+        Stage_BlendTexRotate(&stage.tex_hud0, &set_src, &set_dst, 190, set_src.w / 2, set_src.h / 2, stage.bump, stage.camera.hudangle, 4);
 
     if (drawshit == 1 && stage.song_step >= -5 && stage.song_step <= -2)
-        Stage_DrawTex(&stage.tex_hud1, &go_src, &go_dst, stage.bump, FIXED_DEC(90,1));
+        Stage_DrawTexRotate(&stage.tex_hud1, &go_src, &go_dst, 190, go_src.w / 2, go_src.h / 2, stage.bump, stage.camera.hudangle);
     else if (drawshit == 1 && stage.song_step >= -2 && stage.song_step <= -1)
-        Stage_BlendTex(&stage.tex_hud1, &go_src, &go_dst, stage.bump, FIXED_DEC(90,1), 4);
+        Stage_BlendTexRotate(&stage.tex_hud1, &go_src, &go_dst, 190, go_src.w / 2, go_src.h / 2, stage.bump, stage.camera.hudangle, 4);
 }
 
 //Stage loads

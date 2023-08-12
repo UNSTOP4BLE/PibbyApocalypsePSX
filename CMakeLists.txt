@@ -144,6 +144,8 @@ funkin_add_archive(iso/menu/menu.arc
     iso/menu/ng.tim
     iso/menu/story.tim
     iso/menu/title.tim
+    iso/menu/bg0.tim
+    iso/menu/bg1.tim
 )
 
 # bf
