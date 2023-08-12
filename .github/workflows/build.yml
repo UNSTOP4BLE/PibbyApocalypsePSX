@@ -53,5 +53,5 @@ jobs:
         with:
           name: Funkin-${{ matrix.build }}
           path: |
-            build/funkin.bin
-            build/funkin.cue
+            build/Pibby_Apocalypse_PSX.bin
+            build/Pibby_Apocalypse_PSX.cue
