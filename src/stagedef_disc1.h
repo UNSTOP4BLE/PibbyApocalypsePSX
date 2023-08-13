@@ -1,6 +1,6 @@
     { //StageId_ChildsPlay
         //Characters
-        {"\\CHAR\\BF.CHR;1",  FIXED_DEC(41,1),   FIXED_DEC(44,1)},
+        {"\\CHAR\\BF.CHR;1",  FIXED_DEC(83,1),   FIXED_DEC(50,1)},
         {"\\CHAR\\DARWIN.CHR;1",  FIXED_DEC(12,1),   FIXED_DEC(27,1)},
         {"\\CHAR\\DAD.CHR;1", FIXED_DEC(-164,1), FIXED_DEC(49,1)},
         {NULL},
@@ -16,7 +16,7 @@
     },
     { //StageId_MyAmazingWorld
         //Characters
-        {"\\CHAR\\BFCN.CHR;1",  FIXED_DEC(41,1),   FIXED_DEC(44,1)},
+        {"\\CHAR\\BFCN.CHR;1",  FIXED_DEC(83,1),   FIXED_DEC(50,1)},
         {"\\CHAR\\DARWIN.CHR;1",  FIXED_DEC(12,1),   FIXED_DEC(27,1)},
         {"\\CHAR\\DAD.CHR;1", FIXED_DEC(-164,1), FIXED_DEC(49,1)},
         {NULL},

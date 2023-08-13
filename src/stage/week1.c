@@ -187,7 +187,7 @@ void Back_Week1_DrawFG(StageBack *back)
                 case 2079:
                     stage.bumpspeed = 16;
                     this->white = true;
-                    stage.opponent->r = stage.opponent->g = stage.opponent->b = 0;
+                    stage.player2->r = stage.player2->g = stage.player2->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 0;
                     stage.player->visible = false;
                     this->popdown = true;
                     Gfx_SetClear(255,255,255);
@@ -195,7 +195,7 @@ void Back_Week1_DrawFG(StageBack *back)
                 case 2144:
                     stage.bumpspeed = 4;
                     this->white = false;
-                    stage.player->r = stage.player->g = stage.player->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 128;
+                    stage.player2->r = stage.player2->g = stage.player2->b = stage.opponent->r = stage.opponent->g = stage.opponent->b = 128;
                     Gfx_SetClear(0,0,0);
                     
                   //  PlayState.triggerEventNote('Camera Follow Pos', '940', '720');
