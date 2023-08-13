@@ -79,6 +79,9 @@
                 <file name = "bf.arc" type = "data" source = "iso/characters/bf/main.arc"/>
                 <file name = "bf.chr" type = "data" source = "iso/characters/bf/bf.chr"/>
                 <file name = "bfdead.arc" type = "data" source = "iso/characters/bf/dead.arc"/>
+
+                <file name = "bfcn.arc" type = "data" source = "iso/characters/bfcn/main.arc"/>
+                <file name = "bfcn.chr" type = "data" source = "iso/characters/bfcn/bfcn.chr"/>
                 
                 <!-- Darwin assets -->
                 <file name = "darwin.arc" type = "data" source = "iso/characters/darwin/main.arc"/>

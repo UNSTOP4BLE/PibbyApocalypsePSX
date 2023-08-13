@@ -12,65 +12,39 @@
         "BF_ArcMain_BF3",
         "BF_ArcMain_BF4",
         "BF_ArcMain_BF5",
-        "BF_ArcMain_BF6",
-        "BF_ArcMain_Dead0"
+        "BF_ArcMain_BF6"
     ],
 
     "frames": [
-        ["BF_ArcMain_BF0", [  0,   0, 102,  99], [ 53,  92]], 
-        ["BF_ArcMain_BF0", [103,   0, 102,  99], [ 53,  92]], 
-        ["BF_ArcMain_BF0", [  0, 100, 102, 101], [ 53,  94]], 
-        ["BF_ArcMain_BF0", [103, 100, 103, 104], [ 53,  97]], 
-        ["BF_ArcMain_BF1", [  0,   0, 103, 104], [ 53,  97]], 
+        ["BF_ArcMain_BF0", [  1,   1, 148, 117], [123, 117]], 
+        ["BF_ArcMain_BF0", [  1, 119, 143, 119], [118, 119]], 
+        ["BF_ArcMain_BF1", [  1,   1, 144, 120], [119, 120]], 
+        ["BF_ArcMain_BF1", [  1, 122, 145, 120], [119, 120]], 
+ 
+        ["BF_ArcMain_BF2", [  1, 101, 105, 116], [ 99, 116]], 
+        ["BF_ArcMain_BF2", [107, 105, 105, 117], [ 96, 117]], 
 
-        ["BF_ArcMain_BF1", [104,   0,  96, 102], [ 56,  95]], 
-        ["BF_ArcMain_BF1", [  0, 105,  94, 102], [ 54,  95]], 
+        ["BF_ArcMain_BF2", [  1,   1, 116,  99], [104,  99]], 
+        ["BF_ArcMain_BF2", [118,   1, 109, 103], [ 98, 103]], 
 
-        ["BF_ArcMain_BF1", [ 95, 103,  94,  89], [ 52,  82]], 
-        ["BF_ArcMain_BF2", [  0,   0,  94,  90], [ 52,  83]], 
+        ["BF_ArcMain_BF4", [  1,   1, 134, 129], [109, 129]], 
+        ["BF_ArcMain_BF4", [122, 122, 133, 133], [106, 133]], 
 
-        ["BF_ArcMain_BF2", [ 95,   0,  93, 112], [ 41, 104]], 
-        ["BF_ArcMain_BF2", [  0,  91,  94, 111], [ 42, 103]], 
+        ["BF_ArcMain_BF3", [  1,   1, 141, 119], [112, 119]], 
+        ["BF_ArcMain_BF3", [  1, 121, 151, 114], [119, 114]]
 
-        ["BF_ArcMain_BF2", [ 95, 113, 102, 102], [ 41,  95]], 
-        ["BF_ArcMain_BF3", [  0,   0, 102, 102], [ 41,  95]], 
 
-        ["BF_ArcMain_BF3", [103,   0,  99, 105], [ 54,  98]], 
-        ["BF_ArcMain_BF3", [  0, 103, 104, 103], [ 54,  96]], 
-        ["BF_ArcMain_BF3", [105, 106, 104, 104], [ 54,  97]], 
-
-        ["BF_ArcMain_BF4", [  0,   0, 128, 128], [ 53,  92]], 
-        ["BF_ArcMain_BF4", [128,   0, 128, 128], [ 53,  93]], 
-        ["BF_ArcMain_BF4", [  0, 128, 128, 128], [ 53,  98]], 
-        ["BF_ArcMain_BF4", [128, 128, 128, 128], [ 53,  98]], 
-
-        ["BF_ArcMain_BF5", [  0,   0,  93, 108], [ 52, 101]], 
-        ["BF_ArcMain_BF5", [ 94,   0,  93, 108], [ 52, 101]], 
-
-        ["BF_ArcMain_BF5", [  0, 109,  95,  98], [ 50,  90]],
-        ["BF_ArcMain_BF5", [ 96, 109,  95,  97], [ 50,  89]], 
-
-        ["BF_ArcMain_BF6", [  0,   0,  90, 107], [ 44,  99]], 
-        ["BF_ArcMain_BF6", [ 91,   0,  89, 108], [ 44, 100]],
-
-        ["BF_ArcMain_BF6", [  0, 108,  99, 108], [ 42, 101]], 
-        ["BF_ArcMain_BF6", [100, 109, 101, 108], [ 43, 101]], 
-
-        ["BF_ArcMain_Dead0", [  0,   0, 128, 128], [ 53,  98]],
-        ["BF_ArcMain_Dead0", [128,   0, 128, 128], [ 53,  98]], 
-        ["BF_ArcMain_Dead0", [  0, 128, 128, 128], [ 53,  98]], 
-        ["BF_ArcMain_Dead0", [128, 128, 128, 128], [ 53,  98]]
     ],
 
     "animation": [
-        [2, [ 0,  1,  2,  3,  4, "ASCR_BACK", 1]], 
-        [2, [ 5,  6, "ASCR_BACK", 1]],             
+        [2, [ 0,  1,  2,  3, "ASCR_BACK", 0]], 
+        [2, [ 4,  5, "ASCR_BACK", 1]],             
         [0, ["ASCR_CHGANI", "CharAnim_Idle"]],       
-        [2, [ 7,  8, "ASCR_BACK", 1]],             
+        [2, [ 6,  7, "ASCR_BACK", 1]],             
         [0, ["ASCR_CHGANI", "CharAnim_Idle"]],       
-        [2, [ 9, 10, "ASCR_BACK", 1]],             
+        [2, [ 8,  9, "ASCR_BACK", 1]],             
         [0, ["ASCR_CHGANI", "CharAnim_Idle"]],       
-        [2, [11, 12, "ASCR_BACK", 1]],             
+        [2, [10, 11, "ASCR_BACK", 1]],             
         [0, ["ASCR_CHGANI", "CharAnim_Idle"]],       
 
         [1, [ 5, 20, 20, 21, "ASCR_BACK", 1]],     
@@ -93,7 +67,7 @@
     ],
 
 
-    "archive": "\\CHAR\\BF.ARC;1",
+    "archive": "\\CHAR\\BFCN.ARC;1",
 
     "textures": [            
         "bf0.tim",   
@@ -102,7 +76,6 @@
         "bf3.tim", 
         "bf4.tim",
         "bf5.tim", 
-        "bf6.tim", 
-        "dead0.tim"  
+        "bf6.tim"
     ]
 }

@@ -178,6 +178,17 @@ funkin_add_archive(iso/characters/bf/xmas.arc
     iso/characters/bf/dead0.tim
 )
 
+
+funkin_add_archive(iso/characters/bfcn/main.arc
+    iso/characters/bfcn/bf0.tim 
+    iso/characters/bfcn/bf1.tim 
+    iso/characters/bfcn/bf2.tim 
+    iso/characters/bfcn/bf3.tim 
+    iso/characters/bfcn/bf4.tim 
+    iso/characters/bfcn/bf5.tim 
+    iso/characters/bfcn/bf6.tim 
+)
+
 # gf
 funkin_add_archive(iso/characters/gf/main.arc
     iso/characters/gf/gf0.tim 

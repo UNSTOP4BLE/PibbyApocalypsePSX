@@ -16,7 +16,7 @@
     },
     { //StageId_MyAmazingWorld
         //Characters
-        {"\\CHAR\\BF.CHR;1",  FIXED_DEC(41,1),   FIXED_DEC(44,1)},
+        {"\\CHAR\\BFCN.CHR;1",  FIXED_DEC(41,1),   FIXED_DEC(44,1)},
         {"\\CHAR\\DARWIN.CHR;1",  FIXED_DEC(12,1),   FIXED_DEC(27,1)},
         {"\\CHAR\\DAD.CHR;1", FIXED_DEC(-164,1), FIXED_DEC(49,1)},
         {NULL},
@@ -112,7 +112,7 @@
     },
     { //StageId_SufferingSiblings
         //Characters
-        {"\\CHAR\\BF.CHR;1",  FIXED_DEC(41,1),   FIXED_DEC(44,1)},
+        {"\\CHAR\\BFCN.CHR;1",  FIXED_DEC(41,1),   FIXED_DEC(44,1)},
         {"\\CHAR\\DARWIN.CHR;1",  FIXED_DEC(12,1),   FIXED_DEC(27,1)},
         {"\\CHAR\\FINNCN.CHR;1", FIXED_DEC(-221,1), FIXED_DEC(66,1)},
         {"\\CHAR\\JAKE.CHR;1", FIXED_DEC(-164,1), FIXED_DEC(49,1)},
