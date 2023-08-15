@@ -47,6 +47,7 @@ static uint32_t Sounds[7];
 
 #include "stage/week1.h"
 #include "stage/void.h"
+#include "stage/lab.h"
 
 static const StageDef stage_defs[StageId_Max] = {
     #include "stagedef_disc1.h"

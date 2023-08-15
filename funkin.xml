@@ -58,12 +58,6 @@
                 <file name = "1.4.cht" type = "data" source = "iso/chart/Forgotten-World.cht"/>
             </dir>
 
-            <!-- Backgrounds -->
-            <dir name = "void">
-                <!-- Background art -->
-                <file name = "back.arc" type = "data" source = "iso/void/back.arc"/>
-            </dir>
-
             <!-- Week 2 assets -->
             <dir name = "week2">
                 <file name = "2.1.cht" type = "data" source = "iso/chart/Mindless.cht"/>
@@ -72,6 +66,18 @@
                 <file name = "2.4.cht" type = "data" source = "iso/chart/Suffering-Siblings.cht"/>
                 <file name = "2.5.cht" type = "data" source = "iso/chart/Come-Along-With-Me.cht"/>
             </dir>
+            
+            <!-- Backgrounds -->
+            <dir name = "void">
+                <!-- Background art -->
+                <file name = "back.arc" type = "data" source = "iso/void/back.arc"/>
+            </dir>
+
+            <dir name = "lab">
+                <!-- Background art -->
+                <file name = "lab.arc" type = "data" source = "iso/lab/back.arc"/>
+            </dir>
+
 
             <!-- Character assets -->
             <dir name = "char">

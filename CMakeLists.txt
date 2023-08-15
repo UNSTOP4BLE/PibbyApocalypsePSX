@@ -278,6 +278,12 @@ funkin_add_archive(iso/void/back.arc
     iso/void/back4.tim
 )
 
+funkin_add_archive(iso/lab/back.arc
+    iso/lab/back0.tim
+    iso/lab/back1.tim
+    iso/lab/back2.tim
+)
+
 # ADD ARCHIVES HERE
 
 # build str files

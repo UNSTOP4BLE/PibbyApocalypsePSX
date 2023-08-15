@@ -103,7 +103,7 @@
         {NULL},
         
         //Stage background
-        Back_Week1_New,
+        Back_lab_New,
         
         //Song info
         2, 3,
