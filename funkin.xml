@@ -66,7 +66,7 @@
                 <file name = "2.4.cht" type = "data" source = "iso/chart/Suffering-Siblings.cht"/>
                 <file name = "2.5.cht" type = "data" source = "iso/chart/Come-Along-With-Me.cht"/>
             </dir>
-            
+
             <!-- Backgrounds -->
             <dir name = "void">
                 <!-- Background art -->
@@ -75,7 +75,7 @@
 
             <dir name = "lab">
                 <!-- Background art -->
-                <file name = "lab.arc" type = "data" source = "iso/lab/back.arc"/>
+                <file name = "back.arc" type = "data" source = "iso/lab/back.arc"/>
             </dir>
 
 

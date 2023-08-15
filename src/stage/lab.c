@@ -26,6 +26,7 @@ typedef struct
     Gfx_Tex tex_back0; 
     Gfx_Tex tex_back1;
     Gfx_Tex tex_back2;
+    int funnyangle;
 } Back_lab;
 
 //lab background functions
@@ -40,6 +41,20 @@ void Back_lab_DrawFG(StageBack *back)
 
     Gfx_DrawRect(&this->coolfuckinguhhup_dst, 0, 0, 0);
     Gfx_DrawRect(&this->coolfuckinguhhdown_dst, 0, 0, 0);
+    RECT dark_src = {0, 0, 256, 256};
+    RECT_FIXED dark_dst = {
+        FIXED_DEC(-41,1)- fx,
+        FIXED_DEC(-181,1) - fy,
+        FIXED_DEC(633,1),
+        FIXED_DEC(370,1)
+    };
+    if (!stage.paused)
+    this->funnyangle ++;
+    if (this->funnyangle >= 256)
+        this->funnyangle = 0;
+    Debug_StageMoveDebug(&dark_dst, 8, fx, fy); 
+    Stage_BlendTexRotate(&this->tex_back1, &dark_src, &dark_dst, MUtil_Sin(this->funnyangle*2)/35, 128, 0, stage.camera.bzoom, stage.camera.angle, 4);
+
 }
 
 void Back_lab_DrawBG(StageBack *back)
@@ -54,10 +69,10 @@ void Back_lab_DrawBG(StageBack *back)
 
     RECT back_src = {0, 0, 256, 256};
     RECT_FIXED back_dst = {
-        FIXED_DEC(-152,1)- fx,
-        FIXED_DEC(-122,1) - fy,
-        FIXED_DEC(403,1),
-        FIXED_DEC(216,1)
+        FIXED_DEC(-305,1)- fx,
+        FIXED_DEC(-135,1) - fy,
+        FIXED_DEC(524,1),
+        FIXED_DEC(280,1)
     };
     Debug_StageMoveDebug(&back_dst, 7, fx, fy); 
     Stage_DrawTex(&this->tex_back0, &back_src, &back_dst, stage.camera.bzoom, stage.camera.angle);
@@ -73,6 +88,11 @@ void Back_lab_Free(StageBack *back)
 
 void Back_lab_LoadCharacterSwap(void)
 {
+    stage.player->focus_x = FIXED_DEC(40,1);
+    stage.player->focus_y = FIXED_DEC(6,1);
+    stage.player->focus_zoom = stage.opponent->focus_zoom = FIXED_DEC(1,1);
+    stage.opponent->focus_x = FIXED_DEC(-129,1);
+    stage.opponent->focus_y = FIXED_DEC(-9,1);
 //    stage.charswitchable[0] = Character_FromFile(stage.charswitchable[0], "\\CHAR\\DARWIN.CHR;1", stage.stage_def->pchar.x, stage.stage_def->pchar.y);
 }
 
@@ -96,6 +116,8 @@ StageBack *Back_lab_New(void)
     Gfx_LoadTex(&this->tex_back1, Archive_Find(arc_back, "back1.tim"), 0);
     Gfx_LoadTex(&this->tex_back2, Archive_Find(arc_back, "back2.tim"), 0);
     free(arc_back);
+
+    this->funnyangle = 0;
 
     return (StageBack*)this;
 }
