@@ -337,17 +337,15 @@ void Gfx_BlendTexRotate(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t 
 }
 
 void Gfx_Drawall(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t r, uint8_t g, uint8_t b, uint8_t mode)
-{   
-    //Manipulate rects to comply with GPU restrictions
-    RECT csrc, cdst;
-    csrc = *src;
-    cdst = *dst;
-    
-    if (dst->w < 0)
-        csrc.x--;
-    if (dst->h < 0)
-        csrc.y--;
-    
+{
+    RECT csrc = *src;
+    RECT cdst = *dst;
+
+    //Adjust source rectangle based on destination rectangle
+    if (cdst.w < 0) csrc.x--;
+    if (cdst.h < 0) csrc.y--;
+
+    //Ensure source rectangle fits within GPU restrictions
     if ((csrc.x + csrc.w) >= 0x100)
     {
         csrc.w = 0xFF - csrc.x;
@@ -359,15 +357,15 @@ void Gfx_Drawall(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, 
         cdst.h = cdst.h * csrc.h / src->h;
     }
 
+    //Calculate sine and cosine values
     int16_t sinVal = MUtil_Sin(angle);
     int16_t cosVal = MUtil_Cos(angle);
 
-    if (csrc.w != 0)
-        hx = hx * (cdst.w / csrc.w);
-    if (csrc.h != 0)
-        hy = hy * (cdst.h / csrc.h);
+    //Calculate zoomed hotspot position
+    if (csrc.w != 0) hx = FIXED_MUL(hx, FIXED_DEC(cdst.w, csrc.w));
+    if (csrc.h != 0) hy = FIXED_MUL(hy, FIXED_DEC(cdst.h, csrc.h));
 
-    // Get rotated points
+    //Calculate rotated points
     POINT points[4] = {
         {0 - hx, 0 - hy},
         {cdst.w - hx, 0 - hy},
@@ -381,21 +379,22 @@ void Gfx_Drawall(Gfx_Tex *tex, const RECT *src, const RECT *dst, uint8_t angle, 
         points[i].x += cdst.x;
         points[i].y += cdst.y;
     }
-    
-    //Add quad
-    POLY_FT4 *quad = (POLY_FT4*)nextpri;
+
+    //Prepare and configure the quad
+    POLY_FT4 *quad = (POLY_FT4 *)nextpri;
     setPolyFT4(quad);
-    setUVWH(quad, src->x, csrc.y, csrc.w, csrc.h);
+    setUVWH(quad, csrc.x, csrc.y, csrc.w, csrc.h);
     setXY4(quad, points[0].x, points[0].y, points[1].x, points[1].y, points[2].x, points[2].y, points[3].x, points[3].y);
     setRGB0(quad, r, g, b);
     setSemiTrans(quad, mode);
     quad->tpage = tex->tpage | getTPage(0, mode, 0, 0);
     quad->clut = tex->clut;
 
-
+    //Add quad to the rendering list
     addPrim(ot[db], quad);
     nextpri += sizeof(POLY_FT4);
 }
+
 
 //Arb Draw Functions
 void Gfx_DrawTexArb(Gfx_Tex *tex, const RECT *src, const POINT *p0, const POINT *p1, const POINT *p2, const POINT *p3)
