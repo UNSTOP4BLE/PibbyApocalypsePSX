@@ -9,6 +9,7 @@
 #include "../archive.h"
 #include <stdlib.h> 
 #include "../stage.h"
+#include "../timer.h"
 #include "../mutil.h"
 
 //lab background structure
@@ -26,6 +27,7 @@ typedef struct
     Gfx_Tex tex_back0; 
     Gfx_Tex tex_back1;
     Gfx_Tex tex_back2;
+    uint8_t lightingcol;
     int funnyangle;
 } Back_lab;
 
@@ -48,12 +50,45 @@ void Back_lab_DrawFG(StageBack *back)
         FIXED_DEC(633,1),
         FIXED_DEC(370,1)
     };
+    RECT light_src = {0, 3, 166, 253};
+    RECT_FIXED light_dst = {
+        FIXED_DEC(-41,1)- fx,
+        FIXED_DEC(-174,1) - fy,
+        FIXED_DEC(420,1),
+        FIXED_DEC(364,1)
+    };
     if (!stage.paused)
-    this->funnyangle ++;
+    {
+        this->funnyangle += Timer_GetDT()/9;
+        this->lightingcol = this->funnyangle;
+    }
     if (this->funnyangle >= 256)
         this->funnyangle = 0;
+    /*
+    switch (stage.song_step % 16)
+    {
+        case 0:
+            this->lightingcol = 51;
+        break;
+        case 4:
+            this->lightingcol = 102;
+        break;
+        case 8:
+            this->lightingcol = 153;
+        break;
+        case 12:
+            this->lightingcol = 204;
+        break;
+        case 16:
+            this->lightingcol = 255;
+        break;
+        default:break;
+    }*/
     Debug_StageMoveDebug(&dark_dst, 8, fx, fy); 
     Stage_BlendTexRotate(&this->tex_back1, &dark_src, &dark_dst, MUtil_Sin(this->funnyangle*2)/35, 128, 0, stage.camera.bzoom, stage.camera.angle, 4);
+
+    Debug_StageMoveDebug(&light_dst, 9, fx, fy); 
+    Stage_BlendTexRotateCol(&this->tex_back2, &light_src, &light_dst, MUtil_Sin(this->funnyangle*2)/35, light_src.w/2, 0, this->lightingcol, this->lightingcol, this->lightingcol, stage.camera.bzoom, stage.camera.angle, 2);
 
 }
 
@@ -118,6 +153,7 @@ StageBack *Back_lab_New(void)
     free(arc_back);
 
     this->funnyangle = 0;
+    this->lightingcol = 0;
 
     return (StageBack*)this;
 }

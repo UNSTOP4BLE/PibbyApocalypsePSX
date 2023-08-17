@@ -60,7 +60,7 @@ void Stage_DrawTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst
 
 void Stage_BlendTexRotateCol(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, uint8_t angle, fixed_t hx, fixed_t hy, uint8_t cr, uint8_t cg, uint8_t cb, fixed_t zoom, fixed_t rotation, uint8_t mode)
 {
-    Stage_Drawall(tex, src, dst, angle, hx, hy, 0x80, 0x80, 0x80, 0, zoom, rotation);
+    Stage_Drawall(tex, src, dst, angle, hx, hy, cr, cg, cb, mode, zoom, rotation);
 }
 
 void Stage_DrawTexRotate(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, uint8_t angle, fixed_t hx, fixed_t hy, fixed_t zoom, fixed_t rotation)
