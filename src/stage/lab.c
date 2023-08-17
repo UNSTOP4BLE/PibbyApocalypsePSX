@@ -28,6 +28,7 @@ typedef struct
     Gfx_Tex tex_back1;
     Gfx_Tex tex_back2;
     uint8_t lightingcol;
+    bool lightingmode;
     int funnyangle;
 } Back_lab;
 
@@ -60,10 +61,19 @@ void Back_lab_DrawFG(StageBack *back)
     if (!stage.paused)
     {
         this->funnyangle += Timer_GetDT()/9;
-        this->lightingcol = this->funnyangle;
+        if (this->lightingcol <= 0)
+            this->lightingcol = 0;
+        if (this->lightingcol >= 64)
+            this->lightingcol = 64;
+        if (this->lightingmode)
+            this->lightingcol += Timer_GetDT()/5;
+        else
+            this->lightingcol -= Timer_GetDT()/5;
     }
     if (this->funnyangle >= 256)
         this->funnyangle = 0;
+    if (this->lightingcol >= 64 || this->lightingcol <= 0)
+        this->lightingmode = !this->lightingmode;
     /*
     switch (stage.song_step % 16)
     {
@@ -154,6 +164,8 @@ StageBack *Back_lab_New(void)
 
     this->funnyangle = 0;
     this->lightingcol = 0;
+    this->lightingmode = 0;
+
 
     return (StageBack*)this;
 }
