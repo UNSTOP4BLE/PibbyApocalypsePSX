@@ -27,7 +27,7 @@ typedef struct
     Gfx_Tex tex_back0; 
     Gfx_Tex tex_back1;
     Gfx_Tex tex_back2;
-    uint8_t lightingcol;
+    int lightingcol;
     bool lightingmode;
     int funnyangle;
 } Back_lab;
@@ -58,7 +58,7 @@ void Back_lab_DrawFG(StageBack *back)
         FIXED_DEC(420,1),
         FIXED_DEC(364,1)
     };
-    if (!stage.paused)
+    if (!stage.paused && stage.song_step >= 0)
     {
         this->funnyangle += Timer_GetDT()/9;
         if (this->lightingcol <= 0)
@@ -66,34 +66,16 @@ void Back_lab_DrawFG(StageBack *back)
         if (this->lightingcol >= 64)
             this->lightingcol = 64;
         if (this->lightingmode)
-            this->lightingcol += Timer_GetDT()/5;
+            this->lightingcol += Timer_GetDT()/4;
         else
-            this->lightingcol -= Timer_GetDT()/5;
+            this->lightingcol -= Timer_GetDT()/4;
     }
     if (this->funnyangle >= 256)
         this->funnyangle = 0;
     if (this->lightingcol >= 64 || this->lightingcol <= 0)
         this->lightingmode = !this->lightingmode;
-    /*
-    switch (stage.song_step % 16)
-    {
-        case 0:
-            this->lightingcol = 51;
-        break;
-        case 4:
-            this->lightingcol = 102;
-        break;
-        case 8:
-            this->lightingcol = 153;
-        break;
-        case 12:
-            this->lightingcol = 204;
-        break;
-        case 16:
-            this->lightingcol = 255;
-        break;
-        default:break;
-    }*/
+
+    FntPrint (-1, "col (%d)", this->lightingcol);
     Debug_StageMoveDebug(&dark_dst, 8, fx, fy); 
     Stage_BlendTexRotate(&this->tex_back1, &dark_src, &dark_dst, MUtil_Sin(this->funnyangle*2)/35, 128, 0, stage.camera.bzoom, stage.camera.angle, 4);
 

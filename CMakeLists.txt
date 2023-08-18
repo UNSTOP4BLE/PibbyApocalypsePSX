@@ -219,15 +219,23 @@ funkin_add_archive(iso/characters/darwin/main.arc
     iso/characters/darwin/d5.tim
 )
 
-# dad
-funkin_add_archive(iso/characters/dad/main.arc
-    iso/characters/dad/idle.tim 
-    iso/characters/dad/left.tim 
-    iso/characters/dad/down.tim 
-    iso/characters/dad/up.tim 
-    iso/characters/dad/right.tim
+# gumball
+funkin_add_archive(iso/characters/gumball/main.arc
+    iso/characters/gumball/idle.tim 
+    iso/characters/gumball/left.tim 
+    iso/characters/gumball/down.tim 
+    iso/characters/gumball/up.tim 
+    iso/characters/gumball/right.tim
 )
 
+funkin_add_archive(iso/characters/cumball/main.arc
+    iso/characters/cumball/idle.tim 
+    iso/characters/cumball/left.tim 
+    iso/characters/cumball/down.tim 
+    iso/characters/cumball/up.tim 
+    iso/characters/cumball/right.tim
+    iso/characters/cumball/scary.tim
+)
 # finn
 funkin_add_archive(iso/characters/finncn/main.arc
     iso/characters/finncn/idle0.tim 

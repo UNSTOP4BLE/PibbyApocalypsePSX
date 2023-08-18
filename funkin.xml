@@ -93,9 +93,12 @@
                 <file name = "darwin.arc" type = "data" source = "iso/characters/darwin/main.arc"/>
                 <file name = "darwin.chr" type = "data" source = "iso/characters/darwin/darwin.chr"/>
 
-                <!-- Dad assets -->
-                <file name = "dad.arc" type = "data" source = "iso/characters/dad/main.arc"/>
-                <file name = "dad.chr" type = "data" source = "iso/characters/dad/dad.chr"/>
+                <!-- gumball assets -->
+                <file name = "gumball.arc" type = "data" source = "iso/characters/gumball/main.arc"/>
+                <file name = "gumball.chr" type = "data" source = "iso/characters/gumball/gumball.chr"/>
+                
+                <file name = "cumball.arc" type = "data" source = "iso/characters/cumball/main.arc"/>
+                <file name = "cumball.chr" type = "data" source = "iso/characters/cumball/cumball.chr"/>
 
                 <!-- Finn assets -->
                 <file name = "finncn.arc" type = "data" source = "iso/characters/finncn/main.arc"/>
