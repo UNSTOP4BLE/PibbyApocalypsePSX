@@ -359,6 +359,11 @@ void Back_Week1_DrawBG(StageBack *back)
         Stage_DrawTex(&this->curchannel, &back_src, &back_dst, stage.camera.bzoom, stage.camera.angle);
 }
 
+void Back_Week1_LoadCharacterSwap(void)
+{
+    stage.charswitchable[0] = Character_FromFile(stage.charswitchable[0], "\\CHAR\\GUMBALL.CHR;1", stage.stage_def->ochar.x, stage.stage_def->ochar.y);
+}
+
 void Back_Week1_Free(StageBack *back)
 {
     Back_Week1 *this = (Back_Week1*)back;

@@ -15,34 +15,34 @@
     ],
 
     "frames": [
-        ["cumball_ArcMain_Idle", [  1,   1,  76, 113], [  0,  82]], 
-        ["cumball_ArcMain_Idle", [ 78,   1,  77, 112], [  0,  81]], 
-        ["cumball_ArcMain_Idle", [156,   1,  75, 112], [  0,  81]],
-        ["cumball_ArcMain_Idle", [  1, 115,  75, 112], [  0,  81]],
-        ["cumball_ArcMain_Idle", [ 77, 114,  76, 113], [  0,  81]], 
-        ["cumball_ArcMain_Idle", [154, 114,  76, 113], [  0,  81]], 
+        ["cumball_ArcMain_Idle", [  1,   1,  76, 113], [ 56, 113]], 
+        ["cumball_ArcMain_Idle", [ 78,   1,  77, 112], [ 56, 112]], 
+        ["cumball_ArcMain_Idle", [156,   1,  75, 112], [ 56, 112]],
+        ["cumball_ArcMain_Idle", [  1, 115,  75, 112], [ 56, 112]],
+        ["cumball_ArcMain_Idle", [ 77, 114,  76, 113], [ 56, 113]], 
+        ["cumball_ArcMain_Idle", [154, 114,  76, 113], [ 56, 113]], 
        
-        ["cumball_ArcMain_Left", [  1,   1,  80, 111], [  0,  91]], 
-        ["cumball_ArcMain_Left", [ 82,   1,  82, 113], [  0,  91]], 
-        ["cumball_ArcMain_Left", [165,   1,  78, 112], [  0,  69]], 
-        ["cumball_ArcMain_Left", [  1, 113,  78, 111], [  0,  69]], 
+        ["cumball_ArcMain_Left", [  1,   1,  80, 111], [ 56, 111]], 
+        ["cumball_ArcMain_Left", [ 82,   1,  82, 113], [ 60, 113]], 
+        ["cumball_ArcMain_Left", [165,   1,  78, 112], [ 57, 112]], 
+        ["cumball_ArcMain_Left", [  1, 113,  78, 111], [ 58, 111]], 
         
-        ["cumball_ArcMain_Down", [  1,   1,  80, 111], [  0,  72]], 
-        ["cumball_ArcMain_Down", [ 82,   1,  80, 108], [  0,  69]], 
-        ["cumball_ArcMain_Down", [163,   1,  82, 109], [  0,  70]], 
-        ["cumball_ArcMain_Down", [  1, 113,  77, 109], [  0,  71]], 
-        ["cumball_ArcMain_Down", [ 79, 110,  76, 109], [  0,  71]], 
+        ["cumball_ArcMain_Down", [  1,   1,  80, 111], [ 52, 111]], 
+        ["cumball_ArcMain_Down", [ 82,   1,  80, 108], [ 53, 108]], 
+        ["cumball_ArcMain_Down", [163,   1,  82, 109], [ 53, 109]], 
+        ["cumball_ArcMain_Down", [  1, 113,  77, 109], [ 53, 109]], 
+        ["cumball_ArcMain_Down", [ 79, 110,  76, 109], [ 53, 109]], 
         
-        ["cumball_ArcMain_Up", [  1,   1,  78, 109], [  0,  94]],
-        ["cumball_ArcMain_Up", [ 81,   1,  79, 113], [  0,  94]], 
-        ["cumball_ArcMain_Up", [160,   1,  80, 111], [  0,  92]],
-        ["cumball_ArcMain_Up", [  1, 111,  79, 111], [  0,  92]], 
-        ["cumball_ArcMain_Up", [ 81, 115,  79, 111], [  0,  92]], 
+        ["cumball_ArcMain_Up", [  1,   1,  78, 109], [ 56, 109]],
+        ["cumball_ArcMain_Up", [ 81,   1,  79, 113], [ 55, 113]], 
+        ["cumball_ArcMain_Up", [160,   1,  80, 111], [ 56, 111]],
+        ["cumball_ArcMain_Up", [  1, 111,  79, 111], [ 55, 111]], 
+        ["cumball_ArcMain_Up", [ 81, 115,  79, 111], [ 55, 111]], 
         
-        ["cumball_ArcMain_Right", [  1,   1,  79, 107], [  0,  62]], 
-        ["cumball_ArcMain_Right", [ 81,   1,  81, 105], [  0,  61]],
-        ["cumball_ArcMain_Right", [163,   1,  80, 105], [  0,  65]], 
-        ["cumball_ArcMain_Right", [  1, 109,  80, 105], [  0,  68]] 
+        ["cumball_ArcMain_Right", [  1,   1,  79, 107], [ 42, 107]], 
+        ["cumball_ArcMain_Right", [ 81,   1,  81, 105], [ 38, 105]],
+        ["cumball_ArcMain_Right", [163,   1,  80, 105], [ 39, 105]], 
+        ["cumball_ArcMain_Right", [  1, 109,  80, 105], [ 40, 105]] 
     ],
 
     "animation": [
