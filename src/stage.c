@@ -1296,6 +1296,14 @@ void Stage_Load(StageId id, StageDiff difficulty, bool story)
     Stage_LoadGirlfriend();
 
     //load switching chars
+    for (int i = 0; i < 16; i++)
+    {
+        Character_Free(stage.charptrs[i]);
+        stage.charptrs[i] = NULL;
+        Character_Free(stage.charswitchable[i]);
+        stage.charswitchable[i] = NULL;
+    }
+
     if (stage.back->load != NULL)
         stage.back->load();
 

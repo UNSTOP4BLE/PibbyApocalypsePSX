@@ -328,6 +328,17 @@ void Back_Week1_DrawFG(StageBack *back)
             }
         }
     }
+    if (stage.stage_id == StageId_ChildsPlay)
+    {
+        if (stage.song_step <= 120)
+            stage.opponent->set_anim(stage.opponent, CharAnim_LeftAlt);
+        switch (stage.song_step)
+        {
+            case 360:
+                stage.opponent = Stage_SwitchCharacter(stage.opponent, 0); 
+
+        }
+    }
     Debug_StageMoveDebug(&wall_dst, 7, fx, fy); 
     if (!this->white && stage.stage_id == StageId_MyAmazingWorld && stage.song_step <= 2144)
         Stage_DrawTex(&this->tex_back1, &wall_src, &wall_dst, stage.camera.bzoom, stage.camera.angle);
@@ -384,7 +395,7 @@ StageBack *Back_Week1_New(void)
     this->back.draw_fg = Back_Week1_DrawFG;
     this->back.draw_md = NULL;
     this->back.draw_bg = Back_Week1_DrawBG;
-    this->back.load = NULL;
+    this->back.load = Back_Week1_LoadCharacterSwap;
     this->back.free = Back_Week1_Free;
     
     //Load background textures

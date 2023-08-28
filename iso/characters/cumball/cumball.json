@@ -11,7 +11,8 @@
         "cumball_ArcMain_Left",
         "cumball_ArcMain_Down",
         "cumball_ArcMain_Up",
-        "cumball_ArcMain_Right"
+        "cumball_ArcMain_Right",
+        "cumball_ArcMain_SCARYY"
     ],
 
     "frames": [
@@ -38,17 +39,24 @@
         ["cumball_ArcMain_Up", [160,   1,  80, 111], [ 56, 111]],
         ["cumball_ArcMain_Up", [  1, 111,  79, 111], [ 55, 111]], 
         ["cumball_ArcMain_Up", [ 81, 115,  79, 111], [ 55, 111]], 
-        
+
         ["cumball_ArcMain_Right", [  1,   1,  79, 107], [ 42, 107]], 
         ["cumball_ArcMain_Right", [ 81,   1,  81, 105], [ 38, 105]],
         ["cumball_ArcMain_Right", [163,   1,  80, 105], [ 39, 105]], 
-        ["cumball_ArcMain_Right", [  1, 109,  80, 105], [ 40, 105]] 
+        ["cumball_ArcMain_Right", [  1, 109,  80, 105], [ 40, 105]],
+        
+        ["cumball_ArcMain_SCARYY", [  1,   1,  67, 106], [ 54, 106]], 
+        ["cumball_ArcMain_SCARYY", [ 69,   1,  68, 106], [ 54, 106]],
+        ["cumball_ArcMain_SCARYY", [138,   1,  75, 106], [ 52, 106]], 
+        ["cumball_ArcMain_SCARYY", [  1, 108,  79, 113], [ 56, 113]],
+        ["cumball_ArcMain_SCARYY", [ 81, 108,  77, 113], [ 56, 113]],
+        ["cumball_ArcMain_SCARYY", [159, 108,  76, 112], [ 56, 112]] 
     ],
 
     "animation": [
         [2, [ 0, 1, 2, 3, 4, 5, "ASCR_CHGANI", 0]], 
         [2, [ 6, 7, 8, 9, "ASCR_BACK", 0]],         
-        [0, ["ASCR_CHGANI", "CharAnim_Idle"]],   
+        [2, [ 24, 25, 26, 27, 28, 29, "ASCR_BACK", "CharAnim_Idle"]],   
         [2, [ 10, 11, 12, 13, 14, "ASCR_BACK", 0]],        
         [0, ["ASCR_CHGANI", "CharAnim_Idle"]],  
         [2, [ 15, 16, 17, 18, 19, "ASCR_BACK", 0]],      
@@ -64,6 +72,7 @@
         "left.tim", 
         "down.tim",  
         "up.tim",   
-        "right.tim" 
+        "right.tim", 
+        "scary.tim" 
     ]
 }
