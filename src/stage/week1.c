@@ -335,8 +335,9 @@ void Back_Week1_DrawFG(StageBack *back)
         switch (stage.song_step)
         {
             case 360:
-                stage.opponent = Stage_SwitchCharacter(stage.opponent, 0); 
-
+                if (stage.flag &STAGE_FLAG_JUST_STEP)
+                    stage.opponent = Stage_SwitchCharacter(stage.opponent, 0); 
+                break;
         }
     }
     Debug_StageMoveDebug(&wall_dst, 7, fx, fy); 
@@ -368,6 +369,8 @@ void Back_Week1_DrawBG(StageBack *back)
 
     if (stage.song_step >= 2144 && stage.song_step <= 2688 && stage.stage_id == StageId_MyAmazingWorld)
         Stage_DrawTex(&this->curchannel, &back_src, &back_dst, stage.camera.bzoom, stage.camera.angle);
+    if (stage.charswitchable[0] == NULL)
+        FntPrint(-1, "BALLSCACK");
 }
 
 void Back_Week1_LoadCharacterSwap(void)
