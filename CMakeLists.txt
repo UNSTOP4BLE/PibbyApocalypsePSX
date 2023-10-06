@@ -266,16 +266,16 @@ funkin_add_archive(iso/characters/jake/main.arc
     iso/characters/jake/right1.tim
 )
 
-# week 1
-funkin_add_archive(iso/week1/back.arc
-    iso/week1/back0.tim
-    iso/week1/back1.tim
+# school
+funkin_add_archive(iso/school/back.arc
+    iso/school/back0.tim
+    iso/school/back1.tim
 )
 
-funkin_add_archive(iso/week1/channels.arc
-    iso/week1/ch0.tim
-    iso/week1/ch1.tim
-    iso/week1/ch2.tim
+funkin_add_archive(iso/school/channels.arc
+    iso/school/ch0.tim
+    iso/school/ch1.tim
+    iso/school/ch2.tim
 )
 # void
 funkin_add_archive(iso/void/back.arc

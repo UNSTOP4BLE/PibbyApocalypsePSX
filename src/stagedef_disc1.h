@@ -7,7 +7,7 @@
         {NULL},
         
         //Stage background
-        Back_Week1_New,
+        Back_school_New,
         
         //Song info
         1, 1,
@@ -23,7 +23,7 @@
         {NULL},
         
         //Stage background
-        Back_Week1_New,
+        Back_school_New,
         
         //Song info
         1, 2,
@@ -55,7 +55,7 @@
         {NULL},
         
         //Stage background
-        Back_Week1_New,
+        Back_school_New,
         
         //Song info
         1, 4,
@@ -71,7 +71,7 @@
         {NULL},
         
         //Stage background
-        Back_Week1_New,
+        Back_school_New,
         
         //Song info
         2, 1,
@@ -87,7 +87,7 @@
         {NULL},
         
         //Stage background
-        Back_Week1_New,
+        Back_school_New,
         
         //Song info
         2, 2,
@@ -119,7 +119,7 @@
         {NULL},
         
         //Stage background
-        Back_Week1_New,
+        Back_school_New,
         
         //Song info
         2, 4,
@@ -135,7 +135,7 @@
         {NULL},
         
         //Stage background
-        Back_Week1_New,
+        Back_school_New,
         
         //Song info
         2, 5,

@@ -45,7 +45,7 @@ static const uint8_t note_anims[4][3] = {
 bool noteshake;
 static uint32_t Sounds[7];
 
-#include "stage/week1.h"
+#include "stage/school.h"
 #include "stage/void.h"
 #include "stage/lab.h"
 
@@ -1172,7 +1172,7 @@ Character *Stage_SwitchCharacter(Character *switchchar, int switchbuffer) {
             Stage_InitChars(NULL, ch);
         if (switchchar == stage.player)
             Stage_InitChars(ch, NULL);
-    }
+    }   
 
     printf("done initializing\n");
     return ch;

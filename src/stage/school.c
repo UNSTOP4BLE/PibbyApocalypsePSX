@@ -4,7 +4,7 @@
   file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-#include "week1.h"
+#include "school.h"
 
 #include "../archive.h"
 #include <stdlib.h> 
@@ -28,12 +28,12 @@ typedef struct
     IO_Data channels, channels_ptr[3];
     Gfx_Tex curchannel;
 
-} Back_Week1;
+} Back_school;
 
 //Week 1 background functions
 void checkandload(StageBack *back)
 {
-    Back_Week1 *this = (Back_Week1*)back;
+    Back_school *this = (Back_school*)back;
 
     if (this->chvisible[0])
     {
@@ -52,9 +52,9 @@ void checkandload(StageBack *back)
     }
 }
 
-void Back_Week1_DrawFG(StageBack *back)
+void Back_school_DrawFG(StageBack *back)
 {
-    Back_Week1 *this = (Back_Week1*)back;
+    Back_school *this = (Back_school*)back;
     
     fixed_t fx, fy;
     
@@ -345,9 +345,9 @@ void Back_Week1_DrawFG(StageBack *back)
         Stage_DrawTex(&this->tex_back1, &wall_src, &wall_dst, stage.camera.bzoom, stage.camera.angle);
 }
 
-void Back_Week1_DrawBG(StageBack *back)
+void Back_school_DrawBG(StageBack *back)
 {
-    Back_Week1 *this = (Back_Week1*)back;
+    Back_school *this = (Back_school*)back;
     
     fixed_t fx, fy;
     
@@ -373,41 +373,41 @@ void Back_Week1_DrawBG(StageBack *back)
         FntPrint(-1, "BALLSCACK");
 }
 
-void Back_Week1_LoadCharacterSwap(void)
+void Back_school_LoadCharacterSwap(void)
 {
     stage.charswitchable[0] = Character_FromFile(stage.charswitchable[0], "\\CHAR\\GUMBALL.CHR;1", stage.stage_def->ochar.x, stage.stage_def->ochar.y);
 }
 
-void Back_Week1_Free(StageBack *back)
+void Back_school_Free(StageBack *back)
 {
-    Back_Week1 *this = (Back_Week1*)back;
+    Back_school *this = (Back_school*)back;
     
     //Free structure
     free(this->channels);
     free(this);
 }
 
-StageBack *Back_Week1_New(void)
+StageBack *Back_school_New(void)
 {
     //Allocate background structure
-    Back_Week1 *this = (Back_Week1*)malloc(sizeof(Back_Week1));
+    Back_school *this = (Back_school*)malloc(sizeof(Back_school));
     if (this == NULL)
         return NULL;
     
     //Set background functions
-    this->back.draw_fg = Back_Week1_DrawFG;
+    this->back.draw_fg = Back_school_DrawFG;
     this->back.draw_md = NULL;
-    this->back.draw_bg = Back_Week1_DrawBG;
-    this->back.load = Back_Week1_LoadCharacterSwap;
-    this->back.free = Back_Week1_Free;
+    this->back.draw_bg = Back_school_DrawBG;
+    this->back.load = Back_school_LoadCharacterSwap;
+    this->back.free = Back_school_Free;
     
     //Load background textures
-    IO_Data arc_back = IO_Read("\\WEEK1\\BACK.ARC;1");
+    IO_Data arc_back = IO_Read("\\SCHOOL\\BACK.ARC;1");
     Gfx_LoadTex(&this->tex_back0, Archive_Find(arc_back, "back0.tim"), 0);
     Gfx_LoadTex(&this->tex_back1, Archive_Find(arc_back, "back1.tim"), 0);
     free(arc_back);
     
-    this->channels = IO_Read("\\WEEK1\\CHANNELS.ARC;1");
+    this->channels = IO_Read("\\SCHOOl\\CHANNELS.ARC;1");
     this->channels_ptr[0] = Archive_Find(this->channels, "ch0.tim");
     this->channels_ptr[1] = Archive_Find(this->channels, "ch1.tim");
     this->channels_ptr[2] = Archive_Find(this->channels, "ch2.tim");

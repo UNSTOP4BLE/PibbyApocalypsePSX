@@ -48,10 +48,6 @@
             
             <!-- Week 1 assets -->
             <dir name = "week1">
-                <!-- Background art -->
-                <file name = "back.arc" type = "data" source = "iso/week1/back.arc"/>
-                <file name = "channels.arc" type = "data" source = "iso/week1/channels.arc"/>
-                
                 <file name = "1.1.cht" type = "data" source = "iso/chart/childs-play.cht"/>
                 <file name = "1.2.cht" type = "data" source = "iso/chart/My-Amazing-World.cht"/>
                 <file name = "1.3.cht" type = "data" source = "iso/chart/Retcon.cht"/>
@@ -68,6 +64,12 @@
             </dir>
 
             <!-- Backgrounds -->
+            <dir name = "school">
+                <!-- Background art -->
+                <file name = "back.arc" type = "data" source = "iso/school/back.arc"/>
+                <file name = "channels.arc" type = "data" source = "iso/school/channels.arc"/>
+            </dir>
+
             <dir name = "void">
                 <!-- Background art -->
                 <file name = "back.arc" type = "data" source = "iso/void/back.arc"/>
